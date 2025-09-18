@@ -90,14 +90,29 @@
 % 
 % end
 
+
+
+% %% a not promising way to find the base package!!!
+% function base_package_path = find_base_package()
+% 
+% current_path = pwd;
+% 
+% % 上一级目录
+% parent_path = fileparts(current_path);
+% 
+% % 拼接 base_package 文件夹路径
+% base_package_path = fullfile(parent_path, 'cSAXS_matlab_base_package');
+% 
+% end
+
 function base_package_path = find_base_package()
     maxdepth = 3;
-    test_path = '+math'; % 包文件夹名字
+    test_path = 'cSAXS_matlab_ptycho_package'; % 包文件夹名字
     cpath = pwd; % 当前目录
     ret = '';
 
     for lvl = 1:maxdepth
-        % 搜索当前路径下是否有 +math
+        % 搜索当前路径下是否有 test_path
         d = dir(fullfile(cpath, test_path));
         if ~isempty(d) && d(1).isdir
             ret = fullfile(cpath, test_path);
@@ -112,5 +127,5 @@ function base_package_path = find_base_package()
     end
 
     % 去掉 test_path，得到 base path
-    base_package_path = fileparts(ret);
+    base_package_path =fullfile( fileparts(ret),  'cSAXS_matlab_base_package');
 end

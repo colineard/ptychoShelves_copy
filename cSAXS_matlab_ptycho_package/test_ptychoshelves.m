@@ -11,7 +11,7 @@ clear all
 % addpath ../tomo
 
 %% %%%%%%%%% SET BASIC PATHS %%%%%%%%%%%%%%%%
-base_package_path = '';  % use automatic search for the cSAXS_matoab_base package 
+base_package_path = core.find_base_package;  % use automatic search for the cSAXS_matoab_base package 
 ptychoshelves_path = fileparts(mfilename('fullpath'));   % path to this ptychoshelves package 
 % temporal_data_path = './temp/';  % directory to store temporal data created during tests 
 base_path ='./' ;   % working path 
