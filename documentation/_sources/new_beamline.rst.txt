@@ -1,0 +1,93 @@
+
+
+How to add support for a beamline
+=================================
+
+
+Add a new detector
+------------------
+
+Detectors are grouped into the +detector package, thus available via :code:`detector.<detector_name>`. As the data preparation is commonly strongly entangled to the parameters and specifications of the detector and its implementation at the beamline, the two parts are merged in PtychoShelves. 
+As an example, let's look at the Eiger implementation:
+Inside +detector, a directory +eiger was created, containing a parameter file eiger.m. The reasons for this rather peculiar file structure will be explained later.
+
+.. note::
+    All detector related parameters, including the pixel size and detector geometries have to be set in the detector template.
+
+.. code-block:: matlab
+
+    %% parameter
+    det.pixel_size = 75e-6;                 % detector pixel size
+    det.file_extension = 'h5';              % raw data file extension 
+    det.mask = [local_path, '/eiger_valid_mask.mat'];    % detector mask
+    det.basepath_dir = 'eiger/';            % raw data directory
+    det.mask_saturated_value = [];          % mask pixels above given value
+    det.mask_below_value = [];              % mask pixels below given value
+    det.data_stored = true;                % false == data are generated "onfly", no need to load / store
+    det.geometry.sz = [1030 514];           % detector readout size
+    det.geometry.mask = [];                 % if the mask is larger than the readout 
+                                            % geometry (det.geometry.sz), geometry.mask defines the readout for the mask
+                                            % e.g. geometry.mask = {[50:500], [50:500]}
+    
+    det.orientation = [0 0 1];              % [<Transpose> <FlipLR> <FlipUD>]
+    
+    
+    % additional arguments for image_read
+    det.image_read_extraargs{1} = 'H5Location';
+    det.image_read_extraargs{2} = '/eh5/images/';
+    det.image_read_extraargs{3} = 'Orientation';
+    det.image_read_extraargs{4} = det.orientation;
+    det.image_read_extraargs{5} = 'OrientByExtension';
+    det.image_read_extraargs{6} = 0;
+    
+    %% define directory tree structure
+    % define a function handle for compiling the scan directory tree. Input
+    % should be the scan number.
+    det.read_path = @utils.compile_x12sa_dirname; 
+    
+    %% filename
+    % specify funcion for compiling the filename. Input and output should be p and a 
+    % temporary structure, containing information about the currently prepared scan. 
+    % Cf. '+scans/get_filenames_cSAXS.m' 
+    
+    det.get_filename = @scans.get_filenames_cSAXS;
+    
+    
+
+The arguments for image_read are of particular interest if the Matlab data preparation is chosen as it uses the function io.image_read to load the data. By specifying the extra arguments, one can ensure that the orientation, and in case of an H5 file also the path to the dataset, is set correctly. 
+
+The directory structure is typically beamline specific. Although we highly encourage to adapt a structure like :code:`<raw_data_path>/S00000-00999/S00250/` as it avoids directories getting too large, whilst maintaining logical groups, PtychoShelves supports almost any arbitrary path to the raw data files. 
+This is achieved by defining separate functions, as it is done for the cSAXS beamline (:ref:`utils.compile_x12sa_dirname <base_utils.compile_x12sa_dirname>`), which receives the scan directory and returns the path. 
+
+Similarly, the file name, which can even vary between detectors at the same beamline, needs to be modular, yet easy to configure. A separate function, in this case scans.get_filenames_cSAXS, compiles the filenames based on the paramters handed over via the p structure and saves the file names in the detector storage, a Matlab-class instance of :ref:`detector.detStorage <ptycho_detector.detStorage>`. 
+
+cSAXS uses the following file name convention:
+:code:`<user_prefix>_<scan_number>_<position>_<burst>.<file_extension>`
+Especially in the case of single files per scanning point, this convention enables an unambigiuos nomenclature. 
+To support small variations of said convention, additional paramters may need to be specified as it is done for the Eiger detector, where the filename_pattern variable defines the existance and order of the variables <scan_number>, <position> and <burst>.
+
+
+Data preparation
+------------------
+The data preparation in PtychoShelves consists of two parts: reading the raw data from disk and preparing files which can be used for the reconstruction. 
+
+PtychoShelves gives you the option between two data preparators: Matlab routines or libDetXR, a Python-based MPI implementation. The Matlab routines are slower than libDetXR, yet they provide much more flexibility for changes in regard to the file structure and chosen acquisition parameters. Moreover, some functionalities like burst scans, are only supported by the Matlab routines. 
+The different preparators are accessed via :ref:`core.ptycho_prepare_scans <ptycho_core.ptycho_prepare_scans>`, which calls :ref:`core.run_data_preparator <ptycho_core.run_data_preparator>` and, depending on the selected data preparator (``p.data_prep``, *cf.* :ref:`template_ptycho <template_data_prep>`), either :ref:`detector.prep_data.matlab_ps.matlab_ps <ptycho_detector.prep_data.matlab_ps.matlab_ps>` or :ref:`detector.prep_data.libDetXR.libDetXR <ptycho_detector.prep_data.libDetXR.libDetXR>` is executed.
+
+
+Matlab data preparator
+^^^^^^^^^^^^^^^^^^^^^^
+The Matlab data preparator contains a bundle of functions, located at ``+detector/+prep_data/+matlab_ps``. The functions are called according to :ref:`detector.prep_data.matlab_ps.prepare_data <ptycho_detector.prep_data.matlab_ps.prepare_data>`, where each logical unit of the data preparation is called via predefined function handles to excute the corresponding subroutine. These functions handle do not have to point to the default routines in ``+detector/+prep_data/+matlab_ps``.
+
+.. note::
+	The Matlab data preparator supports function overloading. It is therefore possible to save modified functions for a specific detector into its detector directory. During runtime, PtychoShelves will look for any Matlab data preparator functions inside the used detector and execute it, rather than its default in ``+detector/+prep_data/+matlab_ps``.
+
+Saving modifications of basic functions in different directories allows to add the support for new beamlines and detector without compromising the stability of previous implementations.
+
+libDetXR
+^^^^^^^^
+The libDetXR data preparator is a  performance-optimized version its Matlab counterpart. The abstraction needed to gain said performance improvement however, limits the usability for implementing new beamlines and detectors. 
+Similar to the Matlab data preparator, the Python routine is called via :ref:`detector.prep_data.libDetXR.libDetXR <ptycho_detector.prep_data.libDetXR.libDetXR>`.
+
+
+

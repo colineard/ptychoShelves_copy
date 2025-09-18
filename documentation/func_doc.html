@@ -1,0 +1,954 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Function documentation &mdash; PtychoShelves  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link href="_static/mod_theme.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PtychoShelves
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">PtychoShelves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template_ptycho.html">template_ptycho - your virtual control room</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_beamline.html">How to add support for a beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_func_doc.html">base package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_func_doc.html">ptycho package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_license.html">Academic License Agreement</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PtychoShelves</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Function documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/func_doc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="function-documentation">
+<h1>Function documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-+core">
+<span id="core"></span><h2>+core<a class="headerlink" href="#module-+core" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="+core.core.append_engine">
+<code class="descclassname">core.</code><code class="descname">append_engine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.append_engine" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">APPEND_ENGINE appends engine specified in new_eng to p</div>
+</div>
+<div class="line-block">
+<div class="line">Adds engines with index, starting at 0</div>
+<div class="line">1st engine: p.engines.engine0</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.check_omny_queue">
+<code class="descclassname">core.</code><code class="descname">check_omny_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.check_omny_queue" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">CHECK_OMNY_QUEUE Check for file queue for omny</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.check_prepared_data">
+<code class="descclassname">core.</code><code class="descname">check_prepared_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.check_prepared_data" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">CHECK_PREPARED_DATA compares prepared data file with current</div>
+<div class="line">reconstruction parameters. If force_update == true, data preparation will</div>
+<div class="line">be forced (see core.ptycho_prepare_scans)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.engine_status">
+<code class="descclassname">core.</code><code class="descname">engine_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.engine_status" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">ENGINE_STATUS use persisten variables to store error messages</div>
+<div class="line">Error code: 0 for ‘everything OK’ and ~=0 for ‘error’ (return values of matlab’s system function)</div>
+</div>
+<div class="line-block">
+<div class="line">usage:</div>
+<div class="line">engine_status(status)    to set persisten variable engine_stat to</div>
+<div class="line">status</div>
+</div>
+<div class="line-block">
+<div class="line">engine_status            to read persisten variables</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.errorplot">
+<code class="descclassname">core.</code><code class="descname">errorplot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.errorplot" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Build an errormetric plot vs iteration number</div>
+<div class="line">e = errorplot         Clears the persistent variable</div>
+<div class="line">e = errorplot(x)      Appends x to the persistent variable</div>
+<div class="line">e = errorplot([])     Only reads the persistent variable</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.extract4saving">
+<code class="descclassname">core.</code><code class="descname">extract4saving</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.extract4saving" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">EXTRACT4SAVING extracts datasets and parameters from p and creates HDF5 structure</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.get_projections">
+<code class="descclassname">core.</code><code class="descname">get_projections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.get_projections" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">GET_PROJECTIONS</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.hermite_like">
+<code class="descclassname">core.</code><code class="descname">hermite_like</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.hermite_like" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">%%%%%%%%%%%%%%%%.. function:: core.initialize_ptycho</div>
+</div>
+<div class="line-block">
+<div class="line">INITIALIZE_PTYCHO</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.prep_h5data">
+<code class="descclassname">core.</code><code class="descname">prep_h5data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.prep_h5data" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PREP_H5DATA prepare data and save it to disk</div>
+<div class="line">prep_h5data expects that fmask and fmag already exist, prepares them</div>
+<div class="line">for the C++ code and saves everything to disk.</div>
+<div class="line">It uses the old h5 file format, i.e. each measurement is saved in its own</div>
+<div class="line">group and with its own fmask. This allows for more flexibilty, at the</div>
+<div class="line">cost of reading and writing speed.</div>
+<div class="line">If this flexibility is not needed, procPtycho (python data preparation)</div>
+<div class="line">is highly recommended!</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.prep_initial_conditions">
+<code class="descclassname">core.</code><code class="descname">prep_initial_conditions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.prep_initial_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PREP_INITIAL_CONDITIONS prepares the initial_conditions file for the</div>
+<div class="line">reconstruction with external C++ code</div>
+</div>
+<div class="line-block">
+<div class="line">save2hdf5 saves a structure to an h5 file</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.prepare_data_matlab">
+<code class="descclassname">core.</code><code class="descname">prepare_data_matlab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.prepare_data_matlab" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PREPARE_DATA_MATLAB prepares and normalizes data for matlab engines</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.prepare_probes">
+<code class="descclassname">core.</code><code class="descname">prepare_probes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.prepare_probes" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Prepare probe - Only single file supported, either the file has a 3D matrix</div>
+<div class="line">of many probes or the probe will be repeated for the number of probes</div>
+<div class="line">needed for reconstruction</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.probe_modes_ortho">
+<code class="descclassname">core.</code><code class="descname">probe_modes_ortho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.probe_modes_ortho" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">ORTHO Orthogonalize the given list of modes using SVD.</div>
+<div class="line">[pr, I_n, eval] = probe_modes_ortho(modes)</div>
+<div class="line">pr        Orthogonalized (eigen) modes</div>
+<div class="line">I_n       Normalized intensity of the mode (relative contribution to total intensity)</div>
+<div class="line">eval      SVD eigenvalues</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.ptycho_adjust_positions">
+<code class="descclassname">core.</code><code class="descname">ptycho_adjust_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.ptycho_adjust_positions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PTYCHO_ADJUST_POSITIONS</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.ptycho_artificial_scans">
+<code class="descclassname">core.</code><code class="descname">ptycho_artificial_scans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.ptycho_artificial_scans" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PTYCHO_ARTIFICIAL_SCANS</div>
+<div class="line">Detailed explanation goes here</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.ptycho_model_probe">
+<code class="descclassname">core.</code><code class="descname">ptycho_model_probe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.ptycho_model_probe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">pout = ptycho_model_probe(p)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.ptycho_plot_ptycho">
+<code class="descclassname">core.</code><code class="descname">ptycho_plot_ptycho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.ptycho_plot_ptycho" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">.. function:: core.ptycho_prepare_paths</div>
+</div>
+<div class="line-block">
+<div class="line">PTYCHO_PREPARE_PATHS Prepare paths and check defaults</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.ptycho_prepare_scans">
+<code class="descclassname">core.</code><code class="descname">ptycho_prepare_scans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.ptycho_prepare_scans" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PTYCHO_PREPARE_SCANS Load data from disk and prepare the scan for the</div>
+<div class="line">ptychographic reconstruction.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.ptycho_recons">
+<code class="descclassname">core.</code><code class="descname">ptycho_recons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.ptycho_recons" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">OUT = PTYCHO_RECONS(P)</div>
+</div>
+<div class="line-block">
+<div class="line">Runs the reconstruction using parameters in the structure P.</div>
+<div class="line">Returns a structure OUT containing all necessary information.</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Difference-Map implementation</div>
+<div class="line">+ P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,</div>
+<div class="line">“High-Resolution Scanning X-ray Diffraction Microscopy,” Science 321, 379-382 (2008)</div>
+<div class="line">+ P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,</div>
+<div class="line">“Probe retrieval in ptychographic coherent diffractive imaging,”</div>
+<div class="line">Ultramicroscopy 109, 338–343 (2009)</div>
+<div class="line">Publications most relevant to the Maximum Likelihood refinement</div>
+<div class="line">+ M. Guizar-Sicairos and J. R. Fienup, “Phase retrieval with transverse</div>
+<div class="line">translation diversity: a nonlinear optimization approach,” Opt. Express 16, 7264-7278 (2008)</div>
+<div class="line">+ P. Thibault and M. Guizar-Sicairos, “Maximum-likelihood refinement for</div>
+<div class="line">coherent diffractive imaging,” New J. Phys. 14, 063004 (2012).</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.python_prep_data">
+<code class="descclassname">core.</code><code class="descname">python_prep_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.python_prep_data" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PYTHON_PREP_DATA prepares and exports data for json/ptyhon data</div>
+<div class="line">preparation.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.run_engine">
+<code class="descclassname">core.</code><code class="descname">run_engine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.run_engine" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">RUN_ENGINE calls engine ‘eng’</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.save_fig_ext">
+<code class="descclassname">core.</code><code class="descname">save_fig_ext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.save_fig_ext" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">SAVE_FIG_EXT Subsection of ptycho_show_recons to load reconstruction file</div>
+<div class="line">and save figures.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.save_results">
+<code class="descclassname">core.</code><code class="descname">save_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.save_results" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">%%%%%%%%%%%%%%%%%%%%%%%%%.. function:: core.set_projections</div>
+</div>
+<div class="line-block">
+<div class="line">object = set_projections(p, object, obj_update, scan_id)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+core.core.update_omny_queue">
+<code class="descclassname">core.</code><code class="descname">update_omny_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+core.core.update_omny_queue" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">UPDATE_OMNY_QUEUE</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-+detector">
+<span id="detector"></span><h2>+detector<a class="headerlink" href="#module-+detector" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="+detector.detector.initialize_detector">
+<code class="descclassname">detector.</code><code class="descname">initialize_detector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+detector.detector.initialize_detector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">INITIALIZE_DETECTOR run some checks and load the detector settings</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+detector.detector.load_detector">
+<code class="descclassname">detector.</code><code class="descname">load_detector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+detector.detector.load_detector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">LOAD_DETECTOR</div>
+<div class="line">load detector files as specified in p</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+detector.detector.prepare_data">
+<code class="descclassname">detector.</code><code class="descname">prepare_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+detector.detector.prepare_data" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">PREPARE_DATA prepare the raw data for the ptychographic reconstruction</div>
+</div>
+<div class="line-block">
+<div class="line">Note:</div>
+<div class="line">All (default) functions are located in +detector/private. If You want</div>
+<div class="line">to add a new detector, please create a new package directory</div>
+<div class="line">(+detector_name) with a parameter file detector_name.m. Functions in a</div>
+<div class="line">package detectory directory will overload similar functions in</div>
+<div class="line">private.</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-+engines">
+<span id="engines"></span><h2>+engines<a class="headerlink" href="#module-+engines" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="+engines.engines.DM">
+<code class="descclassname">engines.</code><code class="descname">DM</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.DM" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">DM Difference-Map algorithm</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Difference-Map implementation</div>
+<div class="line">+ P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,</div>
+<div class="line">“High-Resolution Scanning X-ray Diffraction Microscopy,” Science 321, 379-382 (2008)</div>
+<div class="line">+ P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,</div>
+<div class="line">“Probe retrieval in ptychographic coherent diffractive imaging,”</div>
+<div class="line">Ultramicroscopy 109, 338–343 (2009)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.DM_MS">
+<code class="descclassname">engines.</code><code class="descname">DM_MS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.DM_MS" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">[ p, fdb ] = DM_MS( p )</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.GPU">
+<code class="descclassname">engines.</code><code class="descname">GPU</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.GPU" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">engines.GPU is a function.</div>
+<div class="line">[p_out, fdb] = GPU(p)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.ML">
+<code class="descclassname">engines.</code><code class="descname">ML</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.ML" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">ML Maximum Likelihood refinement</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Maximum Likelihood refinement</div>
+<div class="line">+ M. Guizar-Sicairos and J. R. Fienup, “Phase retrieval with transverse</div>
+<div class="line">translation diversity: a nonlinear optimization approach,” Opt. Express 16, 7264-7278 (2008)</div>
+<div class="line">+ P. Thibault and M. Guizar-Sicairos, “Maximum-likelihood refinement for</div>
+<div class="line">coherent diffractive imaging,” New J. Phys. 14, 063004 (2012).</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.ML_MS">
+<code class="descclassname">engines.</code><code class="descname">ML_MS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.ML_MS" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">[ p, fdb ] = ML_MS( p )</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.c_solver">
+<code class="descclassname">engines.</code><code class="descname">c_solver</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.c_solver" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">C_SOLVER external C++ code for DM and ML</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Difference-Map implementation</div>
+<div class="line">+ P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,</div>
+<div class="line">“High-Resolution Scanning X-ray Diffraction Microscopy,” Science 321, 379-382 (2008)</div>
+<div class="line">+ P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,</div>
+<div class="line">“Probe retrieval in ptychographic coherent diffractive imaging,”</div>
+<div class="line">Ultramicroscopy 109, 338–343 (2009)</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Maximum Likelihood refinement</div>
+<div class="line">+ M. Guizar-Sicairos and J. R. Fienup, “Phase retrieval with transverse</div>
+<div class="line">translation diversity: a nonlinear optimization approach,” Opt. Express 16, 7264-7278 (2008)</div>
+<div class="line">+ P. Thibault and M. Guizar-Sicairos, “Maximum-likelihood refinement for</div>
+<div class="line">coherent diffractive imaging,” New J. Phys. 14, 063004 (2012).</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.c_solver_MS">
+<code class="descclassname">engines.</code><code class="descname">c_solver_MS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.c_solver_MS" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">C_SOLVER external C++ code for DM and ML</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Difference-Map implementation</div>
+<div class="line">+ P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,</div>
+<div class="line">“High-Resolution Scanning X-ray Diffraction Microscopy,” Science 321, 379-382 (2008)</div>
+<div class="line">+ P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,</div>
+<div class="line">“Probe retrieval in ptychographic coherent diffractive imaging,”</div>
+<div class="line">Ultramicroscopy 109, 338–343 (2009)</div>
+</div>
+<div class="line-block">
+<div class="line">Publications most relevant to the Maximum Likelihood refinement</div>
+<div class="line">+ M. Guizar-Sicairos and J. R. Fienup, “Phase retrieval with transverse</div>
+<div class="line">translation diversity: a nonlinear optimization approach,” Opt. Express 16, 7264-7278 (2008)</div>
+<div class="line">+ P. Thibault and M. Guizar-Sicairos, “Maximum-likelihood refinement for</div>
+<div class="line">coherent diffractive imaging,” New J. Phys. 14, 063004 (2012).</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+engines.engines.presolver">
+<code class="descclassname">engines.</code><code class="descname">presolver</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+engines.engines.presolver" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">C_SOLVER external C++ code for DM in lower resolution</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-+scans">
+<span id="scans"></span><h2>+scans<a class="headerlink" href="#module-+scans" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="+scans.scans.get_queue">
+<code class="descclassname">scans.</code><code class="descname">get_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+scans.scans.get_queue" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">GET_QUEUE call queue functions in package directories</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+scans.scans.read_metadata">
+<code class="descclassname">scans.</code><code class="descname">read_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+scans.scans.read_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">READ_METADATA load meta data and overwrite previous settings</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="+scans.scans.read_positions">
+<code class="descclassname">scans.</code><code class="descname">read_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#+scans.scans.read_positions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">READ_POSITIONS load positions</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cSAXS_python_env">
+<span id="csaxs-python-env"></span><h2>cSAXS_python_env<a class="headerlink" href="#module-cSAXS_python_env" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-utils">
+<span id="utils"></span><h2>utils<a class="headerlink" href="#module-utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descname">utils/aligned_FSC</code></dt>
+<dd><div class="line-block">
+<div class="line">[resolution stat] = aligned_FSC(file1,file2,params)</div>
+</div>
+<div class="line-block">
+<div class="line">Receives two filenames with path for ptychography reconstructions and a</div>
+<div class="line">structure with parameters. The routine reads the reconstructions, matches</div>
+<div class="line">the linear phase between them, registers the images, and returns the</div>
+<div class="line">resolution estimates based on first and last crossing of the FSC with the</div>
+<div class="line">threshold.</div>
+</div>
+<div class="line-block">
+<div class="line">References relevant to this code:</div>
+<div class="line">For using this FSC code with ptychography: J. Vila-Comamala, et al., “Characterization of high-resolution diffractive X-ray optics by ptychographic coherent diffractive imaging,” Opt. Express 19, 21333-21344 (2011).</div>
+<div class="line">For subpixel alignment: M. Guizar-Sicairos, et al., “Efficient subpixel image registration algorithms,” Opt. Lett. 33, 156 (2008).</div>
+<div class="line">For matching of phase ramp by approximate least squared error:  M. Guizar-Sicairos, et al., “Phase tomography from x-ray coherent diffractive imaging projections,” Opt. Express 19, 21345-21357 (2011).</div>
+</div>
+<div class="line-block">
+<div class="line">Outputs:</div>
+</div>
+<div class="line-block">
+<div class="line">resolution    A two element variable that contains the resolution</div>
+<div class="line">obtained from first and last crossing of the FSC curve with</div>
+<div class="line">the threshold curve.</div>
+<div class="line">stat          structure containing other statistics such as</div>
+<div class="line">spectral signal to noise ratio (SSNR), average SNR and area under FSC curve</div>
+</div>
+<div class="line-block">
+<div class="line">Inputs:</div>
+</div>
+<div class="line-block">
+<div class="line">file1     Filename with path of reconstruction 1</div>
+<div class="line">file2     Filename with path of reconstruction 2</div>
+<div class="line">params    Structure with parameters as described below</div>
+</div>
+<div class="line-block">
+<div class="line">params.flipped_images    Flip one input image horizontally (= true or false).</div>
+<div class="line">Useful when comparing 0 and 180 degree projections</div>
+<div class="line">in tomography (default = false).</div>
+<div class="line">params.crop      = ‘’;       for using the default half size of the probe</div>
+<div class="line">= ‘manual’  for using GUI to select region. This will display the range, e.g. {600:800, 600:800}</div>
+<div class="line">= {600:800, 600:800} for custom vertical and horizontal cropping, respectively</div>
+<div class="line">params.GUIguess  To click for an initial alignment guess, if used it ignores</div>
+<div class="line">the values of params.guessx and params.guessy (default</div>
+<div class="line">= false)</div>
+<div class="line">params.guessx</div>
+<div class="line">params.guessy        An intial guess for x and y alignment (default = [])</div>
+<div class="line">params.remove_ramp   Try to remove linear phase from whole image before initial</div>
+<div class="line">alignment (default = true)</div>
+<div class="line">params.image_prop    = ‘complex’</div>
+<div class="line">= ‘phasor’ (phase with unit amplitude, default)</div>
+<div class="line">= ‘phase’  (Note: phase should not be used if there is phase wrapping)</div>
+<div class="line">params.taper         = 20 (default)   Pixels to taper images - Increase until the FSC does not change anymore</div>
+<div class="line">params.plotting      Display plots (default = false)</div>
+<div class="line">params.dispfsc       Display FSC plot (default = true)</div>
+<div class="line">params.SNRt          SNR for FSC threshold curve</div>
+<div class="line">SNRt = 0.2071 for 1/2 bit threshold for resolution of the average of the 2 images</div>
+<div class="line">SNRt = 0.5    for 1   bit threshold for resolution of each individual image (default)</div>
+<div class="line">params.thickring     Thickness of Fourier domain ring for FSC in pixels (default = 1)</div>
+<div class="line">params.freq_thr      To ignore the crossings before freq_thr for determining resolution (default 0.02)</div>
+<div class="line">params.out_fn        Filename of output of jpeg for FSC</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/break_check</code></dt>
+<dd><div class="line-block">
+<div class="line">[] = break_check(filename)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/calculate_round_roi</code></dt>
+<dd><div class="line-block">
+<div class="line">Data path info</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/change_file_names</code></dt>
+<dd><div class="line-block">
+<div class="line">change_file_names.m</div>
+<div class="line">small script  to remove lock files from certain scans</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/check_option</code></dt>
+<dd><div class="line-block">
+<div class="line">CHECK_OPTION</div>
+<div class="line">check if required option exists and is equal to the given value,</div>
+<div class="line">otherwise return false</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/check_scan_interruption</code></dt>
+<dd><div class="line-block">
+<div class="line">Detect an interruption of the scan in the Log file</div>
+<div class="line">From spec compile  post_scan.mac</div>
+<div class="line">= 1, if the scan is ready for processing</div>
+<div class="line">= 0, if the scan was interrupted and is not yet repeated, or if the scan</div>
+<div class="line">is being repeated now</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/find_file_names</code></dt>
+<dd><div class="line-block">
+<div class="line">change_file_names.m</div>
+<div class="line">small script  to remove lock files from certain scans</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/find_ptycho_filename</code></dt>
+<dd><div class="line-block">
+<div class="line">filename_with_path = find_ptycho_filename(base_analysis_path,scan_number,fileprefix,filesuffix)</div>
+<div class="line">Looks for a ptychography reconstruction name inside the path given as</div>
+<div class="line">initial argument. I will look in the folder given and also try with</div>
+<div class="line">adding analysis. If the scan_number is given it will compile an analysis</div>
+<div class="line">folder and look for it.  e.g. find_ptycho_filename(‘~/Data10’,235);</div>
+<div class="line">Use verbose(2) in order to see all directories and names attempted.</div>
+<div class="line">Inputs</div>
+<div class="line">base_analysis_path    .. function:: utils/integrate_frames</div>
+</div>
+<div class="line-block">
+<div class="line">14-11-2012</div>
+<div class="line">Integrates frames from a loopscan</div>
+</div>
+<div class="line-block">
+<div class="line">Syntax:</div>
+<div class="line">[int] = integrate_frames(base_path,scan_num,plotfigure,det_num,savedata,maskfilename)</div>
+<div class="line">Needed parameters: base_path (e.g. ‘~/Data10/’)</div>
+<div class="line">scan_num   (scan number)</div>
+<div class="line">Optional parameters: plotfigure (figure number for fial plot, 0 for no plotting, by default is 0)</div>
+<div class="line">det_num (detector number, default 1)</div>
+<div class="line">savedata (=1 to save data in ‘analysis/integrated_frames/’, default 0)</div>
+<div class="line">maskfilename (valid mask file name. If empty [], no mask used)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/loopregerror</code></dt>
+<dd><div class="line-block">
+<div class="line">Evaluate registration error in an angle series. Returns the error between</div>
+<div class="line">subsequent images. The last image is evaluated against the first but</div>
+<div class="line">flipped in x. Recieves image FT with DC in (1,1), the image should have</div>
+<div class="line">had the center in center of array.</div>
+<div class="line">filt_stackFT  FT of stack of images, previously filtered if needed</div>
+<div class="line">deltastack    Estimates of positions</div>
+<div class="line">xmax          Vector with positions of horizontal edges of rectangular</div>
+<div class="line">window for registration</div>
+<div class="line">ymax          Same as xmax but vertical edges of window</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/make_lock_files</code></dt>
+<dd><div class="line-block">
+<div class="line">make_lock_files is a script.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/phase_from_dpc</code></dt>
+<dd><div class="line-block">
+<div class="line">Integrates the phase from a combination of x and y gradients.</div>
+<div class="line">phase_from_dpc(dpcx,dpcy,’fourier’) uses the Fourier method (default),</div>
+<div class="line">phase_from_dpc(dpcx,dpcy,’finitdiff’) uses a finite difference method.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/propagate_probe</code></dt>
+<dd><div class="line-block">
+<div class="line">propagate_probe.m</div>
+<div class="line">Warning: Currently working only for square pixels</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/remove_lock_files</code></dt>
+<dd><div class="line-block">
+<div class="line">remove_lock_files.m</div>
+<div class="line">small script  to remove lock files from certain scans</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/remove_lock_files_select</code></dt>
+<dd><div class="line-block">
+<div class="line">remove_lock_files.m</div>
+<div class="line">small script  to remove lock files from certain scans</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/round_roi_new_stxm</code></dt>
+<dd><div class="line-block">
+<div class="line">Another script for STXM evaluation of round roi scans</div>
+</div>
+<div class="line-block">
+<div class="line">Does not use Gaussians centered on grid points which leads to inaccuarate</div>
+<div class="line">values at the center positions (due to adding up all the Gaussians)</div>
+<div class="line">but rather uses the Matlab’s “griddata” function.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/round_roi_numpts</code></dt>
+<dd><div class="line-block">
+<div class="line">Usage:</div>
+<div class="line">function numpts = round_roi_numpts(lx,ly,dr,nth)</div>
+</div>
+<div class="line-block">
+<div class="line">Description:</div>
+<div class="line">Calculates the number of points of a round roi scan</div>
+<div class="line">for a set of parameters used in a Spec call.</div>
+</div>
+<div class="line-block">
+<div class="line">Parameters:</div>
+<div class="line">lx = horizontal field of view in meter</div>
+<div class="line">ly = vertical field of view in meter</div>
+<div class="line">dr = radial shell step size in meter</div>
+<div class="line">dth = angluar intervals in first shell</div>
+</div>
+<div class="line-block">
+<div class="line">Changelog:</div>
+<div class="line">2010-12-04, First version.</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/set_all_engines</code></dt>
+<dd><div class="line-block">
+<div class="line">function  p = set_all_engines(p, parameter, value)</div>
+<div class="line">set given parameter to all engines</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">utils/show_recons</code></dt>
+<dd><div class="line-block">
+<div class="line">show recons.m</div>
+<div class="line">Warning: Currently working only for square pixels</div>
+<div class="line">close all   .. function:: utils/show_recons_ms</div>
+</div>
+<div class="line-block">
+<div class="line">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.. function:: utils/unwrap_pilatus_weird</div>
+</div>
+<div class="line-block">
+<div class="line">[frame_unwrapped, frame_replaced_from_lowcount] = unwrap_pilatus(frame_low, frame_high, numbad, slope)</div>
+</div>
+<div class="line-block">
+<div class="line">unwraps the pilatus pixels that had too high intensity.</div>
+<div class="line">slope and numbad are optional.</div>
+<div class="line">slope should be (high exposure time / low exposure time), but can be</div>
+<div class="line">evaluated from the data.</div>
+<div class="line">numbad is the rough number of bad pixels - it should be greater than the actual</div>
+<div class="line">value. It is used only if the slope needs to be evaluated.</div>
+</div>
+<div class="line-block">
+<div class="line">The first output is the result of unwrapping the high intensity counts.</div>
+<div class="line">The second is equal to the high intensity frame with all wrapped values</div>
+<div class="line">replaced with scaled counts from the low exposure frame. These two should</div>
+<div class="line">be equal, but the first output is biased by the intensity correction done</div>
+<div class="line">by the pilatus.</div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, CXS group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to add support for a beamline &mdash; PtychoShelves  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="base package documentation" href="base_func_doc.html" />
+    <link rel="prev" title="template_ptycho - your virtual control room" href="template_ptycho.html" />
+    <link href="_static/mod_theme.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PtychoShelves
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">PtychoShelves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template_ptycho.html">template_ptycho - your virtual control room</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to add support for a beamline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-new-detector">Add a new detector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preparation">Data preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matlab-data-preparator">Matlab data preparator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libdetxr">libDetXR</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="base_func_doc.html">base package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_func_doc.html">ptycho package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_license.html">Academic License Agreement</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PtychoShelves</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to add support for a beamline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/new_beamline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-add-support-for-a-beamline">
+<h1>How to add support for a beamline<a class="headerlink" href="#how-to-add-support-for-a-beamline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="add-a-new-detector">
+<h2>Add a new detector<a class="headerlink" href="#add-a-new-detector" title="Permalink to this headline">¶</a></h2>
+<p>Detectors are grouped into the +detector package, thus available via <code class="code docutils literal notranslate"><span class="pre">detector.&lt;detector_name&gt;</span></code>. As the data preparation is commonly strongly entangled to the parameters and specifications of the detector and its implementation at the beamline, the two parts are merged in PtychoShelves.
+As an example, let’s look at the Eiger implementation:
+Inside +detector, a directory +eiger was created, containing a parameter file eiger.m. The reasons for this rather peculiar file structure will be explained later.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All detector related parameters, including the pixel size and detector geometries have to be set in the detector template.</p>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% parameter</span>
+<span class="n">det</span><span class="p">.</span><span class="n">pixel_size</span> <span class="p">=</span> <span class="mf">75e-6</span><span class="p">;</span>                 <span class="c">% detector pixel size</span>
+<span class="n">det</span><span class="p">.</span><span class="n">file_extension</span> <span class="p">=</span> <span class="s">&#39;h5&#39;</span><span class="p">;</span>              <span class="c">% raw data file extension</span>
+<span class="n">det</span><span class="p">.</span><span class="n">mask</span> <span class="p">=</span> <span class="p">[</span><span class="n">local_path</span><span class="p">,</span> <span class="s">&#39;/eiger_valid_mask.mat&#39;</span><span class="p">];</span>    <span class="c">% detector mask</span>
+<span class="n">det</span><span class="p">.</span><span class="n">basepath_dir</span> <span class="p">=</span> <span class="s">&#39;eiger/&#39;</span><span class="p">;</span>            <span class="c">% raw data directory</span>
+<span class="n">det</span><span class="p">.</span><span class="n">mask_saturated_value</span> <span class="p">=</span> <span class="p">[];</span>          <span class="c">% mask pixels above given value</span>
+<span class="n">det</span><span class="p">.</span><span class="n">mask_below_value</span> <span class="p">=</span> <span class="p">[];</span>              <span class="c">% mask pixels below given value</span>
+<span class="n">det</span><span class="p">.</span><span class="n">data_stored</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                <span class="c">% false == data are generated &quot;onfly&quot;, no need to load / store</span>
+<span class="n">det</span><span class="p">.</span><span class="n">geometry</span><span class="p">.</span><span class="n">sz</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1030</span> <span class="mi">514</span><span class="p">];</span>           <span class="c">% detector readout size</span>
+<span class="n">det</span><span class="p">.</span><span class="n">geometry</span><span class="p">.</span><span class="n">mask</span> <span class="p">=</span> <span class="p">[];</span>                 <span class="c">% if the mask is larger than the readout</span>
+                                        <span class="c">% geometry (det.geometry.sz), geometry.mask defines the readout for the mask</span>
+                                        <span class="c">% e.g. geometry.mask = {[50:500], [50:500]}</span>
+
+<span class="n">det</span><span class="p">.</span><span class="n">orientation</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">];</span>              <span class="c">% [&lt;Transpose&gt; &lt;FlipLR&gt; &lt;FlipUD&gt;]</span>
+
+
+<span class="c">% additional arguments for image_read</span>
+<span class="n">det</span><span class="p">.</span><span class="n">image_read_extraargs</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;H5Location&#39;</span><span class="p">;</span>
+<span class="n">det</span><span class="p">.</span><span class="n">image_read_extraargs</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;/eh5/images/&#39;</span><span class="p">;</span>
+<span class="n">det</span><span class="p">.</span><span class="n">image_read_extraargs</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;Orientation&#39;</span><span class="p">;</span>
+<span class="n">det</span><span class="p">.</span><span class="n">image_read_extraargs</span><span class="p">{</span><span class="mi">4</span><span class="p">}</span> <span class="p">=</span> <span class="n">det</span><span class="p">.</span><span class="n">orientation</span><span class="p">;</span>
+<span class="n">det</span><span class="p">.</span><span class="n">image_read_extraargs</span><span class="p">{</span><span class="mi">5</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;OrientByExtension&#39;</span><span class="p">;</span>
+<span class="n">det</span><span class="p">.</span><span class="n">image_read_extraargs</span><span class="p">{</span><span class="mi">6</span><span class="p">}</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c">%% define directory tree structure</span>
+<span class="c">% define a function handle for compiling the scan directory tree. Input</span>
+<span class="c">% should be the scan number.</span>
+<span class="n">det</span><span class="p">.</span><span class="n">read_path</span> <span class="p">=</span> <span class="p">@</span><span class="n">utils</span><span class="p">.</span><span class="n">compile_x12sa_dirname</span><span class="p">;</span>
+
+<span class="c">%% filename</span>
+<span class="c">% specify funcion for compiling the filename. Input and output should be p and a</span>
+<span class="c">% temporary structure, containing information about the currently prepared scan.</span>
+<span class="c">% Cf. &#39;+scans/get_filenames_cSAXS.m&#39;</span>
+
+<span class="n">det</span><span class="p">.</span><span class="n">get_filename</span> <span class="p">=</span> <span class="p">@</span><span class="n">scans</span><span class="p">.</span><span class="n">get_filenames_cSAXS</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The arguments for image_read are of particular interest if the Matlab data preparation is chosen as it uses the function io.image_read to load the data. By specifying the extra arguments, one can ensure that the orientation, and in case of an H5 file also the path to the dataset, is set correctly.</p>
+<p>The directory structure is typically beamline specific. Although we highly encourage to adapt a structure like <code class="code docutils literal notranslate"><span class="pre">&lt;raw_data_path&gt;/S00000-00999/S00250/</span></code> as it avoids directories getting too large, whilst maintaining logical groups, PtychoShelves supports almost any arbitrary path to the raw data files.
+This is achieved by defining separate functions, as it is done for the cSAXS beamline (<a class="reference internal" href="base_func_doc.html#base-utils-compile-x12sa-dirname"><span class="std std-ref">utils.compile_x12sa_dirname</span></a>), which receives the scan directory and returns the path.</p>
+<p>Similarly, the file name, which can even vary between detectors at the same beamline, needs to be modular, yet easy to configure. A separate function, in this case scans.get_filenames_cSAXS, compiles the filenames based on the paramters handed over via the p structure and saves the file names in the detector storage, a Matlab-class instance of <span class="xref std std-ref">detector.detStorage</span>.</p>
+<p>cSAXS uses the following file name convention:
+<code class="code docutils literal notranslate"><span class="pre">&lt;user_prefix&gt;_&lt;scan_number&gt;_&lt;position&gt;_&lt;burst&gt;.&lt;file_extension&gt;</span></code>
+Especially in the case of single files per scanning point, this convention enables an unambigiuos nomenclature.
+To support small variations of said convention, additional paramters may need to be specified as it is done for the Eiger detector, where the filename_pattern variable defines the existance and order of the variables &lt;scan_number&gt;, &lt;position&gt; and &lt;burst&gt;.</p>
+</div>
+<div class="section" id="data-preparation">
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h2>
+<p>The data preparation in PtychoShelves consists of two parts: reading the raw data from disk and preparing files which can be used for the reconstruction.</p>
+<p>PtychoShelves gives you the option between two data preparators: Matlab routines or libDetXR, a Python-based MPI implementation. The Matlab routines are slower than libDetXR, yet they provide much more flexibility for changes in regard to the file structure and chosen acquisition parameters. Moreover, some functionalities like burst scans, are only supported by the Matlab routines.
+The different preparators are accessed via <a class="reference internal" href="ptycho_func_doc.html#ptycho-core-ptycho-prepare-scans"><span class="std std-ref">core.ptycho_prepare_scans</span></a>, which calls <a class="reference internal" href="ptycho_func_doc.html#ptycho-core-run-data-preparator"><span class="std std-ref">core.run_data_preparator</span></a> and, depending on the selected data preparator (<code class="docutils literal notranslate"><span class="pre">p.data_prep</span></code>, <em>cf.</em> <a class="reference internal" href="template_ptycho.html#template-data-prep"><span class="std std-ref">template_ptycho</span></a>), either <a class="reference internal" href="ptycho_func_doc.html#ptycho-detector-prep-data-matlab-ps-matlab-ps"><span class="std std-ref">detector.prep_data.matlab_ps.matlab_ps</span></a> or <a class="reference internal" href="ptycho_func_doc.html#ptycho-detector-prep-data-libdetxr-libdetxr"><span class="std std-ref">detector.prep_data.libDetXR.libDetXR</span></a> is executed.</p>
+<div class="section" id="matlab-data-preparator">
+<h3>Matlab data preparator<a class="headerlink" href="#matlab-data-preparator" title="Permalink to this headline">¶</a></h3>
+<p>The Matlab data preparator contains a bundle of functions, located at <code class="docutils literal notranslate"><span class="pre">+detector/+prep_data/+matlab_ps</span></code>. The functions are called according to <a class="reference internal" href="ptycho_func_doc.html#ptycho-detector-prep-data-matlab-ps-prepare-data"><span class="std std-ref">detector.prep_data.matlab_ps.prepare_data</span></a>, where each logical unit of the data preparation is called via predefined function handles to excute the corresponding subroutine. These functions handle do not have to point to the default routines in <code class="docutils literal notranslate"><span class="pre">+detector/+prep_data/+matlab_ps</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Matlab data preparator supports function overloading. It is therefore possible to save modified functions for a specific detector into its detector directory. During runtime, PtychoShelves will look for any Matlab data preparator functions inside the used detector and execute it, rather than its default in <code class="docutils literal notranslate"><span class="pre">+detector/+prep_data/+matlab_ps</span></code>.</p>
+</div>
+<p>Saving modifications of basic functions in different directories allows to add the support for new beamlines and detector without compromising the stability of previous implementations.</p>
+</div>
+<div class="section" id="libdetxr">
+<h3>libDetXR<a class="headerlink" href="#libdetxr" title="Permalink to this headline">¶</a></h3>
+<p>The libDetXR data preparator is a  performance-optimized version its Matlab counterpart. The abstraction needed to gain said performance improvement however, limits the usability for implementing new beamlines and detectors.
+Similar to the Matlab data preparator, the Python routine is called via <a class="reference internal" href="ptycho_func_doc.html#ptycho-detector-prep-data-libdetxr-libdetxr"><span class="std std-ref">detector.prep_data.libDetXR.libDetXR</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="base_func_doc.html" class="btn btn-neutral float-right" title="base package documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="template_ptycho.html" class="btn btn-neutral" title="template_ptycho - your virtual control room" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, CXS group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

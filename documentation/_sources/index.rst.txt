@@ -1,0 +1,23 @@
+PtychoShelves documentation
+============================
+
+
+PtychoShelves is a Matlab-based software package, developed by the CXS group [1]_ [2]_, Paul-Scherrer Institut, Switzerland. With its modular framework, it is designed to provide a flexible, yet fast environment for ptychographic data preparation and reconstructions. 
+
+.. toctree::
+	:maxdepth: 3
+	:caption: Contents:
+
+
+	introduction
+	template_ptycho
+	new_beamline
+	base_func_doc
+	ptycho_func_doc
+	ptycho_license
+
+By using the software, you agree to the license agreement. Terms and conditions can be found :doc:`here </ptycho_license>`. 
+
+.. [1] CXS group: `www.psi.ch/coherent-x-ray-scattering/ <https://www.psi.ch/coherent-x-ray-scattering/>`_
+
+.. [2] cSAXS beamline: `www.psi.ch/sls/csaxs/ <https://www.psi.ch/sls/csaxs/>`_

@@ -1,0 +1,3725 @@
+ptycho package documentation
+==============================
+.. toctree::
+	:maxdepth: 3
+	:caption: Contents:
+
+.. object:: GPU_batch_solver
+
+	|  GPU_BATCH_SOLVER
+	|  multi GPU batch solver
+
+	|  use parallel toolbox to distribute tasks into several asynchronously
+	|  running workers
+
+
+.. object:: affine_matrix_search
+
+	|  AFFINE_MATRIX_SEARCH
+	|  Code to evaluate the affine matrix angle for a series of
+	|  reconstructions
+
+	|  Each reconstruction should have preffix 'affine' in the name
+	|  and contain a field called p.affine_angle
+
+
+
+	| see also :ref:`aligned_FSC_template <ptycho_aligned_FSC_template>`
+
+.. object:: affine_test
+
+	|  close all
+
+
+.. object:: aligned_FSC_template
+
+	|  ALIGNED_FSC_TEMPLATE
+	|  Script to align images and compute FSC
+
+	|  References relevant to this code:
+	|  For using this FSC code with ptychography: J. Vila-Comamala, et al., "Characterization of high-resolution diffractive X-ray optics by ptychographic coherent diffractive imaging," Opt. Express 19, 21333-21344 (2011).
+	|  For subpixel alignment: M. Guizar-Sicairos, et al., "Efficient subpixel image registration algorithms," Opt. Lett. 33, 156 (2008).
+	|  For matching of phase ramp by approximate least squared error:  M. Guizar-Sicairos, et al., "Phase tomography from x-ray coherent diffractive imaging projections," Opt. Express 19, 21345-21357 (2011).
+
+
+
+.. object:: colorbar_complex
+
+	|  colorbar_complex is a script.
+
+
+.. object:: complex_colorbar
+
+	|  UNTITLED2 Summary of this class goes here
+	|  Detailed explanation goes here
+	|  Reference page in Doc Center
+	|  doc complex_colorbar
+
+
+.. _ptycho_create_template:
+
+.. function:: create_template(s, var)
+
+	|  create_template is a function.
+	|  create_template(s, var)
+
+
+.. object:: delta_vs_beta
+
+	|  delta_vs_beta is a script.
+
+
+.. object:: external_call
+
+	|  % modify this section %%%
+
+
+.. object:: find_peaks
+
+	|  FIND_PEAKS
+	|  Routine to find diffraction peaks of a grating and compute its angle
+	|  and the distance to the detector
+	|  Be careful to avoid saturation of the center pixel as it will affect
+	|  the calculaton
+
+
+
+.. object:: multilens
+
+	|  settings
+
+
+.. object:: offline_ptycho_et
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: propagation_test
+
+	|  propagation_test is a script.
+
+
+.. object:: ptycho_online
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: ptycho_wrap_offline_28scans_20131023_affine_stitch_500_67_89
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: ref_plot
+
+	|  ref_plot is a script.
+
+
+.. _ptycho_setup_recons:
+
+.. function:: setup_recons(varargin)
+
+	|  SETUP_RECONS MATLAB code for setup_recons.fig
+	|  SETUP_RECONS, by itself, creates a new SETUP_RECONS or raises the existing
+	|  singleton*.
+
+	|  H = SETUP_RECONS returns the handle to a new SETUP_RECONS or the handle to
+	|  the existing singleton*.
+
+	|  SETUP_RECONS('CALLBACK',hObject,eventData,handles,...) calls the local
+	|  function named CALLBACK in SETUP_RECONS.M with the given input arguments.
+
+	|  SETUP_RECONS('Property','Value',...) creates a new SETUP_RECONS or raises the
+	|  existing singleton*.  Starting from the left, property value pairs are
+	|  applied to the GUI before setup_recons_OpeningFcn gets called.  An
+	|  unrecognized property name or invalid value makes property application
+	|  stop.  All inputs are passed to setup_recons_OpeningFcn via varargin.
+
+	|  *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+	|  instance to run (singleton)".
+
+	|  See also: GUIDE, GUIDATA, GUIHANDLES
+
+	:return: varargout
+
+
+
+.. _ptycho_setup_remote_recons:
+
+.. function:: setup_remote_recons()
+
+	|  SETUP_REMOTE_RECONS
+
+
+
+.. _ptycho_setup_template:
+
+.. function:: setup_template(varargin)
+
+	|  SETUP_TEMPLATE
+
+
+.. object:: setup_template_backup
+
+	|  Academic License Agreement
+
+	|  Source Code
+
+	|  Introduction
+	|  •	This license agreement sets forth the terms and conditions under which the PAUL SCHERRER INSTITUT (PSI), CH-5232 Villigen-PSI, Switzerland (hereafter "LICENSOR")
+	|  will grant you (hereafter "LICENSEE") a royalty-free, non-exclusive license for academic, non-commercial purposes only (hereafter "LICENSE") to use the cSAXS
+	|  ptychography MATLAB package computer software program and associated documentation furnished hereunder (hereafter "PROGRAM").
+
+	|  Terms and Conditions of the LICENSE
+	|  1.	LICENSOR grants to LICENSEE a royalty-free, non-exclusive license to use the PROGRAM for academic, non-commercial purposes, upon the terms and conditions
+	|  hereinafter set out and until termination of this license as set forth below.
+	|  2.	LICENSEE acknowledges that the PROGRAM is a research tool still in the development stage. The PROGRAM is provided without any related services, improvements
+	|  or warranties from LICENSOR and that the LICENSE is entered into in order to enable others to utilize the PROGRAM in their academic activities. It is the
+	|  LICENSEE’s responsibility to ensure its proper use and the correctness of the results.”
+	|  3.	THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	|  A PARTICULAR PURPOSE AND NONINFRINGEMENT OF ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. IN NO EVENT SHALL THE LICENSOR, THE AUTHORS OR THE COPYRIGHT
+	|  HOLDERS BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE
+	|  OF THE PROGRAM OR OTHER DEALINGS IN THE PROGRAM.
+	|  4.	LICENSEE agrees that it will use the PROGRAM and any modifications, improvements, or derivatives of PROGRAM that LICENSEE may create (collectively,
+	|  "IMPROVEMENTS") solely for academic, non-commercial purposes and that any copy of PROGRAM or derivatives thereof shall be distributed only under the same
+	|  license as PROGRAM. The terms "academic, non-commercial", as used in this Agreement, mean academic or other scholarly research which (a) is not undertaken for
+	|  profit, or (b) is not intended to produce works, services, or data for commercial use, or (c) is neither conducted, nor funded, by a person or an entity engaged
+	|  in the commercial use, application or exploitation of works similar to the PROGRAM.
+	|  5.	LICENSEE agrees that it shall make the following acknowledgement in any publication resulting from the use of the PROGRAM or any translation of the code into
+	|  another computing language:
+	|  "Data processing was carried out using the cSAXS ptychography MATLAB package developed by the Science IT and the coherent X-ray scattering (CXS) groups, Paul
+	|  Scherrer Institut, Switzerland."
+
+	|  Additionally, any publication using the package, or any translation of the code into another computing language should cite for difference map:
+	|  P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer, High-resolution scanning X-ray diffraction microscopy, Science 321, 379–382 (2008).
+	|  (doi: 10.1126/science.1158573),
+	|  for maximum likelihood:
+	|  P. Thibault and M. Guizar-Sicairos, Maximum-likelihood refinement for coherent diffractive imaging, New J. Phys. 14, 063004 (2012).
+	|  (doi: 10.1088/1367-2630/14/6/063004),
+	|  for mixed coherent modes:
+	|  P. Thibault and A. Menzel, Reconstructing state mixtures from diffraction measurements, Nature 494, 68–71 (2013). (doi: 10.1038/nature11806),
+	|  and/or for multislice:
+	|  E. H. R. Tsai, I. Usov, A. Diaz, A. Menzel, and M. Guizar-Sicairos, X-ray ptychography with extended depth of field, Opt. Express 24, 29089–29108 (2016).
+	|  (doi: 10.1364/OE.24.029089).
+	|  6.	Except for the above-mentioned acknowledgment, LICENSEE shall not use the PROGRAM title or the names or logos of LICENSOR, nor any adaptation thereof, nor the
+	|  names of any of its employees or laboratories, in any advertising, promotional or sales material without prior written consent obtained from LICENSOR in each case.
+	|  7.	Ownership of all rights, including copyright in the PROGRAM and in any material associated therewith, shall at all times remain with LICENSOR, and LICENSEE
+	|  agrees to preserve same. LICENSEE agrees not to use any portion of the PROGRAM or of any IMPROVEMENTS in any machine-readable form outside the PROGRAM, nor to
+	|  make any copies except for its internal use, without prior written consent of LICENSOR. LICENSEE agrees to place the following copyright notice on any such copies:
+	|  © All rights reserved. PAUL SCHERRER INSTITUT, Switzerland, Laboratory for Macromolecules and Bioimaging, 2017.
+	|  8.	The LICENSE shall not be construed to confer any rights upon LICENSEE by implication or otherwise except as specifically set forth herein.
+	|  9.	DISCLAIMER: LICENSEE shall be aware that Phase Focus Limited of Sheffield, UK has an international portfolio of patents and pending applications which relate
+	|  to ptychography and that the PROGRAM may be capable of being used in circumstances which may fall within the claims of one or more of the Phase Focus patents,
+	|  in particular of patent with international application number PCT/GB2005/001464. The LICENSOR explicitly declares not to indemnify the users of the software
+	|  in case Phase Focus or any other third party will open a legal action against the LICENSEE due to the use of the program.
+	|  10.	This Agreement shall be governed by the material laws of Switzerland and any dispute arising out of this Agreement or use of the PROGRAM shall be brought before
+	|  the courts of Zürich, Switzerland.
+
+
+.. object:: simple_gui2
+
+	|  Academic License Agreement
+
+	|  Source Code
+
+	|  Introduction
+	|  •	This license agreement sets forth the terms and conditions under which the PAUL SCHERRER INSTITUT (PSI), CH-5232 Villigen-PSI, Switzerland (hereafter "LICENSOR")
+	|  will grant you (hereafter "LICENSEE") a royalty-free, non-exclusive license for academic, non-commercial purposes only (hereafter "LICENSE") to use the cSAXS
+	|  ptychography MATLAB package computer software program and associated documentation furnished hereunder (hereafter "PROGRAM").
+
+	|  Terms and Conditions of the LICENSE
+	|  1.	LICENSOR grants to LICENSEE a royalty-free, non-exclusive license to use the PROGRAM for academic, non-commercial purposes, upon the terms and conditions
+	|  hereinafter set out and until termination of this license as set forth below.
+	|  2.	LICENSEE acknowledges that the PROGRAM is a research tool still in the development stage. The PROGRAM is provided without any related services, improvements
+	|  or warranties from LICENSOR and that the LICENSE is entered into in order to enable others to utilize the PROGRAM in their academic activities. It is the
+	|  LICENSEE’s responsibility to ensure its proper use and the correctness of the results.”
+	|  3.	THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	|  A PARTICULAR PURPOSE AND NONINFRINGEMENT OF ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. IN NO EVENT SHALL THE LICENSOR, THE AUTHORS OR THE COPYRIGHT
+	|  HOLDERS BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE
+	|  OF THE PROGRAM OR OTHER DEALINGS IN THE PROGRAM.
+	|  4.	LICENSEE agrees that it will use the PROGRAM and any modifications, improvements, or derivatives of PROGRAM that LICENSEE may create (collectively,
+	|  "IMPROVEMENTS") solely for academic, non-commercial purposes and that any copy of PROGRAM or derivatives thereof shall be distributed only under the same
+	|  license as PROGRAM. The terms "academic, non-commercial", as used in this Agreement, mean academic or other scholarly research which (a) is not undertaken for
+	|  profit, or (b) is not intended to produce works, services, or data for commercial use, or (c) is neither conducted, nor funded, by a person or an entity engaged
+	|  in the commercial use, application or exploitation of works similar to the PROGRAM.
+	|  5.	LICENSEE agrees that it shall make the following acknowledgement in any publication resulting from the use of the PROGRAM or any translation of the code into
+	|  another computing language:
+	|  "Data processing was carried out using the cSAXS ptychography MATLAB package developed by the Science IT and the coherent X-ray scattering (CXS) groups, Paul
+	|  Scherrer Institut, Switzerland."
+
+	|  Additionally, any publication using the package, or any translation of the code into another computing language should cite for difference map:
+	|  P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer, High-resolution scanning X-ray diffraction microscopy, Science 321, 379–382 (2008).
+	|  (doi: 10.1126/science.1158573),
+	|  for maximum likelihood:
+	|  P. Thibault and M. Guizar-Sicairos, Maximum-likelihood refinement for coherent diffractive imaging, New J. Phys. 14, 063004 (2012).
+	|  (doi: 10.1088/1367-2630/14/6/063004),
+	|  for mixed coherent modes:
+	|  P. Thibault and A. Menzel, Reconstructing state mixtures from diffraction measurements, Nature 494, 68–71 (2013). (doi: 10.1038/nature11806),
+	|  and/or for multislice:
+	|  E. H. R. Tsai, I. Usov, A. Diaz, A. Menzel, and M. Guizar-Sicairos, X-ray ptychography with extended depth of field, Opt. Express 24, 29089–29108 (2016).
+	|  (doi: 10.1364/OE.24.029089).
+	|  6.	Except for the above-mentioned acknowledgment, LICENSEE shall not use the PROGRAM title or the names or logos of LICENSOR, nor any adaptation thereof, nor the
+	|  names of any of its employees or laboratories, in any advertising, promotional or sales material without prior written consent obtained from LICENSOR in each case.
+	|  7.	Ownership of all rights, including copyright in the PROGRAM and in any material associated therewith, shall at all times remain with LICENSOR, and LICENSEE
+	|  agrees to preserve same. LICENSEE agrees not to use any portion of the PROGRAM or of any IMPROVEMENTS in any machine-readable form outside the PROGRAM, nor to
+	|  make any copies except for its internal use, without prior written consent of LICENSOR. LICENSEE agrees to place the following copyright notice on any such copies:
+	|  © All rights reserved. PAUL SCHERRER INSTITUT, Switzerland, Laboratory for Macromolecules and Bioimaging, 2017.
+	|  8.	The LICENSE shall not be construed to confer any rights upon LICENSEE by implication or otherwise except as specifically set forth herein.
+	|  9.	DISCLAIMER: LICENSEE shall be aware that Phase Focus Limited of Sheffield, UK has an international portfolio of patents and pending applications which relate
+	|  to ptychography and that the PROGRAM may be capable of being used in circumstances which may fall within the claims of one or more of the Phase Focus patents,
+	|  in particular of patent with international application number PCT/GB2005/001464. The LICENSOR explicitly declares not to indemnify the users of the software
+	|  in case Phase Focus or any other third party will open a legal action against the LICENSEE due to the use of the program.
+	|  10.	This Agreement shall be governed by the material laws of Switzerland and any dispute arising out of this Agreement or use of the PROGRAM shall be brought before
+	|  the courts of Zürich, Switzerland.
+
+
+.. object:: template_artificial_data
+
+	|  ARTIFICIAL_DATA parameters
+	|  Specify simulation parameters and overwrite fields for a more realistic
+	|  simulation.
+
+
+.. object:: template_conversion
+
+	|  template_conversion is a script.
+
+
+.. object:: template_ptycho
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_Eiger
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_Eiger_selfie
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_Eiger_selfie_old
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_MOENCH_FP
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_eiger_selfie
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_loop
+
+	|  template_ptycho_loop is a script.
+
+
+.. object:: template_ptycho_pilatus_e16403
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_pilatus_e16403_new
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_receiver
+
+	|  ptycho receiver template
+	|  execute this script on the remote machine
+
+
+.. object:: template_ptycho_receiver_script
+
+	|  ptycho receiver template
+	|  execute this script on the remote machine
+
+
+.. object:: template_ptycho_receiver_test
+
+	|  ptycho receiver template
+	|  execute this script on the remote machine
+
+
+.. object:: template_ptycho_test_eiger
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_test_eiger_single_frame
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_test_pilatus
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_ptycho_test_pilatus_2
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: template_simple
+
+	|  template_simple is a script.
+
+
+.. object:: template_wrapper
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: test_artificial_data
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: test_mod
+
+	|  Reconstruction parameters
+	|  Edit only this section
+	|  References in ptycho_recons.m
+
+	|  For 2 detector positions
+	|  Put multiple scan numbers e.g. p.scan_number = [5 6];
+	|  Multiple centers e.g.  p.ctr = [100 207;120 217];
+
+
+.. object:: test_ptychoshelves
+
+	|  TEST ALL ENGINES IN PTYCHOSHELVES TOOLKIT
+
+
++core
+"""""
+.. _ptycho_core.append_engine:
+
+.. function:: core.append_engine(p, new_eng)
+
+	|  APPEND_ENGINE appends engine specified in new_eng to p
+	|  Adds engines with index, starting at 0
+	|  1st engine: p.engines.engine0
+
+	:param p:           p structure
+	:param new_eng:     structure containing information about the new engine
+
+
+
+
+
+
+
+	:return: * **p** - p structure
+		 * **new_eng** - empty container; useful if one does not want to propagate changes between engines
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.check_prepared_data:
+
+.. function:: core.check_prepared_data(p)
+
+	|  CHECK_PREPARED_DATA compares prepared data file with current
+	|  reconstruction parameters. If force_update == true, data preparation will
+	|  be forced (see core.ptycho_prepare_scans)
+	:param p:                   p structure
+
+
+
+
+
+
+	:return: **force_update** - true if data preparation has be done enforced
+	| see also :ref:`core.ptycho_prepare_scans <ptycho_core.ptycho_prepare_scans>`
+
+.. _ptycho_core.engine_status:
+
+.. function:: core.engine_status(varargin)
+
+	|  ENGINE_STATUS use persisten variables to store error messages
+	|  Error code: 0 for 'everything OK' and ~=0 for 'error' (return values of matlab's system function)
+
+	|  *usage:*
+	|  engine_status(status)    to set persisten variable engine_stat to
+	|  status
+
+	|  engine_status            to read persisten variables
+
+
+	:return: eng_stat
+
+
+
+.. _ptycho_core.errorplot:
+
+.. function:: core.errorplot(argin)
+
+	|  Build an errormetric plot vs iteration number
+
+	|  *usage*
+	|  e = errorplot         Clears the persistent variable
+	|  e = errorplot(x)      Appends x to the persistent variable
+	|  e = errorplot([])     Only reads the persistent variable
+
+	:return: outerror
+
+
+
+.. _ptycho_core.export4remote:
+
+.. function:: core.export4remote(p)
+
+	|  EXPORT4REMOTE
+	|  Export the meta data using a .mat file for remote reconstruction
+
+	:param p:               p structure
+
+
+
+
+	:return: **p** - updated p structure
+
+.. _ptycho_core.extract4saving:
+
+.. function:: core.extract4saving(p, append)
+
+	|  EXTRACT4SAVING extracts datasets and parameters from p and creates HDF5
+	|  structure
+	:param p:               p structure
+	:param append:          boolean; true if data will be appended to an existing file
+
+
+
+
+
+
+
+	:return: **s** - structure for save2hdf5
+	| see also :ref:`io.HDF.save2hdf5 <base_io.HDF.save2hdf5>`
+
+.. _ptycho_core.find_shared_IDs:
+
+.. function:: core.find_shared_IDs(p)
+
+	|  FIND_SHARED_IDS find which positions belong to each object / probe
+
+	:param p:           p structure
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`core.initialize_ptycho <ptycho_core.initialize_ptycho>`
+
+.. _ptycho_core.generate_scan_name:
+
+.. function:: core.generate_scan_name(p)
+
+	|  GENERATE_SCAN_NAME
+	|  Auxilialy function to generate scan names
+
+	:param p:               p structure
+
+
+
+
+
+	:return: **scan_name** - scan names
+
+.. _ptycho_core.get_projections:
+
+.. function:: core.get_projections(p, object, scan_id, obj_proj)
+
+	|  GET_PROJECTIONS
+
+	:param p:           p structure
+	:param object:      full-size object
+	:param scan_id:     ID of the current scan
+	:param obj_proj:    container for object projections
+
+
+
+
+	:return: **obj_proj** - updated container for object projections
+
+.. _ptycho_core.hermite_like:
+
+.. function:: core.hermite_like(fundam, X, Y, M, N)
+
+	|  HERMITE_LIKE
+	|  Receives a probe and maximum x and y order M N. Based on the given probe
+	|  and multiplying by a Hermitian function new modes are computed. The modes
+	|  are then orthonormalized.
+
+
+	:return: H
+
+
+
+.. _ptycho_core.initial_checks:
+
+.. function:: core.initial_checks(p)
+
+	|  INITIAL_CHECKS set default values for the most common variables
+
+	:param p:           p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`core.initialize_ptycho <ptycho_core.initialize_ptycho>`
+
+.. _ptycho_core.initialize_ptycho:
+
+.. function:: core.initialize_ptycho(p)
+
+	|  INITIALIZE_PTYCHO
+	|  everything that needs to be done before triggering the reconstruction. This includes
+	|  inter alia initial checks, intial guess preparations and loading the data.
+
+	:param p:           p structure
+
+
+
+
+
+
+
+
+
+
+	:return: * **p** - p structure
+		 * **status** - status flag
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.prep_h5data:
+
+.. function:: core.prep_h5data(p)
+
+	|  PREP_H5DATA prepare data and save it to disk
+	|  prep_h5data expects that fmask and fmag already exist, prepares them
+	|  for the C++ code and saves everything to disk.
+
+	:param p:           p structure
+
+
+
+	| see also :ref:`core.ptycho_prepare_scans <ptycho_core.ptycho_prepare_scans>`
+
+.. _ptycho_core.prep_initial_object:
+
+.. function:: core.prep_initial_object(p)
+
+	|  PREPARE_INITIAL_OBJECT
+	|  prepare an initial guess for the object reconstruction
+
+	:param p:       p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`core.prepare_init_guess <ptycho_core.prepare_init_guess>`
+
+.. _ptycho_core.prepare_init_guess:
+
+.. function:: core.prepare_init_guess(p)
+
+	|  PREPARE_INIT_GUESS
+	|  prepare an initial guess for the object and probe reconstruction
+
+	:param p:       p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`core.prepare_init_guess <ptycho_core.prepare_init_guess>`
+
+.. _ptycho_core.prepare_probes:
+
+.. function:: core.prepare_probes(p)
+
+	|  Prepare probe - Only single file supported, either the file has a 3D matrix
+	|  of many probes or the probe will be repeated for the number of probes
+	|  needed for reconstruction
+
+	:return: p
+
+
+
+.. _ptycho_core.probe_modes_ortho:
+
+.. function:: core.probe_modes_ortho(modes)
+
+	|  ORTHO Orthogonalize the given list of modes using SVD.
+	|  [pr, I_n, eval] = probe_modes_ortho(modes)
+	|  pr        Orthogonalized (eigen) modes
+	|  I_n       Normalized intensity of the mode (relative contribution to total intensity)
+	|  eval      SVD eigenvalues
+
+	:return: pr, I_n, eval
+
+
+
+.. _ptycho_core.ptycho_adjust_positions:
+
+.. function:: core.ptycho_adjust_positions(p)
+
+	|  PTYCHO_ADJUST_POSITIONS
+
+	:return: p
+
+
+
+.. _ptycho_core.ptycho_model_probe:
+
+.. function:: core.ptycho_model_probe(p)
+
+	|  pout = ptycho_model_probe(p)
+
+	:return: pout
+
+
+
+.. _ptycho_core.ptycho_plot_ptycho:
+
+.. function:: core.ptycho_plot_ptycho(p, varargin)
+
+	|  % PTYCHO_PLOT_PTYCHO plotting routine for ptychographic reconstructions
+	:param p:               p structure from a ptychographic reconstruction
+
+	|  *optional*
+	:param use_display:     show plots (default: true)
+	:param write_jpegs:     write images to disk (default: false)
+	:param final:           show all error metrics for a final plot (default: false)
+	:param save_path:       change default save_path (p.save_path) for saving jpgs
+
+	|  EXAMPLES:
+	|  core.ptycho_plot_ptycho(p);
+	|  core.ptycho_plot_ptycho(p, 'write_jpegs', true);
+	|  core.ptycho_plot_ptycho(p, 'use_display', false, 'write_jpegs', true);
+
+
+
+
+
+	| see also :ref:`plotting.ptycho_show_recons <base_plotting.ptycho_show_recons>`
+
+.. _ptycho_core.ptycho_prepare_paths:
+
+.. function:: core.ptycho_prepare_paths(p, varargin)
+
+	|  PTYCHO_PREPARE_PATHS Prepare paths and check defaults
+
+	:return: p
+
+
+
+.. _ptycho_core.ptycho_prepare_scans:
+
+.. function:: core.ptycho_prepare_scans(p)
+
+	|  PTYCHO_PREPARE_SCANS Load data from disk and prepare the scan for the
+	|  ptychographic reconstruction.
+
+	:param p:           p structure
+
+
+
+
+
+
+
+
+
+
+	:return: * **p** - p structure
+		 * **status** - status flag
+	| see also :ref:`core.initialize_ptycho <ptycho_core.initialize_ptycho>`
+
+.. _ptycho_core.ptycho_recons:
+
+.. function:: core.ptycho_recons(p, prepare_only)
+
+	|  OUT = PTYCHO_RECONS(P, PREPARE_ONLY = false)
+	|  Runs the reconstruction using parameters in the structure p.
+
+
+	:param p:                   p structure
+
+	|  *optional*
+	:param prepare_only:        stop after the data preparation; default: false
+
+
+	|  out                   updated p structure
+
+
+
+	:return: out, status
+
+
+	| see also :ref:`template_ptycho <ptycho_template_ptycho>`
+
+.. _ptycho_core.remote_cleanup:
+
+.. function:: core.remote_cleanup(p, completed)
+
+	|  REMOTE_CLEANUP
+	|  remove temporary files on the remote machine and move the reconstruction
+	|  to the save path on the primary machine
+
+	:param p:                   p structure
+	:param completed:           boolean; true if reconstruction finished properly
+
+
+
+
+
+
+	:return: **status** - status flag
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.remote_status:
+
+.. function:: core.remote_status(p)
+
+	|  REMOTE_STATUS
+	|  Check the current status of the remote reconstruction
+
+	:param p:           p structure
+
+
+
+
+
+
+
+	:return: * **p** - updated p structure
+		 * **status** - status flag
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.run_data_preparator:
+
+.. function:: core.run_data_preparator(p)
+
+	|  RUN_DATA_PREPARATOR
+	|  prepare the function handle and call the data preparator
+
+	:param p:               p structure
+
+
+
+
+
+
+	:return: **p** - updated p structure
+	| see also :ref:`core.ptycho_prepare_scans <ptycho_core.ptycho_prepare_scans>`
+
+.. _ptycho_core.run_engine:
+
+.. function:: core.run_engine(p, eng)
+
+	|  RUN_ENGINE
+	|  calls engine 'eng'
+
+	:param p:           p structure
+	:param eng:         name of the current engine
+
+
+
+
+
+
+
+	:return: * **p** - update p structure
+		 * **fdb** - feedback structure of the engine
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.run_receiver:
+
+.. function:: core.run_receiver(p)
+
+	|  RUN_RECEIVER
+	|  modify p structure and run ptycho_recons.
+
+	:param p:       p structure
+
+
+
+	| see also :ref:`setup_remote_recons <ptycho_setup_remote_recons>`
+
+.. _ptycho_core.save_fig_ext:
+
+.. function:: core.save_fig_ext(file)
+
+	|  SAVE_FIG_EXT Subsection of ptycho_show_recons to load reconstruction file
+	|  and save figures.
+
+	:param file:                path+file of the reconstruction
+
+
+
+
+	| see also :ref:`core.save_results <ptycho_core.save_results>`
+
+.. _ptycho_core.save_results:
+
+.. function:: core.save_results(p, fdb, final)
+
+	|  SAVE_RESULTS
+	|  Save reconstruction and parameter file
+
+	:param p:               p structure
+	:param fdb:             feedback structure
+	:param final:           boolean; false for intermediate saving routines
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.set_projections:
+
+.. function:: core.set_projections(p, object, obj_update, scan_id)
+
+	|  SET_PROJETIONS
+
+	:param p:               p structure
+	:param object:          full-size object
+	:param obj_update:      container for object projections
+	:param scan_id:         ID of the current scan
+
+
+
+
+	:return: **object** - updated object
+
++core/+FPM
+^^^^^^^^^^
+.. _ptycho_core.FPM.FP_prealign:
+
+.. function:: core.FPM.FP_prealign(p)
+
+	|  FP_PREALIGN prealign Fourier ptychographic data
+	|  FP_prealign is an alignment routine for Fourier ptychographic
+	|  measurements. Due to the changes in frequency content, a global
+	|  registration is not sufficient. We therefore sort the frames such that
+	|  images with similar frequency content can be aligned.
+
+	:param p:                   p structure
+
+	|  *taken from p.prealign:*
+	:param ctr_sh:              shift the center before cropping the final dataset to asize
+	:param crop_dft:            crop the images by crop_dft before calculating the dftregistration
+	:param axis:                start the alignment procedure along specified axis or rotation (1 or 2)
+	:param numiter:             number of iterations
+	:param rad_filt_min:        discard positions below rad_filt_min
+	:param rad_filt_max:        discard positions beyond rad_filt_max
+	:param mfiles:              discard specific data points
+	:param flat_corr:           apply a flat-field correction
+	:param filt_align:          remove interpolation artifacts
+	:param save_alignment:      save final shifts / alignment
+	:param load_alignment:      overwrite alignment with previous alignment
+	:param alignment_file:      specify path+file
+	:param plot:  alignment     turn on/off plotting during the alignment
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`utils.dftregistration <base_utils.dftregistration>`
+
+.. _ptycho_core.FPM.align_data:
+
+.. function:: core.FPM.align_data(par, varargin)
+
+	|  ALIGN_DATA align data along given path
+	|  align_data is a helper function of FP_prealign
+	|  It uses utils.dftregistration to achieve a subpixel alignment
+
+	:param par:             FP_prealign structure
+
+
+
+
+
+
+
+	:return: **par** - updated FP_prealign structure
+	| see also :ref:`core.FPM.FP_prealign <ptycho_core.FPM.FP_prealign>`
+
+.. _ptycho_core.FPM.sort_pos:
+
+.. function:: core.FPM.sort_pos(par, varargin)
+
+	|  SORT_POS sort positions
+	|  sort_pos is a helper function of FP_prealign
+	|  it minimizes the path length, similar to the travelling salesman problem,
+	|  albeit optimized for the peculiarities of a Fourier ptychographic scan
+
+	:param par:             FP_prealign structure
+
+	|  *optional*
+	:param sort_type:       'raster', 'round' or 'raster_lim'
+
+
+
+
+
+
+
+	:return: **par** - updated FP_prealign structure
+	| see also :ref:`core.FPM.FP_prealign <ptycho_core.FPM.FP_prealign>`
+
+.. _ptycho_core.FPM.sort_pos_radii:
+
+.. function:: core.FPM.sort_pos_radii(par, varargin)
+
+	|  SORT_POS_RADII sort positions along their radial distance
+	|  sort_pos_radii is a helper function of FP_prealign
+
+	:param par:             final structure of FP_prealign
+
+
+
+
+
+
+	:return: **par** - updated FP_prealign structure
+	| see also :ref:`core.FPM.FP_prealign <ptycho_core.FPM.FP_prealign>`
+
++core/private
+^^^^^^^^^^^^^
+.. _ptycho_core.load_defaults:
+
+.. function:: core.load_defaults(file)
+
+	|  LOAD_DEFAULTS load default p structure from file
+
+	:return: p
+
+
+
+.. _ptycho_core.plot_raw_data:
+
+.. function:: core.plot_raw_data(p)
+
+	|  PLOT_RAW_DATA Simple plotting routine for masked raw data
+
+	:param p:           p structure
+
+
+
+	| see also :ref:`core.initialize_ptycho <ptycho_core.initialize_ptycho>`
+
+.. _ptycho_core.ptycho_exit:
+
+.. function:: core.ptycho_exit(p)
+
+	|  PTYCHO_EXIT
+	|  onCleanup function for core.ptycho_recons
+
+	:param p:           p structure
+
+
+
+	| see also :ref:`core.ptycho_recons <ptycho_core.ptycho_recons>`
+
+.. _ptycho_core.write_procID:
+
+.. function:: core.write_procID(p)
+
+	|  WRITE_PROCID
+	|  writes .dat files to utils/.tmp_procID to keep track of current
+	|  reconstructions
+	:param p:           p structure
+
+
++detector
+"""""""""
+.. object:: detStorage
+
+	|  DETSTORAGE Matlab class for convenient data access during the data
+	|  preparation
+	|  Reference page in Doc Center
+	|  doc detector.detStorage
+
+
+.. _ptycho_detector.initialize_detector:
+
+.. function:: detector.initialize_detector(p, ii)
+
+	|  INITIALIZE_DETECTOR run some checks and load the detector settings
+
+	:return: p
+
+
+
+.. _ptycho_detector.load_detector:
+
+.. function:: detector.load_detector(p)
+
+	|  LOAD_DETECTOR
+	|  load detector files as specified in p
+
+	:return: p
+
+
+
++detector/+eiger
+^^^^^^^^^^^^^^^^
+.. _ptycho_detector.eiger.eiger:
+
+.. function:: detector.eiger.eiger(p)
+
+	|  EIGER settings for Eiger detector
+	|  This file is called if you specify p.detector = 'eiger'.
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
++detector/+eiger1p5M
+^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.eiger1p5M.convert:
+
+.. function:: detector.eiger1p5M.convert(scan, raw_data_path)
+
+	|  function convert(scan, raw_data_path)
+	|  convert .raw files to .cbf
+
+
+.. _ptycho_detector.eiger1p5M.convert2hdf5:
+
+.. function:: detector.eiger1p5M.convert2hdf5(scan, raw_data_path)
+
+	|  function convert(scan, raw_data_path)
+	|  convert .raw files to .hdf5
+	|  Inputs
+	|  scan              scan number
+	|  raw_data_path     path to the raw data (optional)
+
+
+.. _ptycho_detector.eiger1p5M.eiger1p5M:
+
+.. function:: detector.eiger1p5M.eiger1p5M(p)
+
+	|  EIGER1P5M settings for Eiger 1.5M detector
+	|  This file is called if you specify p.detector = 'eiger1p5M'
+
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
++detector/+eiger4M_swing
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.eiger4M_swing.eiger4M_swing:
+
+.. function:: detector.eiger4M_swing.eiger4M_swing(p)
+
+	|  EIGER settings for Eiger detector at the SWING beamline (Soleil)
+	|  This file is called if you specify p.detector = 'eiger4M_swing'.
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
++detector/+eiger9M
+^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.eiger9M.eiger9M:
+
+.. function:: detector.eiger9M.eiger9M(p)
+
+	|  PILATUS settings for Pilatus detector
+	|  This file is called if you specify p.detector = 'pilatus'
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
+.. _ptycho_detector.eiger9M.get_dir_path:
+
+.. function:: detector.eiger9M.get_dir_path(p, ii)
+
+	|  GET_DIR_PATH define directory structure.
+	|  default scheme for data (scan 68) taken at cSAXS: S00000-00999/S00068/
+
+	:return: data_path
+
+
+
++detector/+moench
+^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.moench.moench:
+
+.. function:: detector.moench.moench(p)
+
+	|  MOENCH settings for Moench detector
+	|  This file is called if you specify p.detector = 'moench'.
+
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
++detector/+oldeiger
+^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.oldeiger.oldeiger:
+
+.. function:: detector.oldeiger.oldeiger(p)
+
+	|  EIGER settings for Eiger detector
+	|  This file is called if you specify p.detector = 'eiger'.
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
++detector/+pco_nano
+^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.pco_nano.pco_nano:
+
+.. function:: detector.pco_nano.pco_nano(p)
+
+	|  PCO_NANO settings for PCO Edge Nano detector
+	|  This file is called if you specify p.detector = 'pco_nano'.
+
+	:return: det
+
+
+
++detector/+pilatus
+^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.pilatus.pilatus:
+
+.. function:: detector.pilatus.pilatus(p)
+
+	|  PILATUS settings for Pilatus detector
+	|  This file is called if you specify p.detector = 'pilatus'
+	:param p:           p structure
+
+
+
+
+
+	:return: **det** - detector structure; later accessible via p.detectors(ii).params
+	| see also :ref:`detector.load_detector <ptycho_detector.load_detector>`
+
++detector/+prep_data
+^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.prep_data.get_dir_path:
+
+.. function:: detector.prep_data.get_dir_path(p, ii)
+
+	|  GET_DIR_PATH define directory structure.
+	|  default scheme for data (scan 68) taken at cSAXS: S00000-00999/S00068/
+
+	:return: data_path
+
+
+
+.. _ptycho_detector.prep_data.update_defaults:
+
+.. function:: detector.prep_data.update_defaults(p)
+
+	|  UPDATE_DEFAULTS update parameters with default values that are crucial for
+	|  a further processing of the data and look for overloaded functions
+
+	:return: p
+
+
+
+.. _ptycho_detector.prep_data.update_funcs:
+
+.. function:: detector.prep_data.update_funcs(p, func)
+
+	|  UPDATE_FUNCS Update prepare data functions with overloaded functions from
+	|  the detector directory
+
+	:return: p
+
+
+
++detector/+prep_data/+libDetXR
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.prep_data.libDetXR.libDetXR:
+
+.. function:: detector.prep_data.libDetXR.libDetXR(p)
+
+	|  libDetXR prepares and exports data for libDetXR/ptyhon data
+	|  preparation.
+
+	:param p:               p structure
+
+
+
+
+
+
+
+	:return: * **p** - updated p structure
+		 * **fdb** - feedback structure
+	| see also :ref:`core.run_data_preparator <ptycho_core.run_data_preparator>`
+
++detector/+prep_data/+matlab_ps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.prep_data.matlab_ps.check_burst:
+
+.. function:: detector.prep_data.matlab_ps.check_burst(p)
+
+	|  CHECK_BURST check first file for burst scan
+
+	:return: p
+
+
+
+.. _ptycho_detector.prep_data.matlab_ps.get_center:
+
+.. function:: detector.prep_data.matlab_ps.get_center(p)
+
+	|  GET_CENTER Estimate the center of the diffraction pattern
+
+	:return: p
+
+
+
+.. _ptycho_detector.prep_data.matlab_ps.get_mask:
+
+.. function:: detector.prep_data.matlab_ps.get_mask(p)
+
+	|  GET_MASK Mask saturated values as defined in the detector template
+
+	:param p:       p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`detector.prep_data.matlab_ps.prepare_data <ptycho_detector.prep_data.matlab_ps.prepare_data>`
+
+.. _ptycho_detector.prep_data.matlab_ps.load_data:
+
+.. function:: detector.prep_data.matlab_ps.load_data(p)
+
+	|  LOAD_DATA prepare filenames and load data
+	:param p:       p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`detector.prep_data.matlab_ps.prepare_data <ptycho_detector.prep_data.matlab_ps.prepare_data>`
+
+.. _ptycho_detector.prep_data.matlab_ps.mask_geometry:
+
+.. function:: detector.prep_data.matlab_ps.mask_geometry(p)
+
+	|  MASK_GEOMETRY crop mask to fit defined readout geometries
+	|  if no geometry is specified, the full mask is used
+	:param p:       p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`detector.prep_data.matlab_ps.prepare_data <ptycho_detector.prep_data.matlab_ps.prepare_data>`
+
+.. _ptycho_detector.prep_data.matlab_ps.matlab_ps:
+
+.. function:: detector.prep_data.matlab_ps.matlab_ps(p)
+
+	|  MATLAB_PS - Matlab data preparator
+
+	:return: p
+
+
+
+.. _ptycho_detector.prep_data.matlab_ps.postprocess:
+
+.. function:: detector.prep_data.matlab_ps.postprocess(p)
+
+	|  POSTPROCESS postprocess functions
+	|  applied to the 4D raw data
+
+	:param p:       p structure
+
+
+
+
+
+	:return: **p** - updated p structure
+	| see also :ref:`detector.prep_data.matlab_ps.matlab_ps <ptycho_detector.prep_data.matlab_ps.matlab_ps>`
+
+.. _ptycho_detector.prep_data.matlab_ps.prep_data_matlab:
+
+.. function:: detector.prep_data.matlab_ps.prep_data_matlab(p, data, fmask)
+
+	|  PREPARE_DATA_MATLAB prepares and normalizes data for matlab engines
+
+	:return: p
+
+
+
+.. _ptycho_detector.prep_data.matlab_ps.prepare_data:
+
+.. function:: detector.prep_data.matlab_ps.prepare_data(p)
+
+	|  PREPARE_DATA prepare the raw data for the ptychographic reconstruction
+
+	:param p:           p structure
+
+
+
+
+	|  *Note:*
+	|  All (default) functions are located in +detector/+prep_data/+matlab_ps. If You want
+	|  to add a new detector, please create a new package directory
+	|  (+detector_name) with a parameter file detector_name.m. Functions in a
+	|  package detectory directory will overload similar functions in the default directory.
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`detector.prep_data.matlab_ps.matlab_ps <ptycho_detector.prep_data.matlab_ps.matlab_ps>`
+
+.. _ptycho_detector.prep_data.matlab_ps.preprocess:
+
+.. function:: detector.prep_data.matlab_ps.preprocess(p)
+
+	|  PREPROCESS preprocess functions
+	|  e.g. select area before reading from disk
+
+	:param p:       p structure
+
+
+
+
+
+
+
+	:return: **p** - p structure
+	| see also :ref:`detector.prep_data.matlab_ps.prepare_data <ptycho_detector.prep_data.matlab_ps.prepare_data>`
+
++detector/+virtual
+^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.virtual.get_center:
+
+.. function:: detector.virtual.get_center(p)
+
+	|  GET_CENTER Estimate the center of the diffraction pattern
+
+	:return: p
+
+
+
+.. _ptycho_detector.virtual.load_data:
+
+.. function:: detector.virtual.load_data(p)
+
+	|  LOAD_DATA prepare filenames and load data
+
+	:return: p
+
+
+
+.. _ptycho_detector.virtual.preprocess:
+
+.. function:: detector.virtual.preprocess(p)
+
+	|  Academic License Agreement
+
+	|  Source Code
+
+	|  Introduction
+	|  •	This license agreement sets forth the terms and conditions under which the PAUL SCHERRER INSTITUT (PSI), CH-5232 Villigen-PSI, Switzerland (hereafter "LICENSOR")
+	|  will grant you (hereafter "LICENSEE") a royalty-free, non-exclusive license for academic, non-commercial purposes only (hereafter "LICENSE") to use the cSAXS
+	|  ptychography MATLAB package computer software program and associated documentation furnished hereunder (hereafter "PROGRAM").
+
+	|  Terms and Conditions of the LICENSE
+	|  1.	LICENSOR grants to LICENSEE a royalty-free, non-exclusive license to use the PROGRAM for academic, non-commercial purposes, upon the terms and conditions
+	|  hereinafter set out and until termination of this license as set forth below.
+	|  2.	LICENSEE acknowledges that the PROGRAM is a research tool still in the development stage. The PROGRAM is provided without any related services, improvements
+	|  or warranties from LICENSOR and that the LICENSE is entered into in order to enable others to utilize the PROGRAM in their academic activities. It is the
+	|  LICENSEE’s responsibility to ensure its proper use and the correctness of the results.”
+	|  3.	THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	|  A PARTICULAR PURPOSE AND NONINFRINGEMENT OF ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. IN NO EVENT SHALL THE LICENSOR, THE AUTHORS OR THE COPYRIGHT
+	|  HOLDERS BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE
+	|  OF THE PROGRAM OR OTHER DEALINGS IN THE PROGRAM.
+	|  4.	LICENSEE agrees that it will use the PROGRAM and any modifications, improvements, or derivatives of PROGRAM that LICENSEE may create (collectively,
+	|  "IMPROVEMENTS") solely for academic, non-commercial purposes and that any copy of PROGRAM or derivatives thereof shall be distributed only under the same
+	|  license as PROGRAM. The terms "academic, non-commercial", as used in this Agreement, mean academic or other scholarly research which (a) is not undertaken for
+	|  profit, or (b) is not intended to produce works, services, or data for commercial use, or (c) is neither conducted, nor funded, by a person or an entity engaged
+	|  in the commercial use, application or exploitation of works similar to the PROGRAM.
+	|  5.	LICENSEE agrees that it shall make the following acknowledgement in any publication resulting from the use of the PROGRAM or any translation of the code into
+	|  another computing language:
+	|  "Data processing was carried out using the cSAXS ptychography MATLAB package developed by the Science IT and the coherent X-ray scattering (CXS) groups, Paul
+	|  Scherrer Institut, Switzerland."
+
+	|  Additionally, any publication using the package, or any translation of the code into another computing language should cite for difference map:
+	|  P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer, High-resolution scanning X-ray diffraction microscopy, Science 321, 379–382 (2008).
+	|  (doi: 10.1126/science.1158573),
+	|  for maximum likelihood:
+	|  P. Thibault and M. Guizar-Sicairos, Maximum-likelihood refinement for coherent diffractive imaging, New J. Phys. 14, 063004 (2012).
+	|  (doi: 10.1088/1367-2630/14/6/063004),
+	|  for mixed coherent modes:
+	|  P. Thibault and A. Menzel, Reconstructing state mixtures from diffraction measurements, Nature 494, 68–71 (2013). (doi: 10.1038/nature11806),
+	|  and/or for multislice:
+	|  E. H. R. Tsai, I. Usov, A. Diaz, A. Menzel, and M. Guizar-Sicairos, X-ray ptychography with extended depth of field, Opt. Express 24, 29089–29108 (2016).
+	|  (doi: 10.1364/OE.24.029089).
+	|  6.	Except for the above-mentioned acknowledgment, LICENSEE shall not use the PROGRAM title or the names or logos of LICENSOR, nor any adaptation thereof, nor the
+	|  names of any of its employees or laboratories, in any advertising, promotional or sales material without prior written consent obtained from LICENSOR in each case.
+	|  7.	Ownership of all rights, including copyright in the PROGRAM and in any material associated therewith, shall at all times remain with LICENSOR, and LICENSEE
+	|  agrees to preserve same. LICENSEE agrees not to use any portion of the PROGRAM or of any IMPROVEMENTS in any machine-readable form outside the PROGRAM, nor to
+	|  make any copies except for its internal use, without prior written consent of LICENSOR. LICENSEE agrees to place the following copyright notice on any such copies:
+	|  © All rights reserved. PAUL SCHERRER INSTITUT, Switzerland, Laboratory for Macromolecules and Bioimaging, 2017.
+	|  8.	The LICENSE shall not be construed to confer any rights upon LICENSEE by implication or otherwise except as specifically set forth herein.
+	|  9.	DISCLAIMER: LICENSEE shall be aware that Phase Focus Limited of Sheffield, UK has an international portfolio of patents and pending applications which relate
+	|  to ptychography and that the PROGRAM may be capable of being used in circumstances which may fall within the claims of one or more of the Phase Focus patents,
+	|  in particular of patent with international application number PCT/GB2005/001464. The LICENSOR explicitly declares not to indemnify the users of the software
+	|  in case Phase Focus or any other third party will open a legal action against the LICENSEE due to the use of the program.
+	|  10.	This Agreement shall be governed by the material laws of Switzerland and any dispute arising out of this Agreement or use of the PROGRAM shall be brought before
+	|  the courts of Zürich, Switzerland.
+
+	:return: p
+
+
+
+.. _ptycho_detector.virtual.virtual:
+
+.. function:: detector.virtual.virtual(p)
+
+	|  Settings of a virtual detector that creates artificial data
+	|  This file is called if you specify p.detector = 'virtual'.
+
+	:return: det
+
+
+
++detector/+virtual/private
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_detector.virtual.create_object:
+
+.. function:: detector.virtual.create_object(p)
+
+	|  CREATE_OBJECT create object for artificial scans
+	|  select object with sim.simulation.dataset in your simulation template
+
+	:return: obj
+
+
+
+.. _ptycho_detector.virtual.fourier_ptycho_data:
+
+.. function:: detector.virtual.fourier_ptycho_data(sim)
+
+	|  FOURIER_PTYCHO_DATA
+	|  Prepare and adjust artificial data for Fourier Ptychography
+
+	:return: sim
+
+
+
+.. _ptycho_detector.virtual.randpoisson:
+
+.. function:: detector.virtual.randpoisson(ltthresh)
+
+	|  function out=randpoisson(inarray,thresh);
+	|  outputs an array of poisson-distributed numbers with mean equal to inarray
+	|  For inarray values above the threshold thresh (default=32),
+	|  use a quick-and-dirty version of the gaussian method,
+	|  but with negatives clipped to zero
+	|  J.R. Fienup 10/22/99
+
+	:return: does this k index over         r(ind)
+
+
+
++engines
+""""""""
+.. _ptycho_engines.DM:
+
+.. function:: engines.DM(p)
+
+	|  DM Difference-Map algorithm
+
+	|  Publications most relevant to the Difference-Map implementation
+	|  + P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,
+	|  "High-Resolution Scanning X-ray Diffraction Microscopy," Science 321, 379-382 (2008)
+	|  + P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,
+	|  "Probe retrieval in ptychographic coherent diffractive imaging,"
+	|  Ultramicroscopy 109, 338–343 (2009)
+
+	:return: p, fdb
+
+
+
+.. _ptycho_engines.DM_MS:
+
+.. function:: engines.DM_MS(p)
+
+	|  [ p, fdb ] = DM_MS( p )
+
+	:return: p, fdb
+
+
+
+.. _ptycho_engines.GPU:
+
+.. function:: engines.GPU(p)
+
+	|  engines.GPU is a function.
+	|  [p_out, fdb] = GPU(p)
+
+	:return: p_out, fdb
+
+
+
+.. _ptycho_engines.ML:
+
+.. function:: engines.ML(p)
+
+	|  ML Maximum Likelihood refinement
+
+	|  Publications most relevant to the Maximum Likelihood refinement
+	|  + M. Guizar-Sicairos and J. R. Fienup, "Phase retrieval with transverse
+	|  translation diversity: a nonlinear optimization approach," Opt. Express 16, 7264-7278 (2008)
+	|  + P. Thibault and M. Guizar-Sicairos, "Maximum-likelihood refinement for
+	|  coherent diffractive imaging," New J. Phys. 14, 063004 (2012).
+
+	:return: p, fdb
+
+
+
+.. _ptycho_engines.ML_MS:
+
+.. function:: engines.ML_MS(p)
+
+	|  [ p, fdb ] = ML_MS( p )
+
+	:return: p, fdb
+
+
+
+.. _ptycho_engines.ML_MS_rot:
+
+.. function:: engines.ML_MS_rot(p)
+
+	|  UNTITLED7 Summary of this function goes here
+	|  Detailed explanation goes here
+
+	:return: p, fdb
+
+
+
+.. _ptycho_engines.c_solver:
+
+.. function:: engines.c_solver(p)
+
+	|  C_SOLVER external C++ code for DM and ML
+	:param p:       p structure
+
+
+
+
+
+
+
+	|  Publications most relevant to the Difference-Map implementation
+	|  + P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,
+	|  "High-Resolution Scanning X-ray Diffraction Microscopy," Science 321, 379-382 (2008)
+	|  + P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,
+	|  "Probe retrieval in ptychographic coherent diffractive imaging,"
+	|  Ultramicroscopy 109, 338–343 (2009)
+
+	|  Publications most relevant to the Maximum Likelihood refinement
+	|  + M. Guizar-Sicairos and J. R. Fienup, "Phase retrieval with transverse
+	|  translation diversity: a nonlinear optimization approach," Opt. Express 16, 7264-7278 (2008)
+	|  + P. Thibault and M. Guizar-Sicairos, "Maximum-likelihood refinement for
+	|  coherent diffractive imaging," New J. Phys. 14, 063004 (2012).
+
+	:return: * **p** - p structure
+		 * **fdb** - feedback structure
+	| see also :ref:`detector.prep_data.matlab_ps.prepare_data <ptycho_detector.prep_data.matlab_ps.prepare_data>`
+
+.. _ptycho_engines.presolver:
+
+.. function:: engines.presolver(p)
+
+	|  C_SOLVER external C++ code for DM in lower resolution
+
+	:return: p, fdb
+
+
+
++engines/+DM
+^^^^^^^^^^^^
++engines/+GPU
+^^^^^^^^^^^^^
+.. _ptycho_engines.GPU.GPU_DM:
+
+.. function:: engines.GPU.GPU_DM(self, par, cache, psi_dash, fourier_error, mode_id, iter)
+
+	|  engines.GPU.GPU_DM is a function.
+	|  [self, cache, psi_dash, fourier_error] = GPU_DM(self, par, cache, psi_dash, fourier_error, mode_id, iter)
+
+	:return: self, cache, psi_dash, fourier_error
+
+
+
+.. _ptycho_engines.GPU.GPU_LSQML:
+
+.. function:: engines.GPU.GPU_LSQML(self, par, cache, fourier_error, mode_id, iter)
+
+	|  engines.GPU.GPU_LSQML is a function.
+	|  [self, cache, fourier_error] = GPU_LSQML(self, par, cache, fourier_error, mode_id, iter)
+
+	:return: self, cache, fourier_error
+
+
+
+.. _ptycho_engines.GPU.GPU_PIE:
+
+.. function:: engines.GPU.GPU_PIE(self, par, cache, fourier_error, mode_id, iter)
+
+	|  engines.GPU.GPU_PIE is a function.
+	|  [self, cache, fourier_error] = GPU_PIE(self, par, cache, fourier_error, mode_id, iter)
+
+	:return: self, cache, fourier_error
+
+
+
+.. _ptycho_engines.GPU.Garray:
+
+.. function:: engines.GPU.Garray(array)
+
+	|  wrap the GPU functions for user so that CPU and GPU code is identical
+
+	:return: array
+
+
+
+.. _ptycho_engines.GPU.Gfun:
+
+.. function:: engines.GPU.Gfun(varargin)
+
+	|  Description: wrap the arrayfun function so that CPU and GPU code is identical
+
+	:return: varargout
+
+
+
+.. _ptycho_engines.GPU.Ggather:
+
+.. function:: engines.GPU.Ggather(varargin)
+
+	|  Description: wrap the GPU functions for user so that CPU and GPU code is identical
+
+	:return: varargout
+
+
+
+.. _ptycho_engines.GPU.Gpagefun:
+
+.. function:: engines.GPU.Gpagefun(fun, varargin)
+
+	|  wrapper around GPU pagefun function
+
+	:return: out
+
+
+
+.. _ptycho_engines.GPU.Gzeros:
+
+.. function:: engines.GPU.Gzeros(varargin)
+
+	|  Description: wrap the GPU functions for user so that CPU and GPU code is identical
+
+	:return: out
+
+
+
+.. _ptycho_engines.GPU.add_momentum_object:
+
+.. function:: engines.GPU.add_momentum_object(self, cache, par, object_upd_sum, iter, fourier_error, beta_object)
+
+	|  FUNCTION [self, cache] = add_momentum_object(self, cache, par, object_upd_sum, iter, fourier_error)
+	|  speed up convergence by adding momentum / integral term into the
+	|  update direction for the MLc method
+
+	:return: self, cache
+
+
+
+.. _ptycho_engines.GPU.add_momentum_probe:
+
+.. function:: engines.GPU.add_momentum_probe(self, cache, par, probe_upd, iter, fourier_error, beta_probe)
+
+	|  FUNCTION [self, cache] = add_momentum_probe(self, cache, par, probe_upd, iter, fourier_error)
+	|  speed up convergence by adding momentum / integral term into the
+	|  update direction for the MLc method
+
+	:return: self, cache
+
+
+
+.. _ptycho_engines.GPU.apply_SVD_filter:
+
+.. function:: engines.GPU.apply_SVD_filter(probe, Nmodes, mode)
+
+	|  the variable probe (OPRP) code
+	|  find SVD decomposition and limit the probe into several orthogonal
+	|  modes
+	|  additional prior knowledge can be also included
+
+	:return: probe, probe_evolution
+
+
+
+.. _ptycho_engines.GPU.apply_probe_contraints:
+
+.. function:: engines.GPU.apply_probe_contraints(probe, mode)
+
+	|  Academic License Agreement
+
+	|  Source Code
+
+	|  Introduction
+	|  •	This license agreement sets forth the terms and conditions under which the PAUL SCHERRER INSTITUT (PSI), CH-5232 Villigen-PSI, Switzerland (hereafter "LICENSOR")
+	|  will grant you (hereafter "LICENSEE") a royalty-free, non-exclusive license for academic, non-commercial purposes only (hereafter "LICENSE") to use the cSAXS
+	|  ptychography MATLAB package computer software program and associated documentation furnished hereunder (hereafter "PROGRAM").
+
+	|  Terms and Conditions of the LICENSE
+	|  1.	LICENSOR grants to LICENSEE a royalty-free, non-exclusive license to use the PROGRAM for academic, non-commercial purposes, upon the terms and conditions
+	|  hereinafter set out and until termination of this license as set forth below.
+	|  2.	LICENSEE acknowledges that the PROGRAM is a research tool still in the development stage. The PROGRAM is provided without any related services, improvements
+	|  or warranties from LICENSOR and that the LICENSE is entered into in order to enable others to utilize the PROGRAM in their academic activities. It is the
+	|  LICENSEE’s responsibility to ensure its proper use and the correctness of the results.”
+	|  3.	THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	|  A PARTICULAR PURPOSE AND NONINFRINGEMENT OF ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. IN NO EVENT SHALL THE LICENSOR, THE AUTHORS OR THE COPYRIGHT
+	|  HOLDERS BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE
+	|  OF THE PROGRAM OR OTHER DEALINGS IN THE PROGRAM.
+	|  4.	LICENSEE agrees that it will use the PROGRAM and any modifications, improvements, or derivatives of PROGRAM that LICENSEE may create (collectively,
+	|  "IMPROVEMENTS") solely for academic, non-commercial purposes and that any copy of PROGRAM or derivatives thereof shall be distributed only under the same
+	|  license as PROGRAM. The terms "academic, non-commercial", as used in this Agreement, mean academic or other scholarly research which (a) is not undertaken for
+	|  profit, or (b) is not intended to produce works, services, or data for commercial use, or (c) is neither conducted, nor funded, by a person or an entity engaged
+	|  in the commercial use, application or exploitation of works similar to the PROGRAM.
+	|  5.	LICENSEE agrees that it shall make the following acknowledgement in any publication resulting from the use of the PROGRAM or any translation of the code into
+	|  another computing language:
+	|  "Data processing was carried out using the cSAXS ptychography MATLAB package developed by the Science IT and the coherent X-ray scattering (CXS) groups, Paul
+	|  Scherrer Institut, Switzerland."
+
+	|  Additionally, any publication using the package, or any translation of the code into another computing language should cite for difference map:
+	|  P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer, High-resolution scanning X-ray diffraction microscopy, Science 321, 379–382 (2008).
+	|  (doi: 10.1126/science.1158573),
+	|  for mixed coherent modes:
+	|  P. Thibault and A. Menzel, Reconstructing state mixtures from diffraction measurements, Nature 494, 68–71 (2013). (doi: 10.1038/nature11806),
+	|  for LSQ-ML method
+	|  M. Odstrcil, A. Menzel, M.G. Sicairos,  Iterative least-squares solver for generalized maximum-likelihood ptychography, Optics Express, 2018
+	|  for OPRP method
+	|  M. Odstrcil, P. Baksh, S. A. Boden, R. Card, J. E. Chad, J. G. Frey, W. S. Brocklesby,  "Ptychographic coherent diffractive imaging with orthogonal probe relaxation." Optics express 24.8 (2016): 8360-8369
+	|  and/or for multislice:
+	|  E. H. R. Tsai, I. Usov, A. Diaz, A. Menzel, and M. Guizar-Sicairos, X-ray ptychography with extended depth of field, Opt. Express 24, 29089–29108 (2016).
+	|  6.	Except for the above-mentioned acknowledgment, LICENSEE shall not use the PROGRAM title or the names or logos of LICENSOR, nor any adaptation thereof, nor the
+	|  names of any of its employees or laboratories, in any advertising, promotional or sales material without prior written consent obtained from LICENSOR in each case.
+	|  7.	Ownership of all rights, including copyright in the PROGRAM and in any material associated therewith, shall at all times remain with LICENSOR, and LICENSEE
+	|  agrees to preserve same. LICENSEE agrees not to use any portion of the PROGRAM or of any IMPROVEMENTS in any machine-readable form outside the PROGRAM, nor to
+	|  make any copies except for its internal use, without prior written consent of LICENSOR. LICENSEE agrees to place the following copyright notice on any such copies:
+	|  © All rights reserved. PAUL SCHERRER INSTITUT, Switzerland, Laboratory for Macromolecules and Bioimaging, 2017.
+	|  8.	The LICENSE shall not be construed to confer any rights upon LICENSEE by implication or otherwise except as specifically set forth herein.
+	|  9.	DISCLAIMER: LICENSEE shall be aware that Phase Focus Limited of Sheffield, UK has an international portfolio of patents and pending applications which relate
+	|  to ptychography and that the PROGRAM may be capable of being used in circumstances which may fall within the claims of one or more of the Phase Focus patents,
+	|  in particular of patent with international application number PCT/GB2005/001464. The LICENSOR explicitly declares not to indemnify the users of the software
+	|  in case Phase Focus or any other third party will open a legal action against the LICENSEE due to the use of the program.
+	|  10.	This Agreement shall be governed by the material laws of Switzerland and any dispute arising out of this Agreement or use of the PROGRAM shall be brought before
+	|  the courts of Zürich, Switzerland.
+
+	:return: probe
+
+
+
+.. _ptycho_engines.GPU.apply_smoothness_constraint:
+
+.. function:: engines.GPU.apply_smoothness_constraint(x, alpha)
+
+	|  simple relaxed smoothness constaint
+
+	:return: x
+
+
+
+.. _ptycho_engines.GPU.back_fourier_proj:
+
+.. function:: engines.GPU.back_fourier_proj(Psi, mode)
+
+	|  Description: back propagate to the sample plane
+
+	:return: Psi
+
+
+
+.. _ptycho_engines.GPU.calculate_conj_grad_dir:
+
+.. function:: engines.GPU.calculate_conj_grad_dir(self, x_n, x_0, h, W, cache)
+
+	|  FUNCTION [x_0, h] = calculate_conj_grad_dir(self,x_n, x_0, h, W, cache)
+
+	:return: x_0, h
+
+
+
+.. _ptycho_engines.GPU.check_gpu_memory:
+
+.. function:: engines.GPU.check_gpu_memory(show)
+
+	|  FUNCTION memory_out = check_gpu_memory(show)
+	|  Description: check and possibly report the available GPU memory
+
+	:return: memory_out
+
+
+
+.. _ptycho_engines.GPU.clean_residua:
+
+.. function:: engines.GPU.clean_residua(self, cache)
+
+	|  FUNCTION self = clean_residua(self)
+	|  use 2D FFT unwrapping to remove phase residua
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.extract_PCA:
+
+.. function:: engines.GPU.extract_PCA(x, N)
+
+	|  [X,V] = extract_PCA(x, N)
+	|  Extract N principal compenents of 3D array x using SVD
+
+	:return: X, V
+
+
+
+.. _ptycho_engines.GPU.find_geom_correction:
+
+.. function:: engines.GPU.find_geom_correction(self, cache, par, iter, best_mode_id)
+
+	|  FUNCTION  [self] = find_geom_correction(self,cache, par, iter,best_mode_id)
+	|  use current probe positions estimates to update geometry model and
+	|  improve the  new probe positions
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.flip_mirror_scan:
+
+.. function:: engines.GPU.flip_mirror_scan(self, align_objects)
+
+	|  FUNCTION   self = flip_mirror_scan(self)
+	|  join two scans obtained at 0 and 180 degrees to get a better estiamte
+	|  of geometry errors
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.fwd_fourier_proj:
+
+.. function:: engines.GPU.fwd_fourier_proj(Psi, mode)
+
+	|  FUNCTION   Psi = fwd_fourier_proj(Psi, mode)
+	|  Description: forward propagation
+
+	:return: Psi
+
+
+
+.. _ptycho_engines.GPU.get_close_indices:
+
+.. function:: engines.GPU.get_close_indices(self, cache, par)
+
+	|  FUNCTION   [indices_out, scan_ids_out] = get_close_indices(self, cache, par )
+	|  Description: simple based method to select indices for DM
+	|  !! GPU needs the sets to be with similar , ideally the same sizes !!!
+
+	:return: indices_out, scan_ids_out
+
+
+
+.. _ptycho_engines.GPU.get_forward_model:
+
+.. function:: engines.GPU.get_forward_model(self, obj_proj, par, cache, g_ind, p_ind, scan_ids, layer_ids)
+
+	|  Academic License Agreement
+
+	|  Source Code
+
+	|  Introduction
+	|  •	This license agreement sets forth the terms and conditions under which the PAUL SCHERRER INSTITUT (PSI), CH-5232 Villigen-PSI, Switzerland (hereafter "LICENSOR")
+	|  will grant you (hereafter "LICENSEE") a royalty-free, non-exclusive license for academic, non-commercial purposes only (hereafter "LICENSE") to use the cSAXS
+	|  ptychography MATLAB package computer software program and associated documentation furnished hereunder (hereafter "PROGRAM").
+
+	|  Terms and Conditions of the LICENSE
+	|  1.	LICENSOR grants to LICENSEE a royalty-free, non-exclusive license to use the PROGRAM for academic, non-commercial purposes, upon the terms and conditions
+	|  hereinafter set out and until termination of this license as set forth below.
+	|  2.	LICENSEE acknowledges that the PROGRAM is a research tool still in the development stage. The PROGRAM is provided without any related services, improvements
+	|  or warranties from LICENSOR and that the LICENSE is entered into in order to enable others to utilize the PROGRAM in their academic activities. It is the
+	|  LICENSEE’s responsibility to ensure its proper use and the correctness of the results.”
+	|  3.	THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+	|  A PARTICULAR PURPOSE AND NONINFRINGEMENT OF ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. IN NO EVENT SHALL THE LICENSOR, THE AUTHORS OR THE COPYRIGHT
+	|  HOLDERS BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE
+	|  OF THE PROGRAM OR OTHER DEALINGS IN THE PROGRAM.
+	|  4.	LICENSEE agrees that it will use the PROGRAM and any modifications, improvements, or derivatives of PROGRAM that LICENSEE may create (collectively,
+	|  "IMPROVEMENTS") solely for academic, non-commercial purposes and that any copy of PROGRAM or derivatives thereof shall be distributed only under the same
+	|  license as PROGRAM. The terms "academic, non-commercial", as used in this Agreement, mean academic or other scholarly research which (a) is not undertaken for
+	|  profit, or (b) is not intended to produce works, services, or data for commercial use, or (c) is neither conducted, nor funded, by a person or an entity engaged
+	|  in the commercial use, application or exploitation of works similar to the PROGRAM.
+	|  5.	LICENSEE agrees that it shall make the following acknowledgement in any publication resulting from the use of the PROGRAM or any translation of the code into
+	|  another computing language:
+	|  "Data processing was carried out using the cSAXS ptychography MATLAB package developed by the Science IT and the coherent X-ray scattering (CXS) groups, Paul
+	|  Scherrer Institut, Switzerland."
+
+	|  Additionally, any publication using the package, or any translation of the code into another computing language should cite for difference map:
+	|  P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer, High-resolution scanning X-ray diffraction microscopy, Science 321, 379–382 (2008).
+	|  (doi: 10.1126/science.1158573),
+	|  for maximum likelihood:
+	|  P. Thibault and M. Guizar-Sicairos, Maximum-likelihood refinement for coherent diffractive imaging, New J. Phys. 14, 063004 (2012).
+	|  (doi: 10.1088/1367-2630/14/6/063004),
+	|  for mixed coherent modes:
+	|  P. Thibault and A. Menzel, Reconstructing state mixtures from diffraction measurements, Nature 494, 68–71 (2013). (doi: 10.1038/nature11806),
+	|  and/or for multislice:
+	|  E. H. R. Tsai, I. Usov, A. Diaz, A. Menzel, and M. Guizar-Sicairos, X-ray ptychography with extended depth of field, Opt. Express 24, 29089–29108 (2016).
+	|  (doi: 10.1364/OE.24.029089).
+	|  6.	Except for the above-mentioned acknowledgment, LICENSEE shall not use the PROGRAM title or the names or logos of LICENSOR, nor any adaptation thereof, nor the
+	|  names of any of its employees or laboratories, in any advertising, promotional or sales material without prior written consent obtained from LICENSOR in each case.
+	|  7.	Ownership of all rights, including copyright in the PROGRAM and in any material associated therewith, shall at all times remain with LICENSOR, and LICENSEE
+	|  agrees to preserve same. LICENSEE agrees not to use any portion of the PROGRAM or of any IMPROVEMENTS in any machine-readable form outside the PROGRAM, nor to
+	|  make any copies except for its internal use, without prior written consent of LICENSOR. LICENSEE agrees to place the following copyright notice on any such copies:
+	|  © All rights reserved. PAUL SCHERRER INSTITUT, Switzerland, Laboratory for Macromolecules and Bioimaging, 2017.
+	|  8.	The LICENSE shall not be construed to confer any rights upon LICENSEE by implication or otherwise except as specifically set forth herein.
+	|  9.	DISCLAIMER: LICENSEE shall be aware that Phase Focus Limited of Sheffield, UK has an international portfolio of patents and pending applications which relate
+	|  to ptychography and that the PROGRAM may be capable of being used in circumstances which may fall within the claims of one or more of the Phase Focus patents,
+	|  in particular of patent with international application number PCT/GB2005/001464. The LICENSOR explicitly declares not to indemnify the users of the software
+	|  in case Phase Focus or any other third party will open a legal action against the LICENSEE due to the use of the program.
+	|  10.	This Agreement shall be governed by the material laws of Switzerland and any dispute arising out of this Agreement or use of the PROGRAM shall be brought before
+	|  the courts of Zürich, Switzerland.
+
+	:return: self, probe, obj_proj, psi
+
+
+
+.. _ptycho_engines.GPU.get_fourier_error:
+
+.. function:: engines.GPU.get_fourier_error(modF, aPsi, Noise, Mask, likelihood)
+
+	|  FUNCTION  Err = get_fourier_error(modF, aPsi, Noise,Mask, likelihood)
+	|  Description: fast calculation of the Fourier plane
+
+	:return: Err
+
+
+
+.. _ptycho_engines.GPU.get_mask:
+
+.. function:: engines.GPU.get_mask(self, mask_indices, ind)
+
+	|  FUNCTION  mask = get_mask(self,mask_indices, ind)
+	|  Description:  get self.mask for current list of indices ind
+
+	:return: mask
+
+
+
+.. _ptycho_engines.GPU.get_modulus:
+
+.. function:: engines.GPU.get_modulus(self, cache, ind, move_to_gpu, bunch_id)
+
+	|  FUNCTION  modF = get_modulus(self, cache, ind, move_to_gpu, bunch_id)
+	|  load and prepare data for current positions ind
+
+	:return: modF
+
+
+
+.. _ptycho_engines.GPU.get_noise:
+
+.. function:: engines.GPU.get_noise(self, par, g_ind)
+
+	|  FUNCTION noise = get_noise(self, par, g_ind)
+	|  load and prepare noise estimate for current positions ind
+
+	:return: noise
+
+
+
+.. _ptycho_engines.GPU.get_nonoverlapping_indices:
+
+.. function:: engines.GPU.get_nonoverlapping_indices(self, cache, par)
+
+	|  FUNCTION [indices_out, scan_ids_out] = get_nonoverlapping_indices(self, cache, par )
+	|  Description: a heuristic based method to select pseudorandom indices of non overlapping regions
+	|  Note: It can be slow for large number of scanning positions
+
+	:return: indices_out, scan_ids_out
+
+
+
+.. _ptycho_engines.GPU.get_object_extent:
+
+.. function:: engines.GPU.get_object_extent(probe_size, probe_positions, extra)
+
+	|  FUNCTION Np_o_new = get_object_extent(probe_size, probe_positions, extra)
+	|  Description: estimate the minimal area surrounding all the probe positions
+
+	:return: Np_o_new
+
+
+
+.. _ptycho_engines.GPU.get_optimal_LSQ_step:
+
+.. function:: engines.GPU.get_optimal_LSQ_step(self, chi, dO, dP, O, P, p_ind, par)
+
+	|  find optimal step in the LSQ sense
+
+	:return: beta_probe, beta_object
+
+
+
+.. _ptycho_engines.GPU.get_reciprocal_model:
+
+.. function:: engines.GPU.get_reciprocal_model(self, Psi, modF, mask, iter, g_ind, par, cache)
+
+	|  FUNCTION [aPsi, aPsi2, cache, self] = get_reciprocal_model(self, Psi, modF, mask,iter, g_ind, par, cache)
+	|  Description: get estimate of the measured intensity from given electric
+	|  field Psi
+
+
+	:return: aPsi, aPsi2, cache, self
+
+
+
+.. _ptycho_engines.GPU.get_scanning_indices:
+
+.. function:: engines.GPU.get_scanning_indices(self, cache, par)
+
+	|  FUNCTION [indices_out, scan_ids_out] = get_scanning_indices(self, cache, par )
+	|  Description: simple based method to select indices for DM
+
+
+	:return: indices_out, scan_ids_out
+
+
+
+.. _ptycho_engines.GPU.get_variable_probe:
+
+.. function:: engines.GPU.get_variable_probe(probe, probe_evolution, p_ind)
+
+	|  FUNCTION probe = get_variable_probe(probe, probe_evolution, p_ind)
+	|  Description: calculate variable probe for given mean/var probe and its evolution inputs
+
+	:return: probe
+
+
+
+.. _ptycho_engines.GPU.get_views:
+
+.. function:: engines.GPU.get_views(object, obj_proj, layer, ll, ii, cache, scan_ids, skip_ind)
+
+	|  FUNCTION obj_proj = get_views(object, obj_proj,layer,ll, ii, cache, scan_ids, skip_ind)
+	|  Description: estimate the minimal area surrounding all the probe positions
+
+	:return: obj_proj
+
+
+
+.. _ptycho_engines.GPU.gpu_wrapper:
+
+.. function:: engines.GPU.gpu_wrapper(param)
+
+	|  FUNCTION param= gpu_wrapper(param)
+	|  Description: wrap the GPU functions for user so that CPU and GPU code is identical
+
+	:return: param
+
+
+
+.. _ptycho_engines.GPU.gradient_NF_propagation_solver:
+
+.. function:: engines.GPU.gradient_NF_propagation_solver(self, psi, xi, cache, ind)
+
+	|  FUNCTION self = gradient_NF_propagation_solver(self,psi,xi, cache, ind)
+	|  Description: update estimate of the nearfield propagation distance based on the
+	|  current update of the wavefront
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.gradient_descent_xi_solver:
+
+.. function:: engines.GPU.gradient_descent_xi_solver(self, modF, aPsi2, R, mask, ind, beta_chi, cache, Psi, chi)
+
+	|  FUNCTION [beta_chi, find_chi_step] =  gradient_descent_xi_solver(self,modF, aPsi2, R,mask, ind, beta_chi, cache, Psi, chi)
+	|  Description: solve optimal update step for the Poisson noise method
+
+	:return: beta_chi, find_chi_step
+
+
+
+.. _ptycho_engines.GPU.gradient_fourier_position_solver:
+
+.. function:: engines.GPU.gradient_fourier_position_solver(xi, O, P, mode, ind)
+
+	|  FUNCTION mode = gradient_fourier_position_solver(xi,O,P,mode, ind)
+	|  Description: solve position errors in the Fourier space
+
+	:return: mode
+
+
+
+.. _ptycho_engines.GPU.gradient_position_solver:
+
+.. function:: engines.GPU.gradient_position_solver(self, xi, O, P, ind, iter, cache)
+
+	|  FUNCTION pos_update = gradient_position_solver(xi,O,P,ind)
+	|  Description: solve position errors in the real space
+
+	:return: pos_update, cache
+
+
+
+.. _ptycho_engines.GPU.gradient_projection_solver:
+
+.. function:: engines.GPU.gradient_projection_solver(self, xi, O, P, dO, dP, p_ind, par, cache)
+
+	|  FUNCTION [beta_p, beta_o] =  gradient_projection_solver(self,xi,O,P,dO,dP,p_ind,par, cache)
+	|  Description:  1D search for the optimal step in the gradients descent-like methods
+
+	:return: beta_p, beta_o
+
+
+
+.. _ptycho_engines.GPU.initial_checks:
+
+.. function:: engines.GPU.initial_checks(self, par)
+
+	|  FUNCTION [self,par] = initial_checks(self, par)
+	|  Description: check if the inputs are valid or try to correct them
+
+	:return: self, par
+
+
+
+.. object:: initialize
+
+	|  FUNCTION [param] = initialize
+	|  list of default parameters
+
+
+.. _ptycho_engines.GPU.initialize_solver:
+
+.. function:: engines.GPU.initialize_solver(self, par)
+
+	|  FUNCTION  [self, cache] = initialize_solver(self,par)
+	|  initialize GPU ptycho reconstruction, generate cache values, fftshift
+	|  data, etc
+
+	:return: self, cache
+
+
+
+.. _ptycho_engines.GPU.is_method:
+
+.. function:: engines.GPU.is_method(par, method)
+
+	|  FUNCTION match = is_method(par, method)
+	|  try if the method match or at least partially match
+
+	:return: match
+
+
+
+.. _ptycho_engines.GPU.is_used:
+
+.. function:: engines.GPU.is_used(param, extension)
+
+	|  FUNCTION used = is_used(param, extension)
+	|  Description:  Check if the extension/extensions is set to be used
+	|  Example: is_used(param, {'ext1', 'ext2'})
+
+	:return: used
+
+
+
+.. _ptycho_engines.GPU.modulus_constraint:
+
+.. function:: engines.GPU.modulus_constraint(modF, aPsi, Psi, mask, noise, relax_noise, likelihood, R_offset)
+
+	|  FUNCTION [chi,R] = modulus_constraint(modF,aPsi ,Psi, mask, noise, relax_noise,likelihood , R_offset)
+	|  Description: universal fast relaxed modulus constraint
+
+	:return: chi, R
+
+
+
+.. _ptycho_engines.GPU.move_from_gpu:
+
+.. function:: engines.GPU.move_from_gpu(self, move_from_GPU)
+
+	|  FUNCTION self =  move_from_gpu(self, move_from_GPU)
+	|  Description: move reconstruction back from GPU to RAM
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.move_to_gpu:
+
+.. function:: engines.GPU.move_to_gpu(self, cache, move_data, split_data)
+
+	|  FUNCTION self =  move_to_gpu(self,cache, move_data, split_data)
+	|  Description: move reconstruction from RAM to GPU
+
+	:return: self, cache
+
+
+
+.. _ptycho_engines.GPU.online_FSC_estimate:
+
+.. function:: engines.GPU.online_FSC_estimate(self, par, cache, score_0, iter)
+
+	|  score = online_FSC_estimate(self, par, cache, score_0, iter)
+	|  compare two scans and estimate FSC and other statistics
+
+	:return: score
+
+
+
+.. _ptycho_engines.GPU.plot_background_intensity:
+
+.. function:: engines.GPU.plot_background_intensity(self, probe, background)
+
+	|  FUNCTION plot_background_intensity(self,probe,  background)
+
+
+.. _ptycho_engines.GPU.plot_frc_analysis:
+
+.. function:: engines.GPU.plot_frc_analysis(score, par)
+
+	|  FUNCTION plot_frc_analysis(score, par)
+	|  plot evolution of the resolution and SNR estimated from the FRC
+
+
+.. _ptycho_engines.GPU.plot_geom_corrections:
+
+.. function:: engines.GPU.plot_geom_corrections(self, mode, object, iter, par, cache)
+
+	|  FUNCTION plot_geom_corrections(self, mode, object, iter, par, cache)
+	|  plot positiones updates
+
+
+.. _ptycho_engines.GPU.plot_intensity_corr:
+
+.. function:: engines.GPU.plot_intensity_corr(self)
+
+	|  FUNCTION plot_geom_corrections(self, mode, object, iter, par, cache)
+	|  plot intensity correction evolution
+
+
+.. _ptycho_engines.GPU.plot_object_modes:
+
+.. function:: engines.GPU.plot_object_modes(self, cache, ROI)
+
+	|  FUNCTION plot_object{ii}(self, object{ii},par, id, show_ROI, scales, ROI)
+	|  plot incoherent object{ii} of object{ii} or the probes
+
+
+.. _ptycho_engines.GPU.plot_probe_modes:
+
+.. function:: engines.GPU.plot_probe_modes(self, par)
+
+	|  FUNCTION plot_probe(self, probe,par, id, show_ROI, scales, ROI)
+	|  plot incoherent probe of object or the probes
+
+
+.. _ptycho_engines.GPU.plot_results:
+
+.. function:: engines.GPU.plot_results(self, cache, par, fourier_error, probe_positions)
+
+	|  FUNCTION plot_results(self, cache, par, fourier_error,probe_positions)
+	|  Description: show current reconstruction and errors during ptychography
+
+
+.. _ptycho_engines.GPU.plot_variable_probe:
+
+.. function:: engines.GPU.plot_variable_probe(self, par)
+
+	|  FUNCTION plot_variable_probe(self, par)
+	|  plot SVD decomposition of the probes to show their differences
+
+
+.. _ptycho_engines.GPU.precalculate_ROI:
+
+.. function:: engines.GPU.precalculate_ROI(self, cache, probe)
+
+	|  FUNCTION plot_variable_probe(self, par)
+	|  Description: precalculate the ROIs area for faster calculations
+
+	:return: cache
+
+
+
+.. _ptycho_engines.GPU.prepare_flyscan_positions:
+
+.. function:: engines.GPU.prepare_flyscan_positions(self, par)
+
+	|  engines.GPU.prepare_flyscan_positions is a function.
+	|  self = prepare_flyscan_positions(self, par)
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.ptycho_solver:
+
+.. function:: engines.GPU.ptycho_solver(self, par, cache)
+
+	|  FUNCTION plot_variable_probe(self, par)
+	|  Description: the main loop of ptychography. Call the selected engine
+
+	:return: outputs, fourier_error, fsc_score
+
+
+
+.. _ptycho_engines.GPU.rescale_inputs:
+
+.. function:: engines.GPU.rescale_inputs(self, Np_p_new, rescale_data)
+
+	|  FUNCTION self = rescale_inputs(self, Np_p_new, rescale_data)
+	|  multigrid scheme method ,
+	|  INPUTS:
+	|  Np_p_new - new size of the rescaled dataset
+	|  rescale_data = true -> rescale also data + mask + noise arrays
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.set_views:
+
+.. function:: engines.GPU.set_views(object, object_update, layer, ll, ii, cache, scan_ids, skip_ind)
+
+	|  FUNCTION object = set_views(object, object_update, layer,ll, ii, cache, scan_ids, skip_ind)
+	|  Description: Reduce stack of projections into one shared object
+
+	:return: object
+
+
+
+.. _ptycho_engines.GPU.set_views_rc:
+
+.. function:: engines.GPU.set_views_rc(obj_update, obj_illum, psi_tmp, aprobe, layer, ll, ii, cache, scan_ids, skip_ind)
+
+	|  FUNCTION [obj_update,obj_illum] = set_views_rc(obj_update,obj_illum, psi_tmp,aprobe,layer,ll, ii, cache, scan_ids, skip_ind, Nobjects)
+	|  Description: update complex and real object at once
+
+	:return: obj_update, obj_illum
+
+
+
+.. _ptycho_engines.GPU.update_variable_probe:
+
+.. function:: engines.GPU.update_variable_probe(self, probe, probe_evolution, m_probe_update, probe_update, obj_proj, chi, weights, p_ind, g_ind, cache, par)
+
+	|  FUNCTION [probe, probe_evolution] = update_variable_probe(self,probe, probe_evolution, m_probe_update,probe_update, obj_proj, chi, weights, p_ind, g_ind, cache, par)
+	|  approximation of the OPRP method to get only the first orthogonal
+	|  vector describing the probe
+
+	:return: probe, probe_evolution
+
+
+
++engines/+GPU/private
+^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_engines.GPU.cat_struct:
+
+.. function:: engines.GPU.cat_struct(struct, name, ind)
+
+	|  FUNCTION array = cat_struct( struct, name, ind)
+
+	:return: array
+
+
+
+.. _ptycho_engines.GPU.distmat:
+
+.. function:: engines.GPU.distmat(a, varargin)
+
+	|  DISTMAT Compute a Distance Matrix for One or Two Sets of Points
+
+
+
+	|  Copyright (c) 2015, Joseph Kirk
+	|  All rights reserved.
+
+	|  Redistribution and use in source and binary forms, with or without
+	|  modification, are permitted provided that the following conditions are
+	|  met:
+
+	|  * Redistributions of source code must retain the above copyright
+	|  notice, this list of conditions and the following disclaimer.
+	|  * Redistributions in binary form must reproduce the above copyright
+	|  notice, this list of conditions and the following disclaimer in
+	|  the documentation and/or other materials provided with the distribution
+
+	|  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+	|  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+	|  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+	|  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+	|  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+	|  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+	|  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+	|  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+	|  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+	|  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+	|  POSSIBILITY OF SUCH DAMAGE.
+
+
+	:return: dmat
+
+
+
+.. _ptycho_engines.GPU.fft2_safe:
+
+.. function:: engines.GPU.fft2_safe(x)
+
+	|  FUNCTION x = fft2_safe(x)
+	|  wrapper around fft2, in case of low memory it will try to repeat
+	|  Ntimes before giving up
+
+	:return: x
+
+
+
+.. _ptycho_engines.GPU.find_reconstruction_ROI:
+
+.. function:: engines.GPU.find_reconstruction_ROI(positions, Np_o, Np_p)
+
+	|  FUNCTION [oROI, oROI_vec, sub_px_shift] = find_reconstruction_ROI( positions,Np_o, Np_p )
+	|  Description: precalculate the reconstruction regions for CPU and GPU
+
+	:return: oROI, oROI_vec, sub_px_shift
+
+
+
+.. _ptycho_engines.GPU.fourier_ring_correlation:
+
+.. function:: engines.GPU.fourier_ring_correlation(object_1, object_2, varargin)
+
+	|  FUNCTION [score, object{1}, object{2}] =  fourier_ring_correlation(object{1}, object{2}, varargin)
+	|  simplified but faster version of the FRC code
+
+	:return: score, object
+
+
+
+.. _ptycho_engines.GPU.fsvd:
+
+.. function:: engines.GPU.fsvd(A, k, i, usePowerMethod)
+
+	|  --- help for svd ---
+	|  SVD    Singular value decomposition.
+	|  [U,S,V] = SVD(X) produces a diagonal matrix S, of the same
+	|  dimension as X and with nonnegative diagonal elements in
+	|  decreasing order, and unitary matrices U and V so that
+	|  X = U*S*V'.
+
+	|  S = SVD(X) returns a vector containing the singular values.
+
+	|  [U,S,V] = SVD(X,0) produces the "economy size"
+	|  decomposition. If X is m-by-n with m > n, then only the
+	|  first n columns of U are computed and S is n-by-n.
+	|  For m <= n, SVD(X,0) is equivalent to SVD(X).
+
+	|  [U,S,V] = SVD(X,'econ') also produces the "economy size"
+	|  decomposition. If X is m-by-n with m >= n, then it is
+	|  equivalent to SVD(X,0). For m < n, only the first m columns
+	|  of V are computed and S is m-by-m.
+
+	|  See also SVDS, GSVD.
+	|  Reference page in Doc Center
+	|  doc svd
+	|  Other functions named svd
+	|  codistributed/svd    frd/svd    gpuArray/svd    sym/svd
+
+	:return: U, S, V
+
+
+
+.. _ptycho_engines.GPU.get_ROI:
+
+.. function:: engines.GPU.get_ROI(mask, extent, type)
+
+	|  FUNCTION  [ROI, range,  coord] = get_ROI(mask, extent, type)
+	|  Description: find optimal rectange containing the mask
+
+	:return: ROI
+
+
+
+.. _ptycho_engines.GPU.get_img_grad:
+
+.. function:: engines.GPU.get_img_grad(img)
+
+	|  FUNCTION   [dX, dY] = get_img_grad(img)
+	|  Description:  get vertical and horizontal gradient of the image
+
+	:return: dX, dY
+
+
+
+.. _ptycho_engines.GPU.ifft2_safe:
+
+.. function:: engines.GPU.ifft2_safe(x)
+
+	|  FUNCTION  x = ifft2_safe(x)
+	|  Description:     wrapper around fft2, in case of low memory it will
+	|  try to repeat 5-times before giving up
+
+	:return: x
+
+
+
+.. _ptycho_engines.GPU.imagesc_hsv:
+
+.. function:: engines.GPU.imagesc_hsv(varargin)
+
+	|  FUNCTION  [cax_out, rgb_data] = imagesc_hsv(varargin)
+	|  Description: imagesc for drawing complex number arrays
+
+	:return: cax_out, rgb_data
+
+
+
+.. _ptycho_engines.GPU.intersections:
+
+.. function:: engines.GPU.intersections(x1, y1, x2, y2, robust)
+
+	|  INTERSECTIONS Intersections of curves.
+	|  Computes the (x,y) locations where two curves intersect.  The curves
+	|  can be broken with NaNs or have vertical segments.
+
+	|  Example:
+	|  [X0,Y0] = intersections(X1,Y1,X2,Y2,ROBUST);
+
+	|  where X1 and Y1 are equal-length vectors of at least two points and
+	|  represent curve 1.  Similarly, X2 and Y2 represent curve 2.
+	|  X0 and Y0 are column vectors containing the points at which the two
+	|  curves intersect.
+
+	|  ROBUST (optional) set to 1 or true means to use a slight variation of the
+	|  algorithm that might return duplicates of some intersection points, and
+	|  then remove those duplicates.  The default is true, but since the
+	|  algorithm is slightly slower you can set it to false if you know that
+	|  your curves don't intersect at any segment boundaries.  Also, the robust
+	|  version properly handles parallel and overlapping segments.
+
+	|  The algorithm can return two additional vectors that indicate which
+	|  segment pairs contain intersections and where they are:
+
+	|  [X0,Y0,I,J] = intersections(X1,Y1,X2,Y2,ROBUST);
+
+	|  For each element of the vector I, I(k) = (segment number of (X1,Y1)) +
+	|  (how far along this segment the intersection is).  For example, if I(k) =
+	|  45.25 then the intersection lies a quarter of the way between the line
+	|  segment connecting (X1(45),Y1(45)) and (X1(46),Y1(46)).  Similarly for
+	|  the vector J and the segments in (X2,Y2).
+
+	|  You can also get intersections of a curve with itself.  Simply pass in
+	|  only one curve, i.e.,
+
+	|  [X0,Y0] = intersections(X1,Y1,ROBUST);
+
+	|  where, as before, ROBUST is optional.
+
+	:return: x0, y0, iout, jout
+
+
+
+.. _ptycho_engines.GPU.near_field_evolution:
+
+.. function:: engines.GPU.near_field_evolution(u_0, z, lambda, extent, use_ASM_only)
+
+	|  FUNCTION  [u_1, H, h, dH] = near_field_evolution(u_0, z, lambda, extent, use_ASM_only)
+	|  Description: nearfield evolution function, it automatically swithc
+	|  between ASM and Fraunhofer propagation
+
+	:return: u_1, H, h, dH
+
+
+
+.. _ptycho_engines.GPU.ortho_modes:
+
+.. function:: engines.GPU.ortho_modes(x)
+
+	|  FUNCTION  x = ortho_modes(x)
+	|  Description:  return orthogonal modes, without any normalization , expect cells
+
+	:return: x
+
+
+
+.. _ptycho_engines.GPU.ortho_modes_eig:
+
+.. function:: engines.GPU.ortho_modes_eig(x)
+
+	|  FUNCTION  x = ortho_modes_eig(x)
+	|  Description: orthogonal modes using eigen values
+
+	:return: x
+
+
+
+.. _ptycho_engines.GPU.regulation_multilayers:
+
+.. function:: engines.GPU.regulation_multilayers(self, par, cache)
+
+	|  FUNCTION self = regulation_multilayers(self, par, cache)
+	|  Description: try to avoid ambiguity in yhr multilayer reconstruction
+
+	:return: self
+
+
+
+.. _ptycho_engines.GPU.shift_probe:
+
+.. function:: engines.GPU.shift_probe(img, shift)
+
+	|  img = shift_probe(img, shift)
+	|  subpixel probe shifting
+
+	:return: img
+
+
+
+.. _ptycho_engines.GPU.shift_probe_fft:
+
+.. function:: engines.GPU.shift_probe_fft(img, shift)
+
+	|  img = shift_probe_fft(img, shift)
+	|  fast shifting in fourier space
+
+	:return: img
+
+
+
+.. _ptycho_engines.GPU.show_spatial_distribution:
+
+.. function:: engines.GPU.show_spatial_distribution(pos, values, symmetrize, plot_points, range, scale)
+
+	|  FUNCTION  show_spatial_distribution(pos, values, symmetrize, plot_points, range, scale )
+	|  Description: show spatial distribution of some variable, you can also use
+	|  scatter or scatter_hsv
+
+
++engines/+ML
+^^^^^^^^^^^^
+.. _ptycho_engines.ML.brent:
+
+.. function:: engines.ML.brent(func, x0, dx, a1, a, a2, f1, f, f2, varargin)
+
+	|  one-dimensional minimization by parabolic interpolation & golden
+	|  section (does not use the gradient)
+
+	|  [a,f] = brent(func,x0,dx,a1,a,a2,f1,f,f2,varargin)
+
+	|  func = string name of objective function
+	|  x0 = starting point of linesearch
+	|  dx = direction of linesearch
+	|  a1,a,a2 = bracketing triplet of steplengths (a1<a<a2)
+	|  f1,f,f2 = objective function at steplengths a1, a, & a2
+	|  a = output as final steplength
+	|  f = output as objective function at final steplength
+
+	:return: a, f
+
+
+
+.. _ptycho_engines.ML.cgmin1:
+
+.. function:: engines.ML.cgmin1(func, x, itmax, ftol, xtol, varargin)
+
+	|  conjugate-gradient optimization routine
+	|  NOTE: linesearch subroutines do not use the gradient
+
+	|  [x] = cgmin1(func,x,itmax,ftol,xtol,varargin)
+
+	|  func = string name of objective function which returns both the
+	|  objective function value and the gradient
+	|  x = input as initial starting point and output as final point
+	|  itmax = maximum number of iterations (empty for default = 50)
+	|  ftol = relative function tolerance (empty for default = 1e-3)
+	|  xtol = absolute solution tolerance (empty for default = 1e-3)
+	|  varargin = extra variables required by objective function
+
+	|  DISCLAIMER: This code is not intended for distribution. I have many
+	|  versions of this code and am constantly revising it. I believe this
+	|  version is working properly. However, I will not vouch for the code.
+	|  Anyone using the code for thesis research has a responsibility to go
+	|  through the code line-by-line and read relevant references to understand
+	|  the code completely. In my opinion, you have two options if you want to
+	|  publish results obtained with the code: (i) go through the code line-by-
+	|  line and read relevent references to understand how the code works and make
+	|  sure it is working properly for your application, or (ii) I can sit down
+	|  with you an go through this code and the additional code that you have
+	|  written to go along with it and make sure it is working properly. Option
+	|  (i) is preferred, and I ask that you do NOT acknowledge me in print (first,
+	|  it would be more appropriate for you to reference "Numerical Recipes",
+	|  and second, I prefer not to be named in a paper with which I do not have
+	|  detailed knowledge). If you decide to go with option (ii), I would expect
+	|  to learn the details of your research and be included in the author list.
+
+	|  Sam Thurman, May 9, 2005
+
+	:return: x, p
+
+
+
+.. _ptycho_engines.ML.gradient_ptycho:
+
+.. function:: engines.ML.gradient_ptycho(xopt, p, fmag2, initialerror, fnorm, creg, smooth_gradient)
+
+	|  Main code to compute error metric and gradient
+	|  Jan 09 2013
+
+	:return: func, grad, p
+
+
+
+.. _ptycho_engines.ML.linesearch:
+
+.. function:: engines.ML.linesearch(func, x0, f0, df0, dx, a, varargin)
+
+	|  linesearch routine (does not use the gradient)
+
+	|  [x,f,a,flg] = linesearch(func,x0,f0,df0,dx,a,varargin)
+
+	|  func = string name of objective function
+	|  x0 = starting point of search
+	|  f0 = objective function at x0
+	|  df0 = derivative of objective function along dx at x0
+	|  dx = direction of linesearch
+	|  a = steplength input as guess output as taken
+	|  x = final point of search
+	|  f = objective function at final point
+	|  flg = indicates how step was determined (0 for Armijo step, 1 for
+	|  bracketing and refining a minimum)
+
+	:return: x, f, a, flg
+
+
+
++engines/+ML_MS
+^^^^^^^^^^^^^^^
+.. _ptycho_engines.ML_MS.fun_ramp_unwrap:
+
+.. function:: engines.ML_MS.fun_ramp_unwrap(object, asize)
+
+	|  This function (1) removes ramp and (2) unwrap
+
+	:return: object_phase_unwrap
+
+
+
+.. _ptycho_engines.ML_MS.gradient_ptycho_MS:
+
+.. function:: engines.ML_MS.gradient_ptycho_MS(xopt, p, fmag, fmag2, fmask, ...)
+
+	|  This function is intended to be only a distributor for either only 'func', or 'func' and
+	|  'grad' calculation.
+
+	:return: func, grad, p
+
+
+
++engines/+c_solver
+^^^^^^^^^^^^^^^^^^
+.. _ptycho_engines.c_solver.prep_initial_conditions:
+
+.. function:: engines.c_solver.prep_initial_conditions(p)
+
+	|  PREP_INITIAL_CONDITIONS prepares the initial_conditions file for the
+	|  reconstruction with external C++ code
+	|  save2hdf5 is used to save the required datasets and attributes to an h5 file
+
+	:param p:       p structure
+
+
+
+
+	| see also :ref:`engines.c_solver <ptycho_engines.c_solver>`
+
+.. _ptycho_engines.c_solver.prepare_external_call:
+
+.. function:: engines.c_solver.prepare_external_call(p, fdb)
+
+	|  Call the external reconstruction program
+
+	:return: p, fdb
+
+
+
++scans
+""""""
+.. _ptycho_scans.get_filenames_cSAXS:
+
+.. function:: scans.get_filenames_cSAXS(p)
+
+	|  GET_FILENAMES_CSAXS compile filenames of raw data files
+	|  receives
+
+	:return: p
+
+
+
+.. _ptycho_scans.get_queue:
+
+.. function:: scans.get_queue(p, update)
+
+	|  GET_QUEUE call queue functions in package directories
+
+	:return: p, status
+
+
+
+.. _ptycho_scans.read_metadata:
+
+.. function:: scans.read_metadata(p)
+
+	|  READ_METADATA load meta data and overwrite previous settings
+
+	:return: p
+
+
+
+.. _ptycho_scans.read_positions:
+
+.. function:: scans.read_positions(p)
+
+	|  READ_POSITIONS load positions
+
+	:return: p
+
+
+
++scans/+meta
+^^^^^^^^^^^^
+.. _ptycho_scans.meta.artificial:
+
+.. function:: scans.meta.artificial(p)
+
+	|  SPEC load meta data from a spec file
+
+	:return: p
+
+
+
+.. _ptycho_scans.meta.nexus:
+
+.. function:: scans.meta.nexus(p)
+
+	|  NEXUS load meta data from a nexus file
+
+	:return: p
+
+
+
+.. _ptycho_scans.meta.spec:
+
+.. function:: scans.meta.spec(p)
+
+	|  SPEC load meta data from a spec file
+
+	:return: p
+
+
+
++scans/+positions
+^^^^^^^^^^^^^^^^^
+.. _ptycho_scans.positions.load_from_file:
+
+.. function:: scans.positions.load_from_file(p)
+
+	|  Load positions from reconstruction file, useful e.g. when position
+	|  refinement was done in the reconstruction used as a source file
+
+	:return: p
+
+
+
+.. _ptycho_scans.positions.matlab_pos:
+
+.. function:: scans.positions.matlab_pos(p)
+
+	|  MATLAB_POS calculate scan parameters based on the values set in the
+	|  template
+
+	:return: p
+
+
+
+.. _ptycho_scans.positions.nexus_soleil:
+
+.. function:: scans.positions.nexus_soleil(p)
+
+	|  NEXUS_SOLEIL load motor positions from a nexus file
+
+	:return: p
+
+
+
+.. _ptycho_scans.positions.orchestra:
+
+.. function:: scans.positions.orchestra(p)
+
+	|  OMNY Load positions from Orchestra scan file
+
+	:return: p
+
+
+
+.. _ptycho_scans.positions.spec:
+
+.. function:: scans.positions.spec(p)
+
+	|  SPEC load motor positions from spec
+
+	:return: p
+
+
+
++scans/+queue
+^^^^^^^^^^^^^
++scans/+queue/+check_queue
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_scans.queue.check_queue.lockfile:
+
+.. function:: scans.queue.check_queue.lockfile(p)
+
+	|  UNTITLED3 Summary of this function goes here
+	|  Detailed explanation goes here
+
+	:return: p, status_ok
+
+
+
+.. _ptycho_scans.queue.check_queue.omny:
+
+.. function:: scans.queue.check_queue.omny(p)
+
+	|  OMNY Check for file queue for omny
+
+	:param p:           p structure
+
+
+
+
+
+
+
+	:return: * **p** - p structure
+		 * **status_ok** - status flag
+	| see also :ref:`scans.get_queue <ptycho_scans.get_queue>`
+
+.. _ptycho_scans.queue.check_queue.remote_queue:
+
+.. function:: scans.queue.check_queue.remote_queue(p)
+
+	|  REMOTE_QUEUE
+
+	:return: p, status_ok
+
+
+
++scans/+queue/+check_queue/private
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_scans.queue.check_queue.ptycho_parse_omny_dat:
+
+.. function:: scans.queue.check_queue.ptycho_parse_omny_dat(filename, p)
+
+	|  p = ptycho_parse_omny_dat(filename,p)
+	|  It parses dat files from OMNY or flOMNI to modify a ptychography
+	|  p.structure. This allows for instance to change the scan number or
+	|  another field. It also allows to define fields that do not exist.
+	|  Inputs
+	|  filename      Filename with path of the dat file
+	|  p             Optional input, if it is given the output will be equal to p
+	|  in all fields that are not modified
+	|  Output
+	|  p_out         Structure with new, or modified fields.
+
+	:return: p_out
+
+
+
++scans/+queue/+update_queue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ptycho_scans.queue.update_queue.omny:
+
+.. function:: scans.queue.update_queue.omny(p)
+
+	|  UPDATE_OMNY_QUEUE
+
+
+.. _ptycho_scans.queue.update_queue.remote_queue:
+
+.. function:: scans.queue.update_queue.remote_queue(p)
+
+	|  REMOTE_QUEUE
+
+
+analysis
+""""""""
+analysis/S00648
+^^^^^^^^^^^^^^^
+analysis/S00649
+^^^^^^^^^^^^^^^
+analysis/online
+^^^^^^^^^^^^^^^
+analysis/online/ptycho
+^^^^^^^^^^^^^^^^^^^^^^
+tests
+"""""
+.. object:: CPU_binning_test
+
+	|  TEST TEMPLATE FOR FUNTIONALITY CHECK OF CPU ENGINES
+	|  1) call standard template to get fresh settings defaults
+	|  2) generate artificial data that should serve as a standart test "sample"
+	|  3) call GPU engine with different basic functionalities and test if all still works
+	|  !! THESE TEST ARE ONLY USEFUL TO FIND CRASHES IN THE CODE, QUALITY DETERIORATION STILL NEED TO BE MEASURED !!
+
+
+.. object:: CPU_engines_test
+
+	|  TEST TEMPLATE FOR FUNTIONALITY CHECK OF CPU ENGINES
+	|  1) call standard template to get fresh settings defaults
+	|  2) generate artificial data that should serve as a standart test "sample"
+	|  3) call GPU engine with different basic functionalities and test if all still works
+	|  !! THESE TEST ARE ONLY USEFUL TO FIND CRASHES IN THE CODE, QUALITY DETERIORATION STILL NEED TO BE MEASURED !!
+
+
+.. object:: CPU_multilayer_test
+
+	|  TEST TEMPLATE FOR FUNTIONALITY CHECK OF MULTILAYER EXTENSION IN CPU ENGINES
+	|  1) call standard template to get fresh settings defaults
+	|  2) generate artificial data that should serve as a standart test "sample"
+	|  3) call GPU engine with different basic functionalities and test if all still works
+	|  !! THESE TEST ARE ONLY USEFUL TO FIND CRASHES IN THE CODE, QUALITY DETERIORATION STILL NEED TO BE MEASURED !!
+
+
+.. object:: GPU_engines_test
+
+	|  TEST TEMPLATE FOR FUNTIONALITY CHECK IN GPU ENGINES
+	|  1) call standard template to get fresh settings defaults
+	|  2) generate artificial data that should serve as a standart test "sample"
+	|  3) call GPU engine with different basic functionalities and test if all still works
+	|  !! THESE TEST ARE ONLY USEFUL TO FIND CRASHES IN THE CODE, QUALITY DETERIORATION STILL NEED TO BE MEASURED !!
+
+
+.. object:: GPU_multilayer_3D_test
+
+	|  TEST TEMPLATE FOR FUNTIONALITY CHECK OF MULTILAYER EXTENSION IN GPU ENGINES
+	|  1) call standard template to get fresh settings defaults
+	|  2) generate artificial data that should serve as a standart test "sample"
+	|  3) call GPU engine with different basic functionalities and test if all still works
+	|  !! THESE TEST ARE ONLY USEFUL TO FIND CRASHES IN THE CODE, QUALITY DETERIORATION STILL NEED TO BE MEASURED !!
+
+
+.. object:: GPU_multilayer_test
+
+	|  TEST TEMPLATE FOR FUNTIONALITY CHECK OF MULTILAYER EXTENSION IN GPU ENGINES
+	|  1) call standard template to get fresh settings defaults
+	|  2) generate artificial data that should serve as a standart test "sample"
+	|  3) call GPU engine with different basic functionalities and test if all still works
+	|  !! THESE TEST ARE ONLY USEFUL TO FIND CRASHES IN THE CODE, QUALITY DETERIORATION STILL NEED TO BE MEASURED !!
+
+
+.. object:: run_test
+
+	|  Prepare the reconstruction
+
+
+.. object:: test_ML3D_data
+
+	|  template for artificial data generation for tests of multilayer
+	|  reconstructions
+
+
+.. object:: test_ML_data
+
+	|  template for artificial data generation for tests of multilayer
+	|  reconstructions
+
+
+.. object:: test_data
+
+	|  template for artificial data generation for standard methods tests
+
+
+tests/temp
+^^^^^^^^^^
+utils
+"""""
+.. _ptycho_utils/aligned_FSC:
+
+.. function:: utils/aligned_FSC(file1, file2, params)
+
+	|  [resolution stat] = aligned_FSC(file1,file2,params)
+
+	|  Receives two filenames with path for ptychography reconstructions and a
+	|  structure with parameters. The routine reads the reconstructions, matches
+	|  the linear phase between them, registers the images, and returns the
+	|  resolution estimates based on first and last crossing of the FSC with the
+	|  threshold.
+
+	|  References relevant to this code:
+	|  For using this FSC code with ptychography: J. Vila-Comamala, et al., "Characterization of high-resolution diffractive X-ray optics by ptychographic coherent diffractive imaging," Opt. Express 19, 21333-21344 (2011).
+	|  For subpixel alignment: M. Guizar-Sicairos, et al., "Efficient subpixel image registration algorithms," Opt. Lett. 33, 156 (2008).
+	|  For matching of phase ramp by approximate least squared error:  M. Guizar-Sicairos, et al., "Phase tomography from x-ray coherent diffractive imaging projections," Opt. Express 19, 21345-21357 (2011).
+
+	|  Outputs:
+
+	|  resolution    A two element variable that contains the resolution
+	|  obtained from first and last crossing of the FSC curve with
+	|  the threshold curve.
+	|  stat          structure containing other statistics such as
+	|  spectral signal to noise ratio (SSNR), average SNR and area under FSC curve
+
+	|  Inputs:
+
+	|  file1     Filename with path of reconstruction 1
+	|  file2     Filename with path of reconstruction 2
+	|  params    Structure with parameters as describred below
+
+	|  params.flipped_images    Flip one input image horizontally (= true or false).
+	|  Useful when comparing 0 and 180 degree projections
+	|  in tomography (default = false).
+	|  params.crop      = '';       for using the default half size of the probe
+	|  = 'manual'  for using GUI to select region. This will display the range, e.g. {600:800, 600:800}
+	|  = {600:800, 600:800} for custom vertical and horizontal cropping, respectively
+	|  params.GUIguess  To click for an initial alignment guess, if used it ignores
+	|  the values of params.guessx and params.guessy (default
+	|  = false)
+	|  params.guessx
+	|  params.guessy        An intial guess for x and y alignment (default = [])
+	|  params.remove_ramp   Try to remove linear phase from whole image before initial
+	|  alignment (default = true)
+	|  params.image_prop    = 'complex'
+	|  = 'phasor' (phase with unit amplitude, default)
+	|  = 'phase'  (Note: phase should not be used if there is phase wrapping)
+	|  params.taper         = 20 (default)   Pixels to taper images - Increase until the FSC does not change anymore
+	|  params.plotting      Display plots (default = false)
+	|  params.dispfsc       Display FSC plot (default = true)
+	|  params.SNRt          SNR for FSC threshold curve
+	|  SNRt = 0.2071 for 1/2 bit threshold for resolution of the average of the 2 images
+	|  SNRt = 0.5    for 1   bit threshold for resolution of each individual image (default)
+	|  params.thickring     Thickness of Fourier domain ring for FSC in pixels (default = 1)
+	|  params.freq_thr      To ignore the crossings before freq_thr for determining resolution (default 0.02)
+	|  params.out_fn        Filename of output of jpeg for FSC
+
+	:return: resolution stat
+
+
+
+.. _ptycho_utils/break_check:
+
+.. function:: utils/break_check(filename)
+
+	|  [] = break_check(filename)
+
+
+.. object:: calculate_round_roi
+
+	|  Data path info
+
+
+.. object:: change_file_names
+
+	|  change_file_names.m
+	|  small script  to remove lock files from certain scans
+
+
+.. _ptycho_utils/check_option:
+
+.. function:: utils/check_option(p, option_name, required_value)
+
+	|  CHECK_OPTION
+	|  check if required option exists and is equal to the given value,
+	|  otherwise return false
+
+	:return: out_value
+
+
+
+.. _ptycho_utils/check_scan_interruption:
+
+.. function:: utils/check_scan_interruption(specLogFile, scanno)
+
+	|  Detect an interruption of the scan in the Log file
+	|  From spec compile  post_scan.mac
+	|  = 1, if the scan is ready for processing
+	|  = 0, if the scan was interrupted and is not yet repeated, or if the scan
+	|  is being repeated now
+
+	:return: out
+
+
+
+.. _ptycho_utils/create_file_queue:
+
+.. function:: utils/create_file_queue(start, stop, step, varargin)
+
+	|  CREATE_FILE_QUEUE create directories and .dat files for a file queue
+	|  only needed if OMNY/flOMNI is not available
+	:param start:           start scan number
+	:param stop:            stop scan number
+	:param step:            reconstruction bundle size
+
+	|  *optional*        given as name/value pair
+	:param dirpath:         path to the .dat files directory; default: '../'
+	:param prop:            structure with parameters that need to be saved to the .dat file
+	:param prop_name:       structure name; default: 'p'
+
+	|  EXAMPLE:
+	|  s.lockfile = false;
+	|  s.energy = 6.2015;
+	|  s.check_2_detpos = 588.734;
+	|  s.check_nextscan_started = 1;
+
+	|  create_file_queue(646, 650, 2, 'prop', s)
+
+
+.. object:: find_file_names
+
+	|  change_file_names.m
+	|  small script  to remove lock files from certain scans
+
+
+.. _ptycho_utils/find_ptycho_filename:
+
+.. function:: utils/find_ptycho_filename(base_analysis_path, varargin)
+
+	|  filename_with_path = find_ptycho_filename(base_analysis_path,scan_number,fileprefix,filesuffix)
+	|  Looks for a ptychography reconstruction name inside the path given as
+	|  initial argument. I will look in the folder given and also try with
+	|  adding analysis. If the scan_number is given it will compile an analysis
+	|  folder and look for it.  e.g. find_ptycho_filename('~/Data10',235);
+	|  Use verbose(2) in order to see all directories and names attempted.
+	|  Inputs
+	|  base_analysis_path    % String with path to start looking
+	|  scan_number           % (optional) Number with the scan number, used to
+	|  compile folder
+	|  fileprefix            % String specifying the starting of the name
+	|  filesuffix            % String specifying the ending of the name
+
+	:return: filename_with_path
+
+
+
+.. _ptycho_utils/fun_align_img:
+
+.. function:: utils/fun_align_img(img1, img2, asize, pix)
+
+	|  [resolution] = aligned_FSC(file1,file2,params)
+
+	|  Receives two filenames with path for ptychography reconstructions and a
+	|  structure with parameters. The routine reads the reconstructions, matches
+	|  the linear phase between them, registers the images, and returns the
+	|  resolution estimates based on first and last crossing of the FSC with the
+	|  threshold.
+
+	|  References relevant to this code:
+	|  For using this FSC code with ptychography: J. Vila-Comamala, et al., "Characterization of high-resolution diffractive X-ray optics by ptychographic coherent diffractive imaging," Opt. Express 19, 21333-21344 (2011).
+	|  For subpixel alignment: M. Guizar-Sicairos, et al., "Efficient subpixel image registration algorithms," Opt. Lett. 33, 156 (2008).
+	|  For matching of phase ramp by approximate least squared error:  M. Guizar-Sicairos, et al., "Phase tomography from x-ray coherent diffractive imaging projections," Opt. Express 19, 21345-21357 (2011).
+
+	|  Outputs:
+
+	|  resolution    A two element variable that contains the resolution
+	|  obtained from first and last crossing of the FSC curve with
+	|  the threshold curve.
+
+	|  Inputs:
+
+	|  file1     Filename with path of reconstruction 1
+	|  file2     Filename with path of reconstruction 2
+	|  params    Structure with parameters as described below
+
+	|  params.flipped_images    Flip one input image horizontally (= true or false).
+	|  Useful when comparing 0 and 180 degree projections
+	|  in tomography (default = false).
+	|  params.crop      = '';       for using the default half size of the probe
+	|  = 'manual'  for using GUI to select region. This will display the range, e.g. {600:800, 600:800}
+	|  = {600:800, 600:800} for custom vertical and horizontal cropping, respectively
+	|  params.GUIguess  To click for an initial alignment guess, if used it ignores
+	|  the values of params.guessx and params.guessy (default
+	|  = false)
+	|  params.guessx
+	|  params.guessy        An intial guess for x and y alignment (default = [])
+	|  params.remove_ramp   Try to remove linear phase from whole image before initial
+	|  alignment (default = true)
+	|  params.image_prop    = 'complex'
+	|  = 'phasor' (phase with unit amplitude, default)
+	|  = 'phase'  (Note: phase should not be used if there is phase wrapping)
+	|  params.taper         = 20 (default)   Pixels to taper images - Increase until the FSC does not change anymore
+	|  params.plotting      Display plots (default = false)
+	|  params.dispfsc       Display FSC plot (default = true)
+	|  params.SNRt          SNR for FSC threshold curve
+	|  SNRt = 0.2071 for 1/2 bit threshold for resolution of the average of the 2 images
+	|  SNRt = 0.5    for 1   bit threshold for resolution of each individual image (default)
+	|  params.thickring     Thickness of Fourier domain ring for FSC in pixels (default = 1)
+	|  params.freq_thr      To ignore the crossings before freq_thr for determining resolution (default 0.02)
+	|  params.out_fn        Filename of output of jpeg for FSC
+
+	:return: img1_aligned, img2_aligned, delta_all
+
+
+
+.. _ptycho_utils/integrate_frames:
+
+.. function:: utils/integrate_frames(base_path, scan_num, plotfigure, det_num, savedata, maskfile)
+
+	|  14-11-2012
+	|  Integrates frames from a loopscan
+
+	|  Syntax:
+	|  [int] = integrate_frames(base_path,scan_num,plotfigure,det_num,savedata,maskfilename)
+	|  Needed parameters: base_path (e.g. '~/Data10/')
+	|  scan_num   (scan number)
+	|  Optional parameters: plotfigure (figure number for fial plot, 0 for no plotting, by default is 0)
+	|  det_num (detector number, default 1)
+	|  savedata (=1 to save data in 'analysis/integrated_frames/', default 0)
+	|  maskfilename (valid mask file name. If empty [], no mask used)
+
+	:return: int
+
+
+
+.. _ptycho_utils/loopregerror:
+
+.. function:: utils/loopregerror(deltastack, filt_stackFT, xmask, ymask)
+
+	|  Evaluate registration error in an angle series. Returns the error between
+	|  subsequent images. The last image is evaluated against the first but
+	|  flipped in x. Recieves image FT with DC in (1,1), the image should have
+	|  had the center in center of array.
+	|  filt_stackFT  FT of stack of images, previously filtered if needed
+	|  deltastack    Estimates of positions
+	|  xmax          Vector with positions of horizontal edges of rectangular
+	|  window for registration
+	|  ymax          Same as xmax but vertical edges of window
+
+	:return: errorreg grad
+
+
+
+.. object:: make_lock_files
+
+	|  make_lock_files is a script.
+
+
+.. _ptycho_utils/phase_from_dpc:
+
+.. function:: utils/phase_from_dpc(dpcx, dpcy, varargin)
+
+	|  Integrates the phase from a combination of x and y gradients.
+	|  phase_from_dpc(dpcx,dpcy,'fourier') uses the Fourier method (default),
+	|  phase_from_dpc(dpcx,dpcy,'finitdiff') uses a finite difference method.
+
+	:return: p
+
+
+
+.. object:: propagate_probe
+
+	|  propagate_probe.m
+	|  Warning: Currently working only for square pixels
+
+
+.. object:: remove_lock_files
+
+	|  remove_lock_files.m
+	|  small script  to remove lock files from certain scans
+
+
+.. object:: remove_lock_files_select
+
+	|  remove_lock_files.m
+	|  small script  to remove lock files from certain scans
+
+
+.. object:: round_roi_new_stxm
+
+	|  Another script for STXM evaluation of round roi scans
+
+	|  Does not use Gaussians centered on grid points which leads to inaccuarate
+	|  values at the center positions (due to adding up all the Gaussians)
+	|  but rather uses the Matlab's "griddata" function.
+
+
+.. _ptycho_utils/round_roi_numpts:
+
+.. function:: utils/round_roi_numpts(lx, ly, dr, nth)
+
+	|  Usage:
+	|  function numpts = round_roi_numpts(lx,ly,dr,nth)
+
+	|  Description:
+	|  Calculates the number of points of a round roi scan
+	|  for a set of parameters used in a Spec call.
+
+	|  Parameters:
+	|  lx = horizontal field of view in meter
+	|  ly = vertical field of view in meter
+	|  dr = radial shell step size in meter
+	|  dth = angluar intervals in first shell
+
+	|  Changelog:
+	|  2010-12-04, First version.
+
+	:return: numpts
+
+
+
+.. _ptycho_utils/set_all_engines:
+
+.. function:: utils/set_all_engines(p, parameter, value)
+
+	|  function  p = set_all_engines(p, parameter, value)
+	|  set given parameter to all engines
+
+	:return: p
+
+
+
+.. object:: show_recons
+
+	|  show recons.m
+	|  Warning: Currently working only for square pixels
+	|  close all   % Recommended if improfile will be used (there is a bug with cursor positioning otherwise)
+	|  Mayor changes, basically rewritten, made on Oct 19, 2015 in order to accomodate waiting for
+
+
+.. _ptycho_utils/unwrap_pilatus_weird:
+
+.. function:: utils/unwrap_pilatus_weird(frame_low, frame_high, varargin)
+
+	|  [frame_unwrapped, frame_replaced_from_lowcount] = unwrap_pilatus(frame_low, frame_high, numbad, slope)
+
+	|  unwraps the pilatus pixels that had too high intensity.
+	|  slope and numbad are optional.
+	|  slope should be (high exposure time / low exposure time), but can be
+	|  evaluated from the data.
+	|  numbad is the rough number of bad pixels - it should be greater than the actual
+	|  value. It is used only if the slope needs to be evaluated.
+
+	|  The first output is the result of unwrapping the high intensity counts.
+	|  The second is equal to the high intensity frame with all wrapped values
+	|  replaced with scaled counts from the low exposure frame. These two should
+	|  be equal, but the first output is biased by the intensity correction done
+	|  by the pilatus.
+
+	:return: varargout
+
+
+
+utils/+soleil
+^^^^^^^^^^^^^
+.. _ptycho_utils/+soleil/soleil.compile_swing_dirname:
+
+.. function:: utils/+soleil/soleil.compile_swing_dirname(scan_no)
+
+	|  COMPILE_SWING_DIRNAME returns the default SWING directory tree for a
+	|  given scan number
+
+	|  EXAMPLE:
+	|  scan_dir = compile_SWING_dirname(10);
+	|  -> scan_dir = 'S00000-00999/'
+
+
+	:return: scan_dir
+
+
+
+.. _ptycho_utils/+soleil/soleil.get_filenames_swing:
+
+.. function:: utils/+soleil/soleil.get_filenames_swing(p)
+
+	|  GET_FILENAMES_SWING compile filenames of raw data files
+	|  receives
+
+	:return: p
+
+
+
+utils/imgs
+^^^^^^^^^^

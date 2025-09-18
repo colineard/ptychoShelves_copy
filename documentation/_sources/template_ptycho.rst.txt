@@ -1,0 +1,337 @@
+
+template_ptycho - your virtual control room
+===========================================
+
+.. contents::
+
+.. tip::
+   It is best practice to rename the template_ptycho.m file to something more specific and use the original file, as the file name suggests, only as a template.
+
+.. _template_general_settings:
+
+General settings
+----------------
+
+PtychoShelves uses Matlab structures to maintain variables and store datasets. The `p` structure contains all parameters that you set in the template as well as the final reconstruction. 
+
+.. note::
+   If you want to add further modules, most of the time it is sufficient to just modify the p structure within a function and return the modified version.
+
+.. code-block:: matlab
+
+    cd(fileparts(which(mfilename)));
+      
+    addpath('utils')
+    addpath('../')   % add path to cSAXS_matlab_base
+    import utils.*
+    
+    testmode = true;       % In test mode, lock files are not written and plots are generated every iteration
+    
+    p = struct();
+    eng = struct();
+    
+    %% General
+    p.   verbose_level = 1+testmode;                            % verbosity for standard output (0-1 for loops, 2-3 for testing and adjustments, >= 4 for debugging)
+    p.   use_display = [];                                      % global switch for display
+    
+
+.. _template_data_prep:
+
+Scan and data preparation 
+-------------------------
+
+Although you can set all parameters manually, it might be beneficial to extract as much information from meta data files as possible. The parameters that are imported can be defined in a separate file in +scans/+meta. As an example, have a look at +scans/+meta/+spec.m. It loads a spec file and *inter alia* writes the spec value mokev into p.energy, thus we don't have to specify the selected energy in the template if a spec meta data file is available. 
+
+.. code-block:: matlab
+
+    % Scan meta data
+    p.   src_metadata = 'spec';                                 % load meta data from file; currently only 'spec' is supported;
+    
+    p.   energy = [];                                           % Energy (in keV), leave empty to use spec entry mokev
+    p.   z = 7.3418;                                            % Distance from object to detector 
+    p.   prop_regime = 'farfield';                              % propagation regime: nearfield, farfield (default), !! nearfield is supported only by GPU engines 
+    p.   focus_to_sample_distance = [];                         % sample to focus distance, very important parameter to be set for nearfield ptychography
+    
+
+    % Scan queue
+    p.   queue = '';                                            % specify file queue; currenlty only 'omny' is supported
+    
+    p.   scan_number = [35];                                    % Multiple scan numbers for shared scans
+    p.   omny_scan_file_search = [];                                    % Folder where the queue of files is defined, note the content of files can overwrite some parameters %['../../specES1/ptycho_reconstruct/'];
+    p.   omny_max_attempts = 5;                                 % Max number of attempts to reconstruct a scan.
+    
+    % Diffraction data
+    p.   asize = [192 192];                                     % Diffr. patt. array size   
+    p.   ctr = [945 737];                                       % Diffr. patt. center coordinates (y,x) (empty means middle of the array); e.g. [100 207;100+20 207+10];
+    p.   check_2_detpos = [];                                   % = []; (ignores)   = 270; compares to dettrx to see if p.ctr should be reversed (for OMNY shared scans 1221122), make equal to the middle point of dettrx between the 2 detector positions
+    p.   data_prefix = '';                                      % Default using current eaccount e.g. e14169_1_
+    p.   auto_prepare_data = true;                              % if true: prepare dataset from raw measurements if the prepared data does not exist
+    p.   prepare_data_function = '';                            % (used only if data should be prepared) data preparation function handle;
+    p.   force_preparation_data = true;                         % Prepare dataset even if it exists, it will overwrite the file % Default: @prepare_data_2d
+    p.   binning = false;                                       % = true to perform 2x2 binning of detector pixels, for binning = N do 2^Nx2^N binning
+    p.   data_prep = 'python';                                  % data preparator; 'python' or 'matlab' 
+    p.   load_prep_pos = false;                                  % load positions from prepared data file
+    
+The scan queue refers to the reconstruction order and file queue. This becomes especially handy if you are dealing with a ptycho-tomo dataset, *i.e.* usually 500+ reconstructions. Rather than selecting them manually, you can define a loop and a file queue.
+
+There are many ways of designing a queue, and currently two modules are implemented in PtychoShelves. The most primitive one deals with lockfiles, that is files that are written once a Matlab instance starts to work on a particular dataset. Although this approach works very reliably, if you want to rerun the reconstruction, you first have to delete all lockfiles. 
+
+A second approach was implemented for OMNY/flOMNI measurements at the cSAXS beamline, but the concept can be easily extended to any tomographic measurement. Instead of writing lockfiles into the analysis directory, small .dat files are prepared by instrument in a separate directory, containing *inter alia* the scan number. PtychoShelves reads these files and moves them into the ``in_progress`` directory. Once the reconstruction is finished, the file will be moved to ``done``. Should the reconstruction crash, PtychoShelves will try it again a few times (specified by p.omny_max_attemps) and if still not successful, it will move the .dat file into ``failed`` and continue with the next scan. 
+
+
+.. code-block:: matlab
+
+    % Scan parameter
+    p.   src_positions = 'orchestra';                           % 'spec', 'orchestra', 'matlab_pos' or empty (scan params are defined below)
+    p.   angular_correction_setup = '';                         % choose angular correction for specific cSAXS experiment: 'flomni', 'omny', 'lamni', 'none'
+    p.   burst_frames = 1;                                      % number of frames collected per scan position
+    
+    p.   spec_motor = [];                                       % Y and X motor name for positions, leave empty for defaults
+    p.   spec_motor_scale = [];                                 % ptycho expects real positions in m; 
+    p.   coarsex = '';                                          % Coarse sample position for shared object e.g. samx
+    p.   coarsey = '';
+    
+    p.   lockfile = ~testmode;                                  % If true writes a lock file, if lock file exists skips recontruction
+    p.   waitforscanfinish = true;                              % Checks spec file for the scan end flag 'X#'
+    p.   isptycho = {};                                         % = {'round_roi','cont_line','ura_mesh'}  ( = {} to skip)  List of ptycho spec commands for valid ptycho scans
+    p.   check_scan_interruption = false;                       % Checks LOG file for interruptions of scans
+    p.   check_nextscan_started = true;                         % Waits until the next scan starts to begin reconstructing this one. It is important for OMNY scans with orchestra
+    p.   omnyposfile = [];                                      % Filename pattern for Orchestra interferometer position files   ['../../specES1/scan_positions/scan_%05d.dat'];
+    p.   recon_latest_first = 1;                                % When using 'p.omny_scan_file_search', (1) reconstruct the latest measurement first or (0) reconstruct in order
+    
+    
+    p.   scan_type = 'round_roi';                               % {'round', 'raster', 'round_roi', 'custom'}
+    p.   radius_in = 0;                                         % round scan: interior radius of the round scan
+    p.   radius_out = 5e-6;                                     % round scan: exterior radius of the round scan
+    p.   nr = 10;                                               % round scan: number of intervals (# of shells - 1)
+    p.   nth = 3;                                               % round scan: number of points in the first shell
+    p.   lx = 20e-6;                                            % round_roi scan: width of the roi
+    p.   ly = 20e-6;                                            % round_roi scan: height of the roi
+    p.   dr = 1.5e-6;                                           % round_roi scan: shell step size
+    p.   nx = 10;                                               % raster scan: number of steps in x
+    p.   ny = 10;                                               % raster scan: number of steps in y
+    p.   step_size_x = 1e-6;                                    % raster scan: step size (grid spacing)
+    p.   step_size_y = 1e-6;                                    % raster scan: step size (grid spacing)
+    p.   scan_roi = [];                                         % Region of interest in the object [xmin xmax ymin ymax] in meters. Points outside this region are not used for reconstruction.
+                                                                %  (relative to upper corner for raster scans and to center for round scans)   
+    p.   custom_positions = '';                                 % custom: a handle to the function that defines the positions; also accepts mat file with entry 'pos'
+    p.   custom_params = [];                                    % custom: the parameters to feed to the custom position function.
+    %p.   affine_angle = 0;                                     % Not used by ptycho_recons at all. This allows you to define a variable for the affine matrix below and keep it in p for future record. This is used later by the affine_matrix_search.m script
+    p.   affine_matrix = [];                                    % Applies affine transformation (e.g. rotation, stretching) to the positions (ignore by = []). Convention [yn;xn] = M*[y;x]. For flOMNI we found in July 2018: = [1 0;tan(0.4*pi/180) 1]; for OMNY we found in April 2017: = [1 0;tan(0.3*pi/180) 1]; laMNI in June 2018  [1,0.0154;-0.0017,1.01]; 
+    
+
+Similar to the aforementioned ``scan_queue`` parameter, ``src_positions`` allows to select different ways of importing, reading and adjusting the positions. Defined by a single function in ``+scans/+positions``, different position-reader functions are available by default, e.g. ``spec``, ``orchestra`` for OMNY/flOMNI and ``matlab_pos``, which uses the parameters defined above to create a scan pattern. 
+
+.. _template_IO:
+
+Input/output settings
+---------------------
+
+If you use PtychoShelves with its default structure (shown below), you do not have to specify any paths. 
+
+.. figure:: ./figures/file_structure.png
+   :alt: cSAXS file structure
+   :align: center
+
+   Default file structure
+
+``analyis``, ``matlab``, ``eiger``, and ``spec`` are directories in the base_path, although they can be specified separately by a p structure variable. E.g. the path to the scan directory ``analysis/S00000-00999/S00250`` can be specified by ``p.save_path``. ``matlab`` and ``ptycho`` are specified via ``p.cSAXS_matlab_path`` and ``p.ptycho_matlab_path``, respectively.
+
+.. code-block:: matlab
+
+    % I/O
+    p.   base_path = '';                                        % base path
+    p.   specfile = '';                                         % Name of spec file to get motor positions and check end of scan, defaut is p.spec_file == p.base_path;
+    p.   logfile = '';                                          % Name of LOG file to confirm that the scan is not being repeated due to interruptions
+    p.   detector = 'pilatus';                                  % 'pilatus' or 'eiger'
+    p.   ptycho_matlab_path = '';                               % cSAXS ptycho package path
+    p.   cSAXS_matlab_path = '';                                % cSAXS package path
+    p.   raw_data_path{1} = '';                                 % Default using compile_x12sa_filename, used only if data should be prepared automatically
+    p.   prepare_data_path = '';                                % Default: base_path + 'analysis'+ current scan folder. Other example: '/afs/psi.ch/project/CDI/cSAXS_project/analysis2/S00022/'
+    p.   prepare_data_filename = [];                            % Leave empty for default file name
+    p.   save_path{1} = '';                                     % Default: base_path + 'analysis'+ current scan folder. Other example: '/afs/psi.ch/project/CDI/cSAXS_project/analysis2/S00022/'
+    p.   mask_file = '';                                        % (used only if data should be prepared) default: most recent binary mask
+    p.   mask_type = '';                                        % (used only if data should be prepared) ['binary', 'indices']. Default: 'binary' 
+    p.   scan_string_format = 'S%05d';
+    p.   prefix = '';                                           % For automatic output filenames. If empty: scan number
+    p.   sufix = 'test_1';                                      % Optional suffix for reconstruction 
+    p.   output_file = 'h5';                                    % data type of reconstruction file; 'h5' or 'mat'
+    p.   file_compression = 4;                                  % file compression for HDF5 files; 0 for no compression
+    p.   legacy = false;                                        % legacy mode for reading data; if true: data will be loaded from mat file and converted into h5
+    p.   legacy_path{1} = '';                                   % To replace the raw data path for loading already prepared mat files.
+    
+    p.   get_artificial_data = false;                           % use artificial data
+    p.   artificial_data_file = 'template_artificial_data';     % artificial data parameters 
+    
+
+.. note::
+	You can specify all paths separately. In this case, ``p.base_path`` will not be used anymore.
+
+General reconstruction settings
+-------------------------------
+
+In the follwing section, general parameters for the reconstruction can be specified. This includes the initial guess for the object (``p.initial_iterate_object_file``) and the probe. The latter can be modelled such that you can get closer to your real data, before even starting the reconstruction. 
+
+.. code-block:: matlab
+
+    %% Reconstruction
+    
+    % Initial iterate object
+    p.   initial_iterate_object_file{1} = '';                        %  use this mat-file as initial guess of object, it is possible to use wild characters and pattern filling, example: '../analysis/S%05i/wrap_*_1024x1024_1_recons*'
+    
+    
+    
+    % Initial iterate probe
+    p.   model_probe = true;                                    % Use model probe
+    p.   model_is_focused = true;                               % Model probe is focused (false: just a pinhole)
+    p.   model_central_stop = false;                            % Model central stop
+    p.   model_diameter = 150e-6;                               % Model probe pupil diameter
+    p.   model_central_stop_diameter = 50e-6;                   % Model central stop diameter
+    p.   model_zone_plate_diameter = 150e-6;                    % Model probe zone plate diameter
+    p.   model_outer_zone_width = [];                           % Model probe zone plate outermost zone width (not used if not a focused probe) 
+    p.   model_propagation_dist = 1.2e-3;                       % Model probe propagation distance (pinhole <-> sample for unfocused, focal-plane <-> sample for focused)
+    p.   model_focal_length = 66e-3;                            % Model probe focal length (used only if model_is_focused is true
+                                                                %   AND model_outer_zone_width is empty)
+    p.   model_upsample = 10;                                   % Model probe upsample factor (for focused probes)
+    p.   initial_probe_file = 'probe_S00558_192x192_recons.mat';% Use probe from this mat-file (not used if model_probe is true)
+    p.   probe_file_propagation = [];                           % Distance for propagating the probe from file in meters, = [] to ignore
+    
+    % Shared scans - Currently working only for sharing probe and object
+    p.   share_probe = 1;                                       % Share probe between scans. Can be either a number/boolean or a list of numbers, specifying the probe index; e.g. [1 2 2] to share the probes between the second and third scan. 
+    p.   share_object = 0;                                      % Share object between scans. Can be either a number/boolean or a list of numbers, specifying the object index; e.g. [1 2 2] to share the objects between the second and third scan. 
+    
+    % Modes
+    p.   probe_modes  = 1;                                      % Number of coherent modes for probe
+    p.   object_modes = 1;                                      % Number of coherent modes for object
+    % Mode starting guess
+    p.   mode_start_pow = [0.02];                               % Normalized intensity on probe modes > 1. Can be a number (all higher modes equal) or a vector
+    p.   mode_start = 'herm';                                   % (for probe) = 'rand', = 'herm' (Hermitian-like base), = 'hermver' (vertical modes only), = 'hermhor' (horizontal modes only)
+    p.   ortho_probes = true;                                   % orthogonalize probes after each engine
+    
+    
+    p.   clip_object = true;                                    % Clip the object transmission function
+    p.   clip_max = 1.0;                                        % Upper bound
+    p.   clip_min = 0.0;                                        % Lower bound
+    
+    p.   compute_rfact = false;                                 % If set to true, R-factor is computed at every iteration (large overhead!!!)
+
+
+Furthermore, coherent probe and object modes can be specified with ``p.probe_modes`` and ``p.object_modes``, respectively. 
+
+Plot and save
+-------------
+Finally, the plotting routines and settings for saving jpgs can be specified.
+
+.. code-block:: matlab
+
+    %% Plot and save
+    
+    p.   external_saving = ~testmode;                           % Use a new Matlab session to run save final figures (saves ~6s per reconstruction). Please be aware that this might lead to an accumulation of Matlab sessions if your single reconstruction is very fast.
+    p.   plot_prepared_data = testmode;                         % plot prepared data
+    p.   write_jpegs = 1;                                       % Write nice jpegs in [p.base_path,'analysis/online/ptycho/'] if p.use_display = 0 then the figures are opened invisible in order to create the nice layout. It writes images in analysis/online/ptycho
+    p.   plot_fov_box = 1;                                      % Plot the scanning FOV box on the object (both phase and amplitude)
+    p.   plot_log = [0 0];                                      % Plot on log scale for x and y
+    p.   fov_box_color = [1 0 0];                               % Color of the scanning FOV box
+    p.   plot_positions = 1;                                    % Plot the scanning positions
+    p.   remove_phase_ramp = false;                             % Remove phase ramp from the plotted / saved phase figures 
+    p.   plot_interval = [];                                    % plot interval for matlab code
+    p.   exclude_saving = {'fmag'; 'fmask'};                    % exclude variables to reduce the file size on disk
+    p.   store_images = false;                                  % save to disk after each engine
+    p.   save_intermediate = false;                             % save final object and probes after each engine
+    p.   plot_mask_bool = true;                                 % Mask the noisy contour of the reconstructed object in plots
+    p.   windowautopos = true;                                  % First plotting will auto position windows
+    p.   realaxes = true;                                       % Plots show scale in microns
+    
+    
+Engines
+-------
+The ptychographic reconstruction engines can be seen as the core of PtychoShelves. All Matlab-based engines are supported out of the box, albeit single MEX function might have to be recompiled. Similarly, the `c_solver` binaries are included but depending on the system on which they are executed, binaries have to be recompiled to support different libraries. 
+
+.. note:: 
+	All default engines are tested to work on the PSI DaaS cluster as well as the beamline compute nodes of the cSAXS beamline. As user of either of these computing ressources, you do not have to recompile binaries.
+
+You can select different algorithms, change their order and modify the corresponding parameters. 
+
+In the following case, PtychoShelves would start with the `c_solver`, a high-performance implementation for the difference map and maximum likelihood refinement. After performing 300 iterations of the difference map and 100 iterations of maximum likelihood, Ptychoshelves will continue with the next specified engine, in this case `ML`. 
+
+
+
+.. note:: 
+	The engines are appended in the exact order in which they are defined in the template. If you want to change the order, that is in this case `ML` before running `c_solver`, you would have to you append the `ML` engine first (using core.append_engine, as shown below).
+
+.. code-block:: matlab
+
+    %% ENGINES
+    % External C++ code
+    
+    if 1
+        % Please notice that you have to force data preparation (force_prepare_h5_files=true) if you have made any changes to 
+        % the already prepared data (fmag, fmask, positions, sharing ...). 
+        eng.  name = 'c_solver';
+        eng.  number_iterations = 300;              % Total number of iterations
+        eng.  opt_iter = 100;                       % Iterations for optimization     
+        eng.  probe_regularization = .1;            % Weigth factor for the probe update; 
+        eng.  probe_change_start = 1;               % Start updating probe at this iteration number
+        eng.  probe_support_radius = 0.8;           % Normalized radius of circular support, = 1 for radius touching the window    
+        eng.  pfft_relaxation = .05;                % Relaxation in the Fourier domain projection, = 0  for full projection    
+        eng.  background = 0;                       % [PARTIALLY IMPLEMENTED (not fully optimized)] Add background to the ML model in form:  |Psi|^2+B, B is in average counts per frame and pixel
+        eng.  probe_support_fft = false;            % [PARTIALLY IMPLEMENTED (not fully optimized)] Apply probe support in Fourier space, ! uses model zoneplate settings to estimate support size 
+    
+        eng.  N_layer = 1;                          % Number of virtual object layers (slices)
+        eng.  delta_z = 0e-6 * ones(1, eng.N_layer-1); % Separation between object slices 
+        %eng.  ms_init_ob_fraction = [1 0];
+        if eng.  N_layer>1
+            p.sufix = [p.sufix '_N' num2str(eng. N_layer)];
+            eng.  number_iterations = 0; % highly recommended
+        end
+        
+        eng.  single_prec = true;                   % single or double precision
+        eng.  threads = 20;                         % number of threads for OMP
+        eng.  beamline_nodes = [];                  % beamline nodes for the MPI/OMP hybrid, e.g. ['x12sa-cn-2'; 'x12sa-cn-3'];
+        eng.  ra_nodes = 2;                         % number of nodes on ra cluster for the MPI/OMP hybrid; set to 0 for current node
+        eng.  caller_suffix = '';                   % suffix for the external reconstruction program
+        eng.  reconstruction_program = '';          % specify external reconstruction program that overwrites previous settings, e.g. 'OMP_NUM_THREADS=20 ./ptycho_single_OMP';
+        eng.  check_cpu_load = true;                % check if specified nodes are already in use (only x12sa). Disable check if you are sure that the nodes are free.
+        eng.  initial_conditions_path = '';         % path of the initial conditions file; default if empty (== prepare_data_path)
+        eng.  initial_conditions_file = '';    		% Name of the initial conditions file, default if empty. Do not use ~ in the path
+        eng.  measurements_file = '';				% Name of the measurements file, default if empty. Do not use ~ in the path
+        eng.  solution_file = '';                   % Name of the solution file, default if empty. Do not use ~ in the path
+        eng.  force_prepare_h5_files = 0;           % If true before running the C-code the data h5 file is created and the h5 file with initial object and probe too, regardless of whether it exists. It will use the matlab data preparator. 
+        [p, ~] = core.append_engine(p, eng);        % Adds this engine to the reconstruction process
+    end
+    
+    % Difference Map (Matlab and MEX)
+    if 0
+        eng. name = 'DM';
+        eng. number_iterations = 300;               % Total number of iterations
+        eng. probe_change_start = 1;              % Start updating probe at this iteration number
+        eng. average_start = 300;                 % Start averaging at this iteration number
+        eng. average_interval = 5;                % Number of iterations between reconstruction estimates for average 
+        eng. count_bound = 4e-2;                  % Relaxed Fourier projection parameter - average photons of change per pixel (= 0 no relaxation) 
+        eng. pfft_relaxation = 0.05               % Relaxation in the Fourier domain projection, = 0  for full projection 
+        eng. probe_regularization = .1;           % Weigth factor for the probe update
+        eng. probe_mask_bool = true;              % If true, impose a support constraint to the probe
+        eng. probe_mask_area = .9;                % Area ratio of the mask
+        eng. probe_mask_use_auto = false;         % Use autocorrelation for probe_mask (if false: circular circle)
+        eng. object_flat_region = [];             % Mask for enforcing a flat region in the object (to reduce artifacts)
+        [p, ~] = core.append_engine(p, eng);    % Adds this engine to the reconstruction process
+    end
+    
+    % Maximum Likelihood (Matlab)
+    if 1
+        eng. name = 'ML';
+        eng. opt_errmetric = 'L1';                % Error metric for max likelihood = 'poisson', 'L1' (approx poisson), 'L2' (uniform gaussian noise)
+        eng. opt_flags = [1 1];                   % Optimize [object probe]
+        eng. opt_iter = 100;                        % Iterations for optimization
+        eng. opt_ftol = 1e-10;                    % Tolerance on error metric for optimization
+        eng. opt_xtol = 1e-7;                     % Tolerance on optimizable parameters
+        eng. probe_mask_bool = true;              % If true, impose a support constraint to the probe
+        eng. probe_mask_area = .9;                % Area ratio of the mask
+        eng. probe_mask_use_auto = false;         % Use autocorrelation for probe_mask (if false: circular circle)
+        eng. scale_gradient = false;              % Preconditioning by scaling probe gradient - Reported useful for weak objects
+        eng. inv_intensity = false;               % Make error metric insensitive to intensity fluctuations
+        eng. use_probe_support = false;           % Use the support on the probe that was used in the difference-map
+        eng. reg_mu = 0.01;  %0.01                % Regularization constant ( = 0 for no regularization)
+        eng. smooth_gradient = true;              % Sieves preconditioning, =false no smoothing, = true uses Hanning, otherwise specify a small matrix making sure its sum = 1
+        [p, ~] = core.append_engine(p, eng);    % Adds this engine to the reconstruction process
+    end

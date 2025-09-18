@@ -1,0 +1,154 @@
+%AFFINE_MATRIX_SEARCH
+% Code to evaluate the affine matrix angle for a series of 
+% reconstructions
+%
+% Each reconstruction should have preffix 'affine' in the name
+% and contain a field called p.affine_angle
+%
+% see also: aligned_FSC_template
+
+
+close all; clear all; 
+addpath('utils')
+%%
+scans=[74 78];
+
+filename_search_mask = '*affine*recons*.h5';
+
+path1=sprintf('~/Data10/analysis/S00000-00999/S%05d/',scans(1));
+path2=sprintf('~/Data10/analysis/S00000-00999/S%05d/',scans(2));
+
+params_fsc.plotting = true;
+params_fsc.flipped_images = true;
+params_fsc.thickring = 30;
+params_fsc.remove_ramp = true; 
+params_fsc.GUIguess = false; 
+params_fsc.prop_obj = false;
+%params_fsc.guessx=18;
+%params_fsc.guessy=74;
+%params_fsc.crop= {701:1031,584:1820};
+files1 = dir(fullfile(path1,filename_search_mask));
+files2 = dir(fullfile(path2,filename_search_mask));
+
+if numel(files1)==0
+    error(sprintf('I did not find any files in %s matching %s',path1,filename_search_mask))
+elseif numel(files2)==0
+    error(sprintf('I did not find any files in %s matching %s',path2,filename_search_mask))
+end
+
+for idx = 1:numel(files1)
+
+    file1 = fullfile(path1,files1(idx).name);
+    file2 = fullfile(path2,files2(idx).name);
+    disp(['loading ' file1])
+     p1 = io.load_ptycho_recons(file1);
+    disp(['loading ' file2])
+     p2 = io.load_ptycho_recons(file2);
+
+    if all(all(p1.p.affine_matrix ~= p2.p.affine_matrix))
+        error(['The affine angle is not the same in files, ' file1 ' and ' file2])
+    else
+        angle_array(idx) = atan(p1.p.affine_matrix(2,1))/pi*180;
+    end
+    
+    [resol stat] = aligned_FSC(file1,file2,params_fsc);
+    resolution(idx,:) = resol;
+    fsc_mean_1nm(idx) = stat.fsc_mean_1nm;
+    SNR_avg(idx) = stat.SNR_avg;
+end    
+
+%% 
+FS = 15; 
+figure;
+len = length(resolution(:,1));
+X=angle_array(1:len);
+Y=resolution(:,1);
+F0 = fit(X', Y, 'poly2'); 
+xx=(X(1):0.01:X(end));
+yy=F0.p1*xx.^2 + F0.p2*xx + F0.p3;
+vertex=-F0.p2/(2*F0.p1);
+plot(angle_array(1:len), resolution(:,1),'r^-','linewidth',2); grid on;
+hold on;
+plot(angle_array(1:len), resolution(:,2),'bo-','linewidth',2);
+plot(xx,yy,'-c')
+hold off;
+xlabel('Angle');
+ylabel('Resolution (nm)')
+set(gca,'fontsize',FS,'fontweight','bold');
+
+
+display(sprintf('The vertex of the fitted parabola is at angle = %4.2f degrees',vertex))
+
+legend ('First intersection point with FSC','Last intersection point with FSC')
+
+title(sprintf('FSC S%05d/S%05d',scans(1),scans(2)))
+
+figure(2);
+clf
+plot(angle_array(1:len), fsc_mean_1nm,'r^','linewidth',2); grid on;
+xlabel('Angle [degrees]')
+title('FSC mean [inverse nm]')
+
+% Academic License Agreement
+%
+% Source Code
+%
+% Introduction 
+% •	This license agreement sets forth the terms and conditions under which the PAUL SCHERRER INSTITUT (PSI), CH-5232 Villigen-PSI, Switzerland (hereafter "LICENSOR") 
+%   will grant you (hereafter "LICENSEE") a royalty-free, non-exclusive license for academic, non-commercial purposes only (hereafter "LICENSE") to use the PtychoShelves 
+%   computer software program and associated documentation furnished hereunder (hereafter "PROGRAM").
+%
+% Terms and Conditions of the LICENSE
+% 1.	LICENSOR grants to LICENSEE a royalty-free, non-exclusive license to use the PROGRAM for academic, non-commercial purposes, upon the terms and conditions 
+%       hereinafter set out and until termination of this license as set forth below.
+% 2.	LICENSEE acknowledges that the PROGRAM is a research tool still in the development stage. The PROGRAM is provided without any related services, improvements 
+%       or warranties from LICENSOR and that the LICENSE is entered into in order to enable others to utilize the PROGRAM in their academic activities. It is the 
+%       LICENSEE’s responsibility to ensure its proper use and the correctness of the results.”
+% 3.	THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR 
+%       A PARTICULAR PURPOSE AND NONINFRINGEMENT OF ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. IN NO EVENT SHALL THE LICENSOR, THE AUTHORS OR THE COPYRIGHT 
+%       HOLDERS BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE 
+%       OF THE PROGRAM OR OTHER DEALINGS IN THE PROGRAM.
+% 4.	LICENSEE agrees that it will use the PROGRAM and any modifications, improvements, or derivatives of PROGRAM that LICENSEE may create (collectively, 
+%       "IMPROVEMENTS") solely for academic, non-commercial purposes and that any copy of PROGRAM or derivatives thereof shall be distributed only under the same 
+%       license as PROGRAM. The terms "academic, non-commercial", as used in this Agreement, mean academic or other scholarly research which (a) is not undertaken for 
+%       profit, or (b) is not intended to produce works, services, or data for commercial use, or (c) is neither conducted, nor funded, by a person or an entity engaged 
+%       in the commercial use, application or exploitation of works similar to the PROGRAM.
+% 5.	LICENSEE agrees that it shall make the following acknowledgement in any publication resulting from the use of the PROGRAM or any translation of the code into 
+%       another computing language:
+%       "Data processing was carried out using the PtychoShelves package developed by the Science IT and the coherent X-ray scattering (CXS) groups, Paul 
+%       Scherrer Institut, Switzerland."
+%
+% Additionally, any publication using the package, or any translation of the code into another computing language should cite 
+% K. Wakonig, H.-C. Stadler, M. Odstrčil, E.H.R. Tsai, A. Diaz, M. Holler, I. Usov, J. Raabe, A. Menzel, M. Guizar-Sicairos, PtychoShelves, a versatile 
+% high-level framework for high-performance analysis of ptychographic data, J. Appl. Cryst. 53(2) (2020). (doi: 10.1107/S1600576720001776)
+% and for difference map:
+% P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer, High-resolution scanning X-ray diffraction microscopy, Science 321, 379–382 (2008). 
+%   (doi: 10.1126/science.1158573),
+% for maximum likelihood:
+% P. Thibault and M. Guizar-Sicairos, Maximum-likelihood refinement for coherent diffractive imaging, New J. Phys. 14, 063004 (2012). 
+%   (doi: 10.1088/1367-2630/14/6/063004),
+% for LSQ-ML:
+% M. Odstrčil, A. Menzel, and M. Guizar-Sicairos, Iterative least-squares solver for generalized maximum-likelihood ptychography, Opt. Express 26(3), 3108 (2018). 
+%   (doi: 10.1364/OE.26.003108),
+% for mixed coherent modes:
+% P. Thibault and A. Menzel, Reconstructing state mixtures from diffraction measurements, Nature 494, 68–71 (2013). (doi: 10.1038/nature11806),
+% and/or for multislice:
+% E. H. R. Tsai, I. Usov, A. Diaz, A. Menzel, and M. Guizar-Sicairos, X-ray ptychography with extended depth of field, Opt. Express 24, 29089–29108 (2016). 
+%   (doi: 10.1364/OE.24.029089),
+% and/or for OPRP:
+% M. Odstrcil, P. Baksh, S. A. Boden, R. Card, J. E. Chad, J. G. Frey, W. S. Brocklesby,  Ptychographic coherent diffractive imaging with orthogonal probe relaxation. 
+% Opt. Express 24.8 (8360-8369) 2016. (doi: 10.1364/OE.24.008360).
+% 6.	Except for the above-mentioned acknowledgment, LICENSEE shall not use the PROGRAM title or the names or logos of LICENSOR, nor any adaptation thereof, nor the 
+%       names of any of its employees or laboratories, in any advertising, promotional or sales material without prior written consent obtained from LICENSOR in each case.
+% 7.	Ownership of all rights, including copyright in the PROGRAM and in any material associated therewith, shall at all times remain with LICENSOR, and LICENSEE 
+%       agrees to preserve same. LICENSEE agrees not to use any portion of the PROGRAM or of any IMPROVEMENTS in any machine-readable form outside the PROGRAM, nor to 
+%       make any copies except for its internal use, without prior written consent of LICENSOR. LICENSEE agrees to place the following copyright notice on any such copies: 
+%       © All rights reserved. PAUL SCHERRER INSTITUT, Switzerland, Laboratory for Macromolecules and Bioimaging, 2017. 
+% 8.	The LICENSE shall not be construed to confer any rights upon LICENSEE by implication or otherwise except as specifically set forth herein.
+% 9.	DISCLAIMER: LICENSEE shall be aware that Phase Focus Limited of Sheffield, UK has an international portfolio of patents and pending applications which relate 
+%       to ptychography and that the PROGRAM may be capable of being used in circumstances which may fall within the claims of one or more of the Phase Focus patents, 
+%       in particular of patent with international application number PCT/GB2005/001464. The LICENSOR explicitly declares not to indemnify the users of the software 
+%       in case Phase Focus or any other third party will open a legal action against the LICENSEE due to the use of the program.
+% 10.	This Agreement shall be governed by the material laws of Switzerland and any dispute arising out of this Agreement or use of the PROGRAM shall be brought before 
+%       the courts of Zürich, Switzerland.
+

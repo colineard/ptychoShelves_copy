@@ -1,0 +1,14 @@
+This compilation comes from git tag   Oct 18, 2016
+https://git.psi.ch/cSAXS/cSAXS_C_Ptycho/commit/44b000dd3d0265b0cd8302a8c376bbeadc0337bd
+
+* Inside ptycho folder load the libraries and modules
+source setup-environment.sh
+
+
+* In needed you can compile auxiliary mex functions from a shell using
+mex -I$HDF5_INCLUDE_PATH -L$HDF5_LIBRARY_PATH generate_input_files.cc -lhdf5
+mex -I$HDF5_INCLUDE_PATH -L$HDF5_LIBRARY_PATH read_solution_file.cc -lhdf5
+
+
+
+

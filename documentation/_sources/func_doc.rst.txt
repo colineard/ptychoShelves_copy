@@ -1,0 +1,544 @@
+Function documentation
+========================
+.. toctree::
+	:maxdepth: 2
+	:caption: Contents:
+
++core
+-----
+.. module:: +core 
+.. function:: core.append_engine
+
+	|  APPEND_ENGINE appends engine specified in new_eng to p
+
+	|  Adds engines with index, starting at 0
+	|  1st engine: p.engines.engine0
+
+
+
+.. function:: core.check_omny_queue
+
+	|  CHECK_OMNY_QUEUE Check for file queue for omny
+
+
+.. function:: core.check_prepared_data
+
+	|  CHECK_PREPARED_DATA compares prepared data file with current
+	|  reconstruction parameters. If force_update == true, data preparation will
+	|  be forced (see core.ptycho_prepare_scans)
+
+
+.. function:: core.engine_status
+
+	|  ENGINE_STATUS use persisten variables to store error messages
+	|  Error code: 0 for 'everything OK' and ~=0 for 'error' (return values of matlab's system function)
+
+	|  usage:
+	|  engine_status(status)    to set persisten variable engine_stat to
+	|  status
+
+	|  engine_status            to read persisten variables
+
+
+
+.. function:: core.errorplot
+
+	|  Build an errormetric plot vs iteration number
+	|  e = errorplot         Clears the persistent variable
+	|  e = errorplot(x)      Appends x to the persistent variable
+	|  e = errorplot([])     Only reads the persistent variable
+
+
+.. function:: core.extract4saving
+
+	|  EXTRACT4SAVING extracts datasets and parameters from p and creates HDF5 structure
+
+
+.. function:: core.get_projections
+
+	|  GET_PROJECTIONS
+
+
+.. function:: core.hermite_like
+
+	|  %%%%%%%%%%%%%%%%.. function:: core.initialize_ptycho
+
+	|  INITIALIZE_PTYCHO
+
+
+.. function:: core.prep_h5data
+
+	|  PREP_H5DATA prepare data and save it to disk
+	|  prep_h5data expects that fmask and fmag already exist, prepares them
+	|  for the C++ code and saves everything to disk.
+	|  It uses the old h5 file format, i.e. each measurement is saved in its own
+	|  group and with its own fmask. This allows for more flexibilty, at the
+	|  cost of reading and writing speed.
+	|  If this flexibility is not needed, procPtycho (python data preparation)
+	|  is highly recommended!
+
+
+.. function:: core.prep_initial_conditions
+
+	|  PREP_INITIAL_CONDITIONS prepares the initial_conditions file for the
+	|  reconstruction with external C++ code
+
+	|  save2hdf5 saves a structure to an h5 file
+
+
+.. function:: core.prepare_data_matlab
+
+	|  PREPARE_DATA_MATLAB prepares and normalizes data for matlab engines
+
+
+.. function:: core.prepare_probes
+
+	|  Prepare probe - Only single file supported, either the file has a 3D matrix
+	|  of many probes or the probe will be repeated for the number of probes
+	|  needed for reconstruction
+
+
+.. function:: core.probe_modes_ortho
+
+	|  ORTHO Orthogonalize the given list of modes using SVD.
+	|  [pr, I_n, eval] = probe_modes_ortho(modes)
+	|  pr        Orthogonalized (eigen) modes
+	|  I_n       Normalized intensity of the mode (relative contribution to total intensity)
+	|  eval      SVD eigenvalues
+
+
+.. function:: core.ptycho_adjust_positions
+
+	|  PTYCHO_ADJUST_POSITIONS
+
+
+.. function:: core.ptycho_artificial_scans
+
+	|  PTYCHO_ARTIFICIAL_SCANS
+	|  Detailed explanation goes here
+
+
+.. function:: core.ptycho_model_probe
+
+	|  pout = ptycho_model_probe(p)
+
+
+.. function:: core.ptycho_plot_ptycho
+
+	|  .. function:: core.ptycho_prepare_paths
+
+	|  PTYCHO_PREPARE_PATHS Prepare paths and check defaults
+
+
+.. function:: core.ptycho_prepare_scans
+
+	|  PTYCHO_PREPARE_SCANS Load data from disk and prepare the scan for the
+	|  ptychographic reconstruction.
+
+
+.. function:: core.ptycho_recons
+
+	|  OUT = PTYCHO_RECONS(P)
+
+	|  Runs the reconstruction using parameters in the structure P.
+	|  Returns a structure OUT containing all necessary information.
+
+	|  Publications most relevant to the Difference-Map implementation
+	|  + P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,
+	|  "High-Resolution Scanning X-ray Diffraction Microscopy," Science 321, 379-382 (2008)
+	|  + P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,
+	|  "Probe retrieval in ptychographic coherent diffractive imaging,"
+	|  Ultramicroscopy 109, 338–343 (2009)
+	|  Publications most relevant to the Maximum Likelihood refinement
+	|  + M. Guizar-Sicairos and J. R. Fienup, "Phase retrieval with transverse
+	|  translation diversity: a nonlinear optimization approach," Opt. Express 16, 7264-7278 (2008)
+	|  + P. Thibault and M. Guizar-Sicairos, "Maximum-likelihood refinement for
+	|  coherent diffractive imaging," New J. Phys. 14, 063004 (2012).
+
+
+.. function:: core.python_prep_data
+
+	|  PYTHON_PREP_DATA prepares and exports data for json/ptyhon data
+	|  preparation.
+
+
+.. function:: core.run_engine
+
+	|  RUN_ENGINE calls engine 'eng'
+
+
+.. function:: core.save_fig_ext
+
+	|  SAVE_FIG_EXT Subsection of ptycho_show_recons to load reconstruction file
+	|  and save figures.
+
+
+.. function:: core.save_results
+
+	|  %%%%%%%%%%%%%%%%%%%%%%%%%.. function:: core.set_projections
+
+	|  object = set_projections(p, object, obj_update, scan_id)
+
+
+.. function:: core.update_omny_queue
+
+	|  UPDATE_OMNY_QUEUE
+
+
++detector
+---------
+.. module:: +detector 
+.. function:: detector.initialize_detector
+
+	|  INITIALIZE_DETECTOR run some checks and load the detector settings
+
+
+.. function:: detector.load_detector
+
+	|  LOAD_DETECTOR
+	|  load detector files as specified in p
+
+
+.. function:: detector.prepare_data
+
+	|  PREPARE_DATA prepare the raw data for the ptychographic reconstruction
+
+	|  Note:
+	|  All (default) functions are located in +detector/private. If You want
+	|  to add a new detector, please create a new package directory
+	|  (+detector_name) with a parameter file detector_name.m. Functions in a
+	|  package detectory directory will overload similar functions in
+	|  private.
+
+
++engines
+--------
+.. module:: +engines 
+.. function:: engines.DM
+
+	|  DM Difference-Map algorithm
+
+	|  Publications most relevant to the Difference-Map implementation
+	|  + P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,
+	|  "High-Resolution Scanning X-ray Diffraction Microscopy," Science 321, 379-382 (2008)
+	|  + P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,
+	|  "Probe retrieval in ptychographic coherent diffractive imaging,"
+	|  Ultramicroscopy 109, 338–343 (2009)
+
+
+.. function:: engines.DM_MS
+
+	|  [ p, fdb ] = DM_MS( p )
+
+
+.. function:: engines.GPU
+
+	|  engines.GPU is a function.
+	|  [p_out, fdb] = GPU(p)
+
+
+.. function:: engines.ML
+
+	|  ML Maximum Likelihood refinement
+
+	|  Publications most relevant to the Maximum Likelihood refinement
+	|  + M. Guizar-Sicairos and J. R. Fienup, "Phase retrieval with transverse
+	|  translation diversity: a nonlinear optimization approach," Opt. Express 16, 7264-7278 (2008)
+	|  + P. Thibault and M. Guizar-Sicairos, "Maximum-likelihood refinement for
+	|  coherent diffractive imaging," New J. Phys. 14, 063004 (2012).
+
+
+.. function:: engines.ML_MS
+
+	|  [ p, fdb ] = ML_MS( p )
+
+
+.. function:: engines.c_solver
+
+	|  C_SOLVER external C++ code for DM and ML
+
+	|  Publications most relevant to the Difference-Map implementation
+	|  + P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,
+	|  "High-Resolution Scanning X-ray Diffraction Microscopy," Science 321, 379-382 (2008)
+	|  + P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,
+	|  "Probe retrieval in ptychographic coherent diffractive imaging,"
+	|  Ultramicroscopy 109, 338–343 (2009)
+
+	|  Publications most relevant to the Maximum Likelihood refinement
+	|  + M. Guizar-Sicairos and J. R. Fienup, "Phase retrieval with transverse
+	|  translation diversity: a nonlinear optimization approach," Opt. Express 16, 7264-7278 (2008)
+	|  + P. Thibault and M. Guizar-Sicairos, "Maximum-likelihood refinement for
+	|  coherent diffractive imaging," New J. Phys. 14, 063004 (2012).
+
+
+.. function:: engines.c_solver_MS
+
+	|  C_SOLVER external C++ code for DM and ML
+
+	|  Publications most relevant to the Difference-Map implementation
+	|  + P. Thibault, M. Dierolf, A. Menzel, O. Bunk, C. David, F. Pfeiffer,
+	|  "High-Resolution Scanning X-ray Diffraction Microscopy," Science 321, 379-382 (2008)
+	|  + P. Thibault, M. Dierolf, O. Bunk, A. Menzel, F. Pfeiffer,
+	|  "Probe retrieval in ptychographic coherent diffractive imaging,"
+	|  Ultramicroscopy 109, 338–343 (2009)
+
+	|  Publications most relevant to the Maximum Likelihood refinement
+	|  + M. Guizar-Sicairos and J. R. Fienup, "Phase retrieval with transverse
+	|  translation diversity: a nonlinear optimization approach," Opt. Express 16, 7264-7278 (2008)
+	|  + P. Thibault and M. Guizar-Sicairos, "Maximum-likelihood refinement for
+	|  coherent diffractive imaging," New J. Phys. 14, 063004 (2012).
+
+
+
+.. function:: engines.presolver
+
+	|  C_SOLVER external C++ code for DM in lower resolution
+
+
++scans
+------
+.. module:: +scans 
+.. function:: scans.get_queue
+
+	|  GET_QUEUE call queue functions in package directories
+
+
+.. function:: scans.read_metadata
+
+	|  READ_METADATA load meta data and overwrite previous settings
+
+
+.. function:: scans.read_positions
+
+	|  READ_POSITIONS load positions
+
+
+cSAXS_python_env
+----------------
+.. module:: cSAXS_python_env 
+utils
+-----
+.. module:: utils 
+.. function:: utils/aligned_FSC
+
+	|  [resolution stat] = aligned_FSC(file1,file2,params)
+
+	|  Receives two filenames with path for ptychography reconstructions and a
+	|  structure with parameters. The routine reads the reconstructions, matches
+	|  the linear phase between them, registers the images, and returns the
+	|  resolution estimates based on first and last crossing of the FSC with the
+	|  threshold.
+
+	|  References relevant to this code:
+	|  For using this FSC code with ptychography: J. Vila-Comamala, et al., "Characterization of high-resolution diffractive X-ray optics by ptychographic coherent diffractive imaging," Opt. Express 19, 21333-21344 (2011).
+	|  For subpixel alignment: M. Guizar-Sicairos, et al., "Efficient subpixel image registration algorithms," Opt. Lett. 33, 156 (2008).
+	|  For matching of phase ramp by approximate least squared error:  M. Guizar-Sicairos, et al., "Phase tomography from x-ray coherent diffractive imaging projections," Opt. Express 19, 21345-21357 (2011).
+
+	|  Outputs:
+
+	|  resolution    A two element variable that contains the resolution
+	|  obtained from first and last crossing of the FSC curve with
+	|  the threshold curve.
+	|  stat          structure containing other statistics such as
+	|  spectral signal to noise ratio (SSNR), average SNR and area under FSC curve
+
+	|  Inputs:
+
+	|  file1     Filename with path of reconstruction 1
+	|  file2     Filename with path of reconstruction 2
+	|  params    Structure with parameters as described below
+
+	|  params.flipped_images    Flip one input image horizontally (= true or false).
+	|  Useful when comparing 0 and 180 degree projections
+	|  in tomography (default = false).
+	|  params.crop      = '';       for using the default half size of the probe
+	|  = 'manual'  for using GUI to select region. This will display the range, e.g. {600:800, 600:800}
+	|  = {600:800, 600:800} for custom vertical and horizontal cropping, respectively
+	|  params.GUIguess  To click for an initial alignment guess, if used it ignores
+	|  the values of params.guessx and params.guessy (default
+	|  = false)
+	|  params.guessx
+	|  params.guessy        An intial guess for x and y alignment (default = [])
+	|  params.remove_ramp   Try to remove linear phase from whole image before initial
+	|  alignment (default = true)
+	|  params.image_prop    = 'complex'
+	|  = 'phasor' (phase with unit amplitude, default)
+	|  = 'phase'  (Note: phase should not be used if there is phase wrapping)
+	|  params.taper         = 20 (default)   Pixels to taper images - Increase until the FSC does not change anymore
+	|  params.plotting      Display plots (default = false)
+	|  params.dispfsc       Display FSC plot (default = true)
+	|  params.SNRt          SNR for FSC threshold curve
+	|  SNRt = 0.2071 for 1/2 bit threshold for resolution of the average of the 2 images
+	|  SNRt = 0.5    for 1   bit threshold for resolution of each individual image (default)
+	|  params.thickring     Thickness of Fourier domain ring for FSC in pixels (default = 1)
+	|  params.freq_thr      To ignore the crossings before freq_thr for determining resolution (default 0.02)
+	|  params.out_fn        Filename of output of jpeg for FSC
+
+
+.. function:: utils/break_check
+
+	|  [] = break_check(filename)
+
+
+.. function:: utils/calculate_round_roi
+
+	|  Data path info
+
+
+.. function:: utils/change_file_names
+
+	|  change_file_names.m
+	|  small script  to remove lock files from certain scans
+
+
+.. function:: utils/check_option
+
+	|  CHECK_OPTION
+	|  check if required option exists and is equal to the given value,
+	|  otherwise return false
+
+
+.. function:: utils/check_scan_interruption
+
+	|  Detect an interruption of the scan in the Log file
+	|  From spec compile  post_scan.mac
+	|  = 1, if the scan is ready for processing
+	|  = 0, if the scan was interrupted and is not yet repeated, or if the scan
+	|  is being repeated now
+
+
+.. function:: utils/find_file_names
+
+	|  change_file_names.m
+	|  small script  to remove lock files from certain scans
+
+
+.. function:: utils/find_ptycho_filename
+
+	|  filename_with_path = find_ptycho_filename(base_analysis_path,scan_number,fileprefix,filesuffix)
+	|  Looks for a ptychography reconstruction name inside the path given as
+	|  initial argument. I will look in the folder given and also try with
+	|  adding analysis. If the scan_number is given it will compile an analysis
+	|  folder and look for it.  e.g. find_ptycho_filename('~/Data10',235);
+	|  Use verbose(2) in order to see all directories and names attempted.
+	|  Inputs
+	|  base_analysis_path    .. function:: utils/integrate_frames
+
+	|  14-11-2012
+	|  Integrates frames from a loopscan
+
+	|  Syntax:
+	|  [int] = integrate_frames(base_path,scan_num,plotfigure,det_num,savedata,maskfilename)
+	|  Needed parameters: base_path (e.g. '~/Data10/')
+	|  scan_num   (scan number)
+	|  Optional parameters: plotfigure (figure number for fial plot, 0 for no plotting, by default is 0)
+	|  det_num (detector number, default 1)
+	|  savedata (=1 to save data in 'analysis/integrated_frames/', default 0)
+	|  maskfilename (valid mask file name. If empty [], no mask used)
+
+
+.. function:: utils/loopregerror
+
+	|  Evaluate registration error in an angle series. Returns the error between
+	|  subsequent images. The last image is evaluated against the first but
+	|  flipped in x. Recieves image FT with DC in (1,1), the image should have
+	|  had the center in center of array.
+	|  filt_stackFT  FT of stack of images, previously filtered if needed
+	|  deltastack    Estimates of positions
+	|  xmax          Vector with positions of horizontal edges of rectangular
+	|  window for registration
+	|  ymax          Same as xmax but vertical edges of window
+
+
+.. function:: utils/make_lock_files
+
+	|  make_lock_files is a script.
+
+
+.. function:: utils/phase_from_dpc
+
+	|  Integrates the phase from a combination of x and y gradients.
+	|  phase_from_dpc(dpcx,dpcy,'fourier') uses the Fourier method (default),
+	|  phase_from_dpc(dpcx,dpcy,'finitdiff') uses a finite difference method.
+
+
+.. function:: utils/propagate_probe
+
+	|  propagate_probe.m
+	|  Warning: Currently working only for square pixels
+
+
+.. function:: utils/remove_lock_files
+
+	|  remove_lock_files.m
+	|  small script  to remove lock files from certain scans
+
+
+.. function:: utils/remove_lock_files_select
+
+	|  remove_lock_files.m
+	|  small script  to remove lock files from certain scans
+
+
+.. function:: utils/round_roi_new_stxm
+
+	|  Another script for STXM evaluation of round roi scans
+
+	|  Does not use Gaussians centered on grid points which leads to inaccuarate
+	|  values at the center positions (due to adding up all the Gaussians)
+	|  but rather uses the Matlab's "griddata" function.
+
+
+.. function:: utils/round_roi_numpts
+
+	|  Usage:
+	|  function numpts = round_roi_numpts(lx,ly,dr,nth)
+
+	|  Description:
+	|  Calculates the number of points of a round roi scan
+	|  for a set of parameters used in a Spec call.
+
+	|  Parameters:
+	|  lx = horizontal field of view in meter
+	|  ly = vertical field of view in meter
+	|  dr = radial shell step size in meter
+	|  dth = angluar intervals in first shell
+
+	|  Changelog:
+	|  2010-12-04, First version.
+
+
+.. function:: utils/set_all_engines
+
+	|  function  p = set_all_engines(p, parameter, value)
+	|  set given parameter to all engines
+
+
+.. function:: utils/show_recons
+
+	|  show recons.m
+	|  Warning: Currently working only for square pixels
+	|  close all   .. function:: utils/show_recons_ms
+
+	|  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.. function:: utils/unwrap_pilatus_weird
+
+	|  [frame_unwrapped, frame_replaced_from_lowcount] = unwrap_pilatus(frame_low, frame_high, numbad, slope)
+
+	|  unwraps the pilatus pixels that had too high intensity.
+	|  slope and numbad are optional.
+	|  slope should be (high exposure time / low exposure time), but can be
+	|  evaluated from the data.
+	|  numbad is the rough number of bad pixels - it should be greater than the actual
+	|  value. It is used only if the slope needs to be evaluated.
+
+	|  The first output is the result of unwrapping the high intensity counts.
+	|  The second is equal to the high intensity frame with all wrapped values
+	|  replaced with scaled counts from the low exposure frame. These two should
+	|  be equal, but the first output is biased by the intensity correction done
+	|  by the pilatus.
+
+
+Indices and tables
+====================
+* :ref:`genindex`
+* :ref:`search`

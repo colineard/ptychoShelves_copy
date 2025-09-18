@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PtychoShelves &mdash; PtychoShelves  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="template_ptycho - your virtual control room" href="template_ptycho.html" />
+    <link rel="prev" title="PtychoShelves documentation" href="index.html" />
+    <link href="_static/mod_theme.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PtychoShelves
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PtychoShelves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="template_ptycho.html">template_ptycho - your virtual control room</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_beamline.html">How to add support for a beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_func_doc.html">base package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_func_doc.html">ptycho package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_license.html">Academic License Agreement</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PtychoShelves</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>PtychoShelves</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ptychoshelves">
+<h1>PtychoShelves<a class="headerlink" href="#ptychoshelves" title="Permalink to this headline">¶</a></h1>
+<p>PtychoShelves is a Matlab-based software package, developed by the CXS group, Paul-Scherrer Institut, Switzerland. With its modular framework, it is designed to provide a flexible, yet fast environment for ptychographic data preparation and reconstructions.
+PtychoShelves can be used similar to a bookshelf: Just pick the modules (books) you would like to have. This does not only cover different reconstruction algorithms; moreover different data preparation and loading routines, file queueing etc. can be selected.</p>
+<p>By using the software, you agree to the license agreement. Terms and conditions can be found <a class="reference internal" href="ptycho_license.html"><span class="doc">here</span></a>.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>The only requirement to run the basic PtychoShelves software is to have Matlab installed and a valid license. The currently supported Matlab version can be found in <span class="xref std std-ref">setup-environment</span>. Although most of the code will work even if a different Matlab version is used, we neither test nor support any other Matlab version.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are working on the DaaS cluster at the Paul Scherrer Institute, you can be sure that all requirement are fulfilled.</p>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Once Matlab is installed, there is not further setup needed. Just copy the Matlab packages into you working directory. All paths can be definded later in the template (<a class="reference internal" href="template_ptycho.html#template-io"><span class="std std-ref">Input/Output settings</span></a>).</p>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>A special verbose level can be used to simplify debugging (<a class="reference internal" href="template_ptycho.html#template-general-settings"><span class="std std-ref">verbose_level</span></a>).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="template_ptycho.html" class="btn btn-neutral float-right" title="template_ptycho - your virtual control room" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="PtychoShelves documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, CXS group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

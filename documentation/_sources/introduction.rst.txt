@@ -1,0 +1,27 @@
+
+PtychoShelves
+=============
+
+PtychoShelves is a Matlab-based software package, developed by the CXS group, Paul-Scherrer Institut, Switzerland. With its modular framework, it is designed to provide a flexible, yet fast environment for ptychographic data preparation and reconstructions. 
+PtychoShelves can be used similar to a bookshelf: Just pick the modules (books) you would like to have. This does not only cover different reconstruction algorithms; moreover different data preparation and loading routines, file queueing etc. can be selected. 
+
+By using the software, you agree to the license agreement. Terms and conditions can be found :doc:`here </ptycho_license>`. 
+
+Requirements
+------------
+The only requirement to run the basic PtychoShelves software is to have Matlab installed and a valid license. The currently supported Matlab version can be found in :ref:`setup-environment <_base_setup-environment>`. Although most of the code will work even if a different Matlab version is used, we neither test nor support any other Matlab version.
+
+.. note::
+   If you are working on the DaaS cluster at the Paul Scherrer Institute, you can be sure that all requirement are fulfilled. 
+
+Setup
+-----
+Once Matlab is installed, there is not further setup needed. Just copy the Matlab packages into you working directory. All paths can be definded later in the template (:ref:`Input/Output settings <template_IO>`).
+
+
+
+Debugging
+---------
+A special verbose level can be used to simplify debugging (:ref:`verbose_level <template_general_settings>`). 
+
+

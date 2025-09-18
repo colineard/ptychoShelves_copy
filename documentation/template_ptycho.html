@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template_ptycho - your virtual control room &mdash; PtychoShelves  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to add support for a beamline" href="new_beamline.html" />
+    <link rel="prev" title="PtychoShelves" href="introduction.html" />
+    <link href="_static/mod_theme.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PtychoShelves
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">PtychoShelves</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">template_ptycho - your virtual control room</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-settings">General settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scan-and-data-preparation">Scan and data preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-output-settings">Input/output settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-reconstruction-settings">General reconstruction settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plot-and-save">Plot and save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#engines">Engines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="new_beamline.html">How to add support for a beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_func_doc.html">base package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_func_doc.html">ptycho package documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptycho_license.html">Academic License Agreement</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PtychoShelves</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>template_ptycho - your virtual control room</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/template_ptycho.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-ptycho-your-virtual-control-room">
+<h1><a class="toc-backref" href="#id2">template_ptycho - your virtual control room</a><a class="headerlink" href="#template-ptycho-your-virtual-control-room" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#template-ptycho-your-virtual-control-room" id="id2">template_ptycho - your virtual control room</a><ul>
+<li><a class="reference internal" href="#general-settings" id="id3">General settings</a></li>
+<li><a class="reference internal" href="#scan-and-data-preparation" id="id4">Scan and data preparation</a></li>
+<li><a class="reference internal" href="#input-output-settings" id="id5">Input/output settings</a></li>
+<li><a class="reference internal" href="#general-reconstruction-settings" id="id6">General reconstruction settings</a></li>
+<li><a class="reference internal" href="#plot-and-save" id="id7">Plot and save</a></li>
+<li><a class="reference internal" href="#engines" id="id8">Engines</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">It is best practice to rename the template_ptycho.m file to something more specific and use the original file, as the file name suggests, only as a template.</p>
+</div>
+<div class="section" id="general-settings">
+<span id="template-general-settings"></span><h2><a class="toc-backref" href="#id3">General settings</a><a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h2>
+<p>PtychoShelves uses Matlab structures to maintain variables and store datasets. The <cite>p</cite> structure contains all parameters that you set in the template as well as the final reconstruction.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want to add further modules, most of the time it is sufficient to just modify the p structure within a function and return the modified version.</p>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="p">(</span><span class="n">fileparts</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="n">mfilename</span><span class="p">)));</span>
+
+<span class="n">addpath</span><span class="p">(</span><span class="s">&#39;utils&#39;</span><span class="p">)</span>
+<span class="n">addpath</span><span class="p">(</span><span class="s">&#39;../&#39;</span><span class="p">)</span>   <span class="c">% add path to cSAXS_matlab_base</span>
+<span class="n">import</span> <span class="n">utils</span><span class="o">.*</span>
+
+<span class="n">testmode</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>       <span class="c">% In test mode, lock files are not written and plots are generated every iteration</span>
+
+<span class="n">p</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+<span class="n">eng</span> <span class="p">=</span> <span class="n">struct</span><span class="p">();</span>
+
+<span class="c">%% General</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">verbose_level</span> <span class="p">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">testmode</span><span class="p">;</span>                            <span class="c">% verbosity for standard output (0-1 for loops, 2-3 for testing and adjustments, &gt;= 4 for debugging)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">use_display</span> <span class="p">=</span> <span class="p">[];</span>                                      <span class="c">% global switch for display</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scan-and-data-preparation">
+<span id="template-data-prep"></span><h2><a class="toc-backref" href="#id4">Scan and data preparation</a><a class="headerlink" href="#scan-and-data-preparation" title="Permalink to this headline">¶</a></h2>
+<p>Although you can set all parameters manually, it might be beneficial to extract as much information from meta data files as possible. The parameters that are imported can be defined in a separate file in +scans/+meta. As an example, have a look at +scans/+meta/+spec.m. It loads a spec file and <em>inter alia</em> writes the spec value mokev into p.energy, thus we don’t have to specify the selected energy in the template if a spec meta data file is available.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Scan meta data</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">src_metadata</span> <span class="p">=</span> <span class="s">&#39;spec&#39;</span><span class="p">;</span>                                 <span class="c">% load meta data from file; currently only &#39;spec&#39; is supported;</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">energy</span> <span class="p">=</span> <span class="p">[];</span>                                           <span class="c">% Energy (in keV), leave empty to use spec entry mokev</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">z</span> <span class="p">=</span> <span class="mf">7.3418</span><span class="p">;</span>                                            <span class="c">% Distance from object to detector</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">prop_regime</span> <span class="p">=</span> <span class="s">&#39;farfield&#39;</span><span class="p">;</span>                              <span class="c">% propagation regime: nearfield, farfield (default), !! nearfield is supported only by GPU engines</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">focus_to_sample_distance</span> <span class="p">=</span> <span class="p">[];</span>                         <span class="c">% sample to focus distance, very important parameter to be set for nearfield ptychography</span>
+
+
+<span class="c">% Scan queue</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">queue</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                            <span class="c">% specify file queue; currenlty only &#39;omny&#39; is supported</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">scan_number</span> <span class="p">=</span> <span class="p">[</span><span class="mi">35</span><span class="p">];</span>                                    <span class="c">% Multiple scan numbers for shared scans</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">omny_scan_file_search</span> <span class="p">=</span> <span class="p">[];</span>                                    <span class="c">% Folder where the queue of files is defined, note the content of files can overwrite some parameters %[&#39;../../specES1/ptycho_reconstruct/&#39;];</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">omny_max_attempts</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>                                 <span class="c">% Max number of attempts to reconstruct a scan.</span>
+
+<span class="c">% Diffraction data</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">asize</span> <span class="p">=</span> <span class="p">[</span><span class="mi">192</span> <span class="mi">192</span><span class="p">];</span>                                     <span class="c">% Diffr. patt. array size</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">ctr</span> <span class="p">=</span> <span class="p">[</span><span class="mi">945</span> <span class="mi">737</span><span class="p">];</span>                                       <span class="c">% Diffr. patt. center coordinates (y,x) (empty means middle of the array); e.g. [100 207;100+20 207+10];</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">check_2_detpos</span> <span class="p">=</span> <span class="p">[];</span>                                   <span class="c">% = []; (ignores)   = 270; compares to dettrx to see if p.ctr should be reversed (for OMNY shared scans 1221122), make equal to the middle point of dettrx between the 2 detector positions</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">data_prefix</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                      <span class="c">% Default using current eaccount e.g. e14169_1_</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">auto_prepare_data</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                              <span class="c">% if true: prepare dataset from raw measurements if the prepared data does not exist</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">prepare_data_function</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                            <span class="c">% (used only if data should be prepared) data preparation function handle;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">force_preparation_data</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                         <span class="c">% Prepare dataset even if it exists, it will overwrite the file % Default: @prepare_data_2d</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">binning</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                                       <span class="c">% = true to perform 2x2 binning of detector pixels, for binning = N do 2^Nx2^N binning</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">data_prep</span> <span class="p">=</span> <span class="s">&#39;python&#39;</span><span class="p">;</span>                                  <span class="c">% data preparator; &#39;python&#39; or &#39;matlab&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">load_prep_pos</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                                  <span class="c">% load positions from prepared data file</span>
+</pre></div>
+</div>
+<p>The scan queue refers to the reconstruction order and file queue. This becomes especially handy if you are dealing with a ptycho-tomo dataset, <em>i.e.</em> usually 500+ reconstructions. Rather than selecting them manually, you can define a loop and a file queue.</p>
+<p>There are many ways of designing a queue, and currently two modules are implemented in PtychoShelves. The most primitive one deals with lockfiles, that is files that are written once a Matlab instance starts to work on a particular dataset. Although this approach works very reliably, if you want to rerun the reconstruction, you first have to delete all lockfiles.</p>
+<p>A second approach was implemented for OMNY/flOMNI measurements at the cSAXS beamline, but the concept can be easily extended to any tomographic measurement. Instead of writing lockfiles into the analysis directory, small .dat files are prepared by instrument in a separate directory, containing <em>inter alia</em> the scan number. PtychoShelves reads these files and moves them into the <code class="docutils literal notranslate"><span class="pre">in_progress</span></code> directory. Once the reconstruction is finished, the file will be moved to <code class="docutils literal notranslate"><span class="pre">done</span></code>. Should the reconstruction crash, PtychoShelves will try it again a few times (specified by p.omny_max_attemps) and if still not successful, it will move the .dat file into <code class="docutils literal notranslate"><span class="pre">failed</span></code> and continue with the next scan.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Scan parameter</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">src_positions</span> <span class="p">=</span> <span class="s">&#39;orchestra&#39;</span><span class="p">;</span>                           <span class="c">% &#39;spec&#39;, &#39;orchestra&#39;, &#39;matlab_pos&#39; or empty (scan params are defined below)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">angular_correction_setup</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                         <span class="c">% choose angular correction for specific cSAXS experiment: &#39;flomni&#39;, &#39;omny&#39;, &#39;lamni&#39;, &#39;none&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">burst_frames</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                      <span class="c">% number of frames collected per scan position</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">spec_motor</span> <span class="p">=</span> <span class="p">[];</span>                                       <span class="c">% Y and X motor name for positions, leave empty for defaults</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">spec_motor_scale</span> <span class="p">=</span> <span class="p">[];</span>                                 <span class="c">% ptycho expects real positions in m;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">coarsex</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                          <span class="c">% Coarse sample position for shared object e.g. samx</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">coarsey</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">lockfile</span> <span class="p">=</span> <span class="o">~</span><span class="n">testmode</span><span class="p">;</span>                                  <span class="c">% If true writes a lock file, if lock file exists skips recontruction</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">waitforscanfinish</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                              <span class="c">% Checks spec file for the scan end flag &#39;X#&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">isptycho</span> <span class="p">=</span> <span class="p">{};</span>                                         <span class="c">% = {&#39;round_roi&#39;,&#39;cont_line&#39;,&#39;ura_mesh&#39;}  ( = {} to skip)  List of ptycho spec commands for valid ptycho scans</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">check_scan_interruption</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                       <span class="c">% Checks LOG file for interruptions of scans</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">check_nextscan_started</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                         <span class="c">% Waits until the next scan starts to begin reconstructing this one. It is important for OMNY scans with orchestra</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">omnyposfile</span> <span class="p">=</span> <span class="p">[];</span>                                      <span class="c">% Filename pattern for Orchestra interferometer position files   [&#39;../../specES1/scan_positions/scan_%05d.dat&#39;];</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">recon_latest_first</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                <span class="c">% When using &#39;p.omny_scan_file_search&#39;, (1) reconstruct the latest measurement first or (0) reconstruct in order</span>
+
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">scan_type</span> <span class="p">=</span> <span class="s">&#39;round_roi&#39;</span><span class="p">;</span>                               <span class="c">% {&#39;round&#39;, &#39;raster&#39;, &#39;round_roi&#39;, &#39;custom&#39;}</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">radius_in</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>                                         <span class="c">% round scan: interior radius of the round scan</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">radius_out</span> <span class="p">=</span> <span class="mf">5e-6</span><span class="p">;</span>                                     <span class="c">% round scan: exterior radius of the round scan</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">nr</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>                                               <span class="c">% round scan: number of intervals (# of shells - 1)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">nth</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>                                               <span class="c">% round scan: number of points in the first shell</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">lx</span> <span class="p">=</span> <span class="mf">20e-6</span><span class="p">;</span>                                            <span class="c">% round_roi scan: width of the roi</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">ly</span> <span class="p">=</span> <span class="mf">20e-6</span><span class="p">;</span>                                            <span class="c">% round_roi scan: height of the roi</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">dr</span> <span class="p">=</span> <span class="mf">1.5e-6</span><span class="p">;</span>                                           <span class="c">% round_roi scan: shell step size</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">nx</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>                                               <span class="c">% raster scan: number of steps in x</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">ny</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>                                               <span class="c">% raster scan: number of steps in y</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">step_size_x</span> <span class="p">=</span> <span class="mf">1e-6</span><span class="p">;</span>                                    <span class="c">% raster scan: step size (grid spacing)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">step_size_y</span> <span class="p">=</span> <span class="mf">1e-6</span><span class="p">;</span>                                    <span class="c">% raster scan: step size (grid spacing)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">scan_roi</span> <span class="p">=</span> <span class="p">[];</span>                                         <span class="c">% Region of interest in the object [xmin xmax ymin ymax] in meters. Points outside this region are not used for reconstruction.</span>
+                                                            <span class="c">%  (relative to upper corner for raster scans and to center for round scans)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">custom_positions</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                 <span class="c">% custom: a handle to the function that defines the positions; also accepts mat file with entry &#39;pos&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">custom_params</span> <span class="p">=</span> <span class="p">[];</span>                                    <span class="c">% custom: the parameters to feed to the custom position function.</span>
+<span class="c">%p.   affine_angle = 0;                                     % Not used by ptycho_recons at all. This allows you to define a variable for the affine matrix below and keep it in p for future record. This is used later by the affine_matrix_search.m script</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">affine_matrix</span> <span class="p">=</span> <span class="p">[];</span>                                    <span class="c">% Applies affine transformation (e.g. rotation, stretching) to the positions (ignore by = []). Convention [yn;xn] = M*[y;x]. For flOMNI we found in July 2018: = [1 0;tan(0.4*pi/180) 1]; for OMNY we found in April 2017: = [1 0;tan(0.3*pi/180) 1]; laMNI in June 2018  [1,0.0154;-0.0017,1.01];</span>
+</pre></div>
+</div>
+<p>Similar to the aforementioned <code class="docutils literal notranslate"><span class="pre">scan_queue</span></code> parameter, <code class="docutils literal notranslate"><span class="pre">src_positions</span></code> allows to select different ways of importing, reading and adjusting the positions. Defined by a single function in <code class="docutils literal notranslate"><span class="pre">+scans/+positions</span></code>, different position-reader functions are available by default, e.g. <code class="docutils literal notranslate"><span class="pre">spec</span></code>, <code class="docutils literal notranslate"><span class="pre">orchestra</span></code> for OMNY/flOMNI and <code class="docutils literal notranslate"><span class="pre">matlab_pos</span></code>, which uses the parameters defined above to create a scan pattern.</p>
+</div>
+<div class="section" id="input-output-settings">
+<span id="template-io"></span><h2><a class="toc-backref" href="#id5">Input/output settings</a><a class="headerlink" href="#input-output-settings" title="Permalink to this headline">¶</a></h2>
+<p>If you use PtychoShelves with its default structure (shown below), you do not have to specify any paths.</p>
+<div class="figure align-center" id="id1">
+<img alt="cSAXS file structure" src="_images/file_structure.png" />
+<p class="caption"><span class="caption-text">Default file structure</span></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">analyis</span></code>, <code class="docutils literal notranslate"><span class="pre">matlab</span></code>, <code class="docutils literal notranslate"><span class="pre">eiger</span></code>, and <code class="docutils literal notranslate"><span class="pre">spec</span></code> are directories in the base_path, although they can be specified separately by a p structure variable. E.g. the path to the scan directory <code class="docutils literal notranslate"><span class="pre">analysis/S00000-00999/S00250</span></code> can be specified by <code class="docutils literal notranslate"><span class="pre">p.save_path</span></code>. <code class="docutils literal notranslate"><span class="pre">matlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ptycho</span></code> are specified via <code class="docutils literal notranslate"><span class="pre">p.cSAXS_matlab_path</span></code> and <code class="docutils literal notranslate"><span class="pre">p.ptycho_matlab_path</span></code>, respectively.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% I/O</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">base_path</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                        <span class="c">% base path</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">specfile</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                         <span class="c">% Name of spec file to get motor positions and check end of scan, defaut is p.spec_file == p.base_path;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">logfile</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                          <span class="c">% Name of LOG file to confirm that the scan is not being repeated due to interruptions</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">detector</span> <span class="p">=</span> <span class="s">&#39;pilatus&#39;</span><span class="p">;</span>                                  <span class="c">% &#39;pilatus&#39; or &#39;eiger&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">ptycho_matlab_path</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                               <span class="c">% cSAXS ptycho package path</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">cSAXS_matlab_path</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                <span class="c">% cSAXS package path</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">raw_data_path</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                 <span class="c">% Default using compile_x12sa_filename, used only if data should be prepared automatically</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">prepare_data_path</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                <span class="c">% Default: base_path + &#39;analysis&#39;+ current scan folder. Other example: &#39;/afs/psi.ch/project/CDI/cSAXS_project/analysis2/S00022/&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">prepare_data_filename</span> <span class="p">=</span> <span class="p">[];</span>                            <span class="c">% Leave empty for default file name</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">save_path</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                     <span class="c">% Default: base_path + &#39;analysis&#39;+ current scan folder. Other example: &#39;/afs/psi.ch/project/CDI/cSAXS_project/analysis2/S00022/&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">mask_file</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                        <span class="c">% (used only if data should be prepared) default: most recent binary mask</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">mask_type</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                        <span class="c">% (used only if data should be prepared) [&#39;binary&#39;, &#39;indices&#39;]. Default: &#39;binary&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">scan_string_format</span> <span class="p">=</span> <span class="s">&#39;S%05d&#39;</span><span class="p">;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">prefix</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                           <span class="c">% For automatic output filenames. If empty: scan number</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">sufix</span> <span class="p">=</span> <span class="s">&#39;test_1&#39;</span><span class="p">;</span>                                      <span class="c">% Optional suffix for reconstruction</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">output_file</span> <span class="p">=</span> <span class="s">&#39;h5&#39;</span><span class="p">;</span>                                    <span class="c">% data type of reconstruction file; &#39;h5&#39; or &#39;mat&#39;</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">file_compression</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>                                  <span class="c">% file compression for HDF5 files; 0 for no compression</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">legacy</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                                        <span class="c">% legacy mode for reading data; if true: data will be loaded from mat file and converted into h5</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">legacy_path</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                                   <span class="c">% To replace the raw data path for loading already prepared mat files.</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">get_artificial_data</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                           <span class="c">% use artificial data</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">artificial_data_file</span> <span class="p">=</span> <span class="s">&#39;template_artificial_data&#39;</span><span class="p">;</span>     <span class="c">% artificial data parameters</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can specify all paths separately. In this case, <code class="docutils literal notranslate"><span class="pre">p.base_path</span></code> will not be used anymore.</p>
+</div>
+</div>
+<div class="section" id="general-reconstruction-settings">
+<h2><a class="toc-backref" href="#id6">General reconstruction settings</a><a class="headerlink" href="#general-reconstruction-settings" title="Permalink to this headline">¶</a></h2>
+<p>In the follwing section, general parameters for the reconstruction can be specified. This includes the initial guess for the object (<code class="docutils literal notranslate"><span class="pre">p.initial_iterate_object_file</span></code>) and the probe. The latter can be modelled such that you can get closer to your real data, before even starting the reconstruction.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Reconstruction</span>
+
+<span class="c">% Initial iterate object</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">initial_iterate_object_file</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                        <span class="c">%  use this mat-file as initial guess of object, it is possible to use wild characters and pattern filling, example: &#39;../analysis/S%05i/wrap_*_1024x1024_1_recons*&#39;</span>
+
+
+
+<span class="c">% Initial iterate probe</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_probe</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                                    <span class="c">% Use model probe</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_is_focused</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                               <span class="c">% Model probe is focused (false: just a pinhole)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_central_stop</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                            <span class="c">% Model central stop</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_diameter</span> <span class="p">=</span> <span class="mf">150e-6</span><span class="p">;</span>                               <span class="c">% Model probe pupil diameter</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_central_stop_diameter</span> <span class="p">=</span> <span class="mf">50e-6</span><span class="p">;</span>                   <span class="c">% Model central stop diameter</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_zone_plate_diameter</span> <span class="p">=</span> <span class="mf">150e-6</span><span class="p">;</span>                    <span class="c">% Model probe zone plate diameter</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_outer_zone_width</span> <span class="p">=</span> <span class="p">[];</span>                           <span class="c">% Model probe zone plate outermost zone width (not used if not a focused probe)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_propagation_dist</span> <span class="p">=</span> <span class="mf">1.2e-3</span><span class="p">;</span>                       <span class="c">% Model probe propagation distance (pinhole &lt;-&gt; sample for unfocused, focal-plane &lt;-&gt; sample for focused)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_focal_length</span> <span class="p">=</span> <span class="mf">66e-3</span><span class="p">;</span>                            <span class="c">% Model probe focal length (used only if model_is_focused is true</span>
+                                                            <span class="c">%   AND model_outer_zone_width is empty)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">model_upsample</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>                                   <span class="c">% Model probe upsample factor (for focused probes)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">initial_probe_file</span> <span class="p">=</span> <span class="s">&#39;probe_S00558_192x192_recons.mat&#39;</span><span class="p">;</span><span class="c">% Use probe from this mat-file (not used if model_probe is true)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">probe_file_propagation</span> <span class="p">=</span> <span class="p">[];</span>                           <span class="c">% Distance for propagating the probe from file in meters, = [] to ignore</span>
+
+<span class="c">% Shared scans - Currently working only for sharing probe and object</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">share_probe</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                       <span class="c">% Share probe between scans. Can be either a number/boolean or a list of numbers, specifying the probe index; e.g. [1 2 2] to share the probes between the second and third scan.</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">share_object</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>                                      <span class="c">% Share object between scans. Can be either a number/boolean or a list of numbers, specifying the object index; e.g. [1 2 2] to share the objects between the second and third scan.</span>
+
+<span class="c">% Modes</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">probe_modes</span>  <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                      <span class="c">% Number of coherent modes for probe</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">object_modes</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                      <span class="c">% Number of coherent modes for object</span>
+<span class="c">% Mode starting guess</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">mode_start_pow</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">];</span>                               <span class="c">% Normalized intensity on probe modes &gt; 1. Can be a number (all higher modes equal) or a vector</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">mode_start</span> <span class="p">=</span> <span class="s">&#39;herm&#39;</span><span class="p">;</span>                                   <span class="c">% (for probe) = &#39;rand&#39;, = &#39;herm&#39; (Hermitian-like base), = &#39;hermver&#39; (vertical modes only), = &#39;hermhor&#39; (horizontal modes only)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">ortho_probes</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                                   <span class="c">% orthogonalize probes after each engine</span>
+
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">clip_object</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                                    <span class="c">% Clip the object transmission function</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">clip_max</span> <span class="p">=</span> <span class="mf">1.0</span><span class="p">;</span>                                        <span class="c">% Upper bound</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">clip_min</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">;</span>                                        <span class="c">% Lower bound</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">compute_rfact</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                                 <span class="c">% If set to true, R-factor is computed at every iteration (large overhead!!!)</span>
+</pre></div>
+</div>
+<p>Furthermore, coherent probe and object modes can be specified with <code class="docutils literal notranslate"><span class="pre">p.probe_modes</span></code> and <code class="docutils literal notranslate"><span class="pre">p.object_modes</span></code>, respectively.</p>
+</div>
+<div class="section" id="plot-and-save">
+<h2><a class="toc-backref" href="#id7">Plot and save</a><a class="headerlink" href="#plot-and-save" title="Permalink to this headline">¶</a></h2>
+<p>Finally, the plotting routines and settings for saving jpgs can be specified.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Plot and save</span>
+
+<span class="n">p</span><span class="p">.</span>   <span class="n">external_saving</span> <span class="p">=</span> <span class="o">~</span><span class="n">testmode</span><span class="p">;</span>                           <span class="c">% Use a new Matlab session to run save final figures (saves ~6s per reconstruction). Please be aware that this might lead to an accumulation of Matlab sessions if your single reconstruction is very fast.</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">plot_prepared_data</span> <span class="p">=</span> <span class="n">testmode</span><span class="p">;</span>                         <span class="c">% plot prepared data</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">write_jpegs</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                       <span class="c">% Write nice jpegs in [p.base_path,&#39;analysis/online/ptycho/&#39;] if p.use_display = 0 then the figures are opened invisible in order to create the nice layout. It writes images in analysis/online/ptycho</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">plot_fov_box</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                      <span class="c">% Plot the scanning FOV box on the object (both phase and amplitude)</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">plot_log</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>                                      <span class="c">% Plot on log scale for x and y</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">fov_box_color</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">];</span>                               <span class="c">% Color of the scanning FOV box</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">plot_positions</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                                    <span class="c">% Plot the scanning positions</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">remove_phase_ramp</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                             <span class="c">% Remove phase ramp from the plotted / saved phase figures</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">plot_interval</span> <span class="p">=</span> <span class="p">[];</span>                                    <span class="c">% plot interval for matlab code</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">exclude_saving</span> <span class="p">=</span> <span class="p">{</span><span class="s">&#39;fmag&#39;</span><span class="p">;</span> <span class="s">&#39;fmask&#39;</span><span class="p">};</span>                    <span class="c">% exclude variables to reduce the file size on disk</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">store_images</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                                  <span class="c">% save to disk after each engine</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">save_intermediate</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>                             <span class="c">% save final object and probes after each engine</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">plot_mask_bool</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                                 <span class="c">% Mask the noisy contour of the reconstructed object in plots</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">windowautopos</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                                  <span class="c">% First plotting will auto position windows</span>
+<span class="n">p</span><span class="p">.</span>   <span class="n">realaxes</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                                       <span class="c">% Plots show scale in microns</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="engines">
+<h2><a class="toc-backref" href="#id8">Engines</a><a class="headerlink" href="#engines" title="Permalink to this headline">¶</a></h2>
+<p>The ptychographic reconstruction engines can be seen as the core of PtychoShelves. All Matlab-based engines are supported out of the box, albeit single MEX function might have to be recompiled. Similarly, the <cite>c_solver</cite> binaries are included but depending on the system on which they are executed, binaries have to be recompiled to support different libraries.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All default engines are tested to work on the PSI DaaS cluster as well as the beamline compute nodes of the cSAXS beamline. As user of either of these computing ressources, you do not have to recompile binaries.</p>
+</div>
+<p>You can select different algorithms, change their order and modify the corresponding parameters.</p>
+<p>In the following case, PtychoShelves would start with the <cite>c_solver</cite>, a high-performance implementation for the difference map and maximum likelihood refinement. After performing 300 iterations of the difference map and 100 iterations of maximum likelihood, Ptychoshelves will continue with the next specified engine, in this case <cite>ML</cite>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The engines are appended in the exact order in which they are defined in the template. If you want to change the order, that is in this case <cite>ML</cite> before running <cite>c_solver</cite>, you would have to you append the <cite>ML</cite> engine first (using core.append_engine, as shown below).</p>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% ENGINES</span>
+<span class="c">% External C++ code</span>
+
+<span class="k">if</span> <span class="mi">1</span>
+    <span class="c">% Please notice that you have to force data preparation (force_prepare_h5_files=true) if you have made any changes to</span>
+    <span class="c">% the already prepared data (fmag, fmask, positions, sharing ...).</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">name</span> <span class="p">=</span> <span class="s">&#39;c_solver&#39;</span><span class="p">;</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">number_iterations</span> <span class="p">=</span> <span class="mi">300</span><span class="p">;</span>              <span class="c">% Total number of iterations</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">opt_iter</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>                       <span class="c">% Iterations for optimization</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">probe_regularization</span> <span class="p">=</span> <span class="p">.</span><span class="mi">1</span><span class="p">;</span>            <span class="c">% Weigth factor for the probe update;</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">probe_change_start</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>               <span class="c">% Start updating probe at this iteration number</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">probe_support_radius</span> <span class="p">=</span> <span class="mf">0.8</span><span class="p">;</span>           <span class="c">% Normalized radius of circular support, = 1 for radius touching the window</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">pfft_relaxation</span> <span class="p">=</span> <span class="p">.</span><span class="mi">05</span><span class="p">;</span>                <span class="c">% Relaxation in the Fourier domain projection, = 0  for full projection</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">background</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>                       <span class="c">% [PARTIALLY IMPLEMENTED (not fully optimized)] Add background to the ML model in form:  |Psi|^2+B, B is in average counts per frame and pixel</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">probe_support_fft</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>            <span class="c">% [PARTIALLY IMPLEMENTED (not fully optimized)] Apply probe support in Fourier space, ! uses model zoneplate settings to estimate support size</span>
+
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">N_layer</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                          <span class="c">% Number of virtual object layers (slices)</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">delta_z</span> <span class="p">=</span> <span class="mf">0e-6</span> <span class="o">*</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">eng</span><span class="p">.</span><span class="n">N_layer</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c">% Separation between object slices</span>
+    <span class="c">%eng.  ms_init_ob_fraction = [1 0];</span>
+    <span class="k">if</span> <span class="n">eng</span><span class="p">.</span>  <span class="n">N_layer</span><span class="o">&gt;</span><span class="mi">1</span>
+        <span class="n">p</span><span class="p">.</span><span class="n">sufix</span> <span class="p">=</span> <span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">sufix</span> <span class="s">&#39;_N&#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">eng</span><span class="p">.</span> <span class="n">N_layer</span><span class="p">)];</span>
+        <span class="n">eng</span><span class="p">.</span>  <span class="n">number_iterations</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c">% highly recommended</span>
+    <span class="k">end</span>
+
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">single_prec</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                   <span class="c">% single or double precision</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">threads</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>                         <span class="c">% number of threads for OMP</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">beamline_nodes</span> <span class="p">=</span> <span class="p">[];</span>                  <span class="c">% beamline nodes for the MPI/OMP hybrid, e.g. [&#39;x12sa-cn-2&#39;; &#39;x12sa-cn-3&#39;];</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">ra_nodes</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>                         <span class="c">% number of nodes on ra cluster for the MPI/OMP hybrid; set to 0 for current node</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">caller_suffix</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                   <span class="c">% suffix for the external reconstruction program</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">reconstruction_program</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>          <span class="c">% specify external reconstruction program that overwrites previous settings, e.g. &#39;OMP_NUM_THREADS=20 ./ptycho_single_OMP&#39;;</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">check_cpu_load</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>                <span class="c">% check if specified nodes are already in use (only x12sa). Disable check if you are sure that the nodes are free.</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">initial_conditions_path</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>         <span class="c">% path of the initial conditions file; default if empty (== prepare_data_path)</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">initial_conditions_file</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>             <span class="c">% Name of the initial conditions file, default if empty. Do not use ~ in the path</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">measurements_file</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                           <span class="c">% Name of the measurements file, default if empty. Do not use ~ in the path</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">solution_file</span> <span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">;</span>                   <span class="c">% Name of the solution file, default if empty. Do not use ~ in the path</span>
+    <span class="n">eng</span><span class="p">.</span>  <span class="n">force_prepare_h5_files</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>           <span class="c">% If true before running the C-code the data h5 file is created and the h5 file with initial object and probe too, regardless of whether it exists. It will use the matlab data preparator.</span>
+    <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="o">~</span><span class="p">]</span> <span class="p">=</span> <span class="n">core</span><span class="p">.</span><span class="n">append_engine</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">eng</span><span class="p">);</span>        <span class="c">% Adds this engine to the reconstruction process</span>
+<span class="k">end</span>
+
+<span class="c">% Difference Map (Matlab and MEX)</span>
+<span class="k">if</span> <span class="mi">0</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&#39;DM&#39;</span><span class="p">;</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">number_iterations</span> <span class="p">=</span> <span class="mi">300</span><span class="p">;</span>               <span class="c">% Total number of iterations</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_change_start</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>              <span class="c">% Start updating probe at this iteration number</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">average_start</span> <span class="p">=</span> <span class="mi">300</span><span class="p">;</span>                 <span class="c">% Start averaging at this iteration number</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">average_interval</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>                <span class="c">% Number of iterations between reconstruction estimates for average</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">count_bound</span> <span class="p">=</span> <span class="mf">4e-2</span><span class="p">;</span>                  <span class="c">% Relaxed Fourier projection parameter - average photons of change per pixel (= 0 no relaxation)</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">pfft_relaxation</span> <span class="p">=</span> <span class="mf">0.05</span>               <span class="c">% Relaxation in the Fourier domain projection, = 0  for full projection</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_regularization</span> <span class="p">=</span> <span class="p">.</span><span class="mi">1</span><span class="p">;</span>           <span class="c">% Weigth factor for the probe update</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_mask_bool</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>              <span class="c">% If true, impose a support constraint to the probe</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_mask_area</span> <span class="p">=</span> <span class="p">.</span><span class="mi">9</span><span class="p">;</span>                <span class="c">% Area ratio of the mask</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_mask_use_auto</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>         <span class="c">% Use autocorrelation for probe_mask (if false: circular circle)</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">object_flat_region</span> <span class="p">=</span> <span class="p">[];</span>             <span class="c">% Mask for enforcing a flat region in the object (to reduce artifacts)</span>
+    <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="o">~</span><span class="p">]</span> <span class="p">=</span> <span class="n">core</span><span class="p">.</span><span class="n">append_engine</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">eng</span><span class="p">);</span>    <span class="c">% Adds this engine to the reconstruction process</span>
+<span class="k">end</span>
+
+<span class="c">% Maximum Likelihood (Matlab)</span>
+<span class="k">if</span> <span class="mi">1</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&#39;ML&#39;</span><span class="p">;</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">opt_errmetric</span> <span class="p">=</span> <span class="s">&#39;L1&#39;</span><span class="p">;</span>                <span class="c">% Error metric for max likelihood = &#39;poisson&#39;, &#39;L1&#39; (approx poisson), &#39;L2&#39; (uniform gaussian noise)</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">opt_flags</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span><span class="p">];</span>                   <span class="c">% Optimize [object probe]</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">opt_iter</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>                        <span class="c">% Iterations for optimization</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">opt_ftol</span> <span class="p">=</span> <span class="mf">1e-10</span><span class="p">;</span>                    <span class="c">% Tolerance on error metric for optimization</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">opt_xtol</span> <span class="p">=</span> <span class="mf">1e-7</span><span class="p">;</span>                     <span class="c">% Tolerance on optimizable parameters</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_mask_bool</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>              <span class="c">% If true, impose a support constraint to the probe</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_mask_area</span> <span class="p">=</span> <span class="p">.</span><span class="mi">9</span><span class="p">;</span>                <span class="c">% Area ratio of the mask</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">probe_mask_use_auto</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>         <span class="c">% Use autocorrelation for probe_mask (if false: circular circle)</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">scale_gradient</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>              <span class="c">% Preconditioning by scaling probe gradient - Reported useful for weak objects</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">inv_intensity</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>               <span class="c">% Make error metric insensitive to intensity fluctuations</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">use_probe_support</span> <span class="p">=</span> <span class="n">false</span><span class="p">;</span>           <span class="c">% Use the support on the probe that was used in the difference-map</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">reg_mu</span> <span class="p">=</span> <span class="mf">0.01</span><span class="p">;</span>  <span class="c">%0.01                % Regularization constant ( = 0 for no regularization)</span>
+    <span class="n">eng</span><span class="p">.</span> <span class="n">smooth_gradient</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>              <span class="c">% Sieves preconditioning, =false no smoothing, = true uses Hanning, otherwise specify a small matrix making sure its sum = 1</span>
+    <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="o">~</span><span class="p">]</span> <span class="p">=</span> <span class="n">core</span><span class="p">.</span><span class="n">append_engine</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">eng</span><span class="p">);</span>    <span class="c">% Adds this engine to the reconstruction process</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="new_beamline.html" class="btn btn-neutral float-right" title="How to add support for a beamline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="PtychoShelves" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, CXS group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
