@@ -92,24 +92,6 @@ function small_array = get_from_3D_projection(small_array, full_array, positions
                 % utils.verbose(0, 'Recompilation of MEX functions ... ')
                 % path = replace(mfilename('fullpath'), mfilename, ''); 
                 % mex('-R2018a','-O', 'CFLAGS="\$CFLAGS -fopenmp"', '-O','LDFLAGS="\$LDFLAGS -fopenmp"',[path,'private/get_from_3D_projection_mex.cpp'], '-output', [path, 'private/get_from_3D_projection_mex'])
-                utils.verbose(0, 'Recompilation of MEX functions ... ')
-                path = replace(mfilename('fullpath'), mfilename, ''); 
-                
-                src_file = fullfile(path, 'private', 'get_from_3D_projection_mex.cpp');
-                out_file = fullfile(path, 'private', 'get_from_3D_projection_mex');
-                
-                % 判断当前操作系统
-                if ispc
-                    % Windows 下 (MSVC) 不需要 -fopenmp
-                    mex('-R2018a','-O', src_file, '-output', out_file);
-                else
-                    % Linux / macOS 下 (g++)
-                    mex('-R2018a','-O', ...
-                        'CXXFLAGS=$CXXFLAGS -fopenmp', ...
-                        'LDFLAGS=$LDFLAGS -fopenmp', ...
-                        src_file, ...
-                        '-output', out_file);
-                end
                 
                 get_from_3D_projection_mex(small_array,full_array, positions_offset, indices)
             else

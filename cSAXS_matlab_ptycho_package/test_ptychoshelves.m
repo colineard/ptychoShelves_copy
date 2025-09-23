@@ -21,7 +21,7 @@ base_path ='./' ;   % working path
 plot_results = true; 
 check_simulated_data = true;  % only tests quality using simulated datasets, no automatic detector of quality is implemented
 check_real_data = true;       % compares the achievable resolution with previous reconstructions; can be very time consuming
-verbose_level = -1;           % default = -1 -> no verbosity, only in case of crash 
+verbose_level = 3;           % default = -1 -> no verbosity, only in case of crash 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

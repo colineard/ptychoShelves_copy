@@ -97,8 +97,13 @@ end
 
 % request the data
 server = 'http://henke.lbl.gov/';
+options = weboptions('Timeout', 20);
 req = sprintf('Material=Enter+Formula&Formula=%s&Density=%f&Scan=Energy&Min=%u&Max=%u&Npts=%d&Output=Text+File', formula, dens, emin, emax, npts);
-data_req = webwrite([server 'cgi-bin/getdb.pl'], req);
+data_req = webwrite([server 'cgi-bin/getdb.pl'], req,options);
+
+% url = [server 'cgi-bin/getdb.pl?' ...
+%        'Material=Enter+Formula&Formula=Au&Density=-1&Scan=Energy&Min=6200&Max=6200&Npts=1&Output=Text+File'];
+% data_req = webread(url, options);
 %keyboard
 % find and read dat file
 f_pos = strfind(data_req, '/tmp');
