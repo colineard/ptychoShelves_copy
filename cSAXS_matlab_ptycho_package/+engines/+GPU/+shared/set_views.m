@@ -149,7 +149,7 @@ function object = set_views(object, object_update, layer,object_id, indices, cac
     else
         %% USE CPU
         positions = int32([cache.oROI_s{min(end,object_id)}{1}(indices,1), cache.oROI_s{min(end,object_id)}{2}(indices,1)]);
-        object = utils.add_to_3D_projection(object_update,object, positions, ind_ok,true); 
+        object = utils.add_to_3D_projection(object_update,object, positions, ind_ok, true); 
     end
     
     if is_cell

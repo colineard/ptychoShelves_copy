@@ -74,7 +74,7 @@ function small_array = get_from_3D_projection(small_array, full_array, positions
         indices = 1:Np_f(3);  
     end
     if nargin < 5
-        use_MEX = true; 
+        use_MEX = false; 
     end
     if size(positions_offset,1)==1
         positions_offset = repmat(positions_offset, size(small_array,3), 1);

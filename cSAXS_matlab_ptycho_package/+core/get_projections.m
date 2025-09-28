@@ -94,7 +94,8 @@ import utils.verbose
         return
      end
      
-     if Nmodes == 1 && ~verLessThan('matlab', '9.4')
+     % For Win, the MEX is usually not compiled, so lets use matlab instead 
+     if ~ispc && Nmodes == 1 && ~verLessThan('matlab', '9.4')
         % faster MEX based function 
         positions = int32(p.positions(p.scanidxs{scan_id},:));
         indices = int32(1:Npos); 

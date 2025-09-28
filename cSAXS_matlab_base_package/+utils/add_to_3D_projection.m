@@ -72,7 +72,7 @@
 function full_array = add_to_3D_projection(small_array,full_array, positions_offset, indices,add_values, add_atomic, use_MEX)
     
     if nargin < 7
-        use_MEX = true; 
+        use_MEX = false; 
     end
     if nargin < 6 
         add_atomic = true; 
